@@ -11,8 +11,25 @@ let db = {
 
     productos: [
         {
-            imagen: 'hola',
-            nombre: 'hola',
+            imagen: 'images/products/BlusaAura.png', // Checkear
+            nombre: 'Blusa Aura',
+            descripcion: 'hola',
+            comentarios: [
+                {
+                    usuario: 'hola',
+                    texto: 'hola',
+                    fotoDePerfil: 'hola'
+                },
+                {
+                    usuario: 'hola',
+                    texto: 'hola',
+                    fotoDePerfil: 'hola'
+                }
+            ]
+        },
+        {
+            imagen: 'images',
+            nombre: 'Blusa Cairo',
             descripcion: 'hola',
             comentarios: [
                 {
@@ -29,7 +46,7 @@ let db = {
         },
         {
             imagen: 'hola',
-            nombre: 'hola',
+            nombre: 'Top Cora',
             descripcion: 'hola',
             comentarios: [
                 {
@@ -46,7 +63,7 @@ let db = {
         },
         {
             imagen: 'hola',
-            nombre: 'hola',
+            nombre: 'Pantalon Lea',
             descripcion: 'hola',
             comentarios: [
                 {
@@ -63,7 +80,7 @@ let db = {
         },
         {
             imagen: 'hola',
-            nombre: 'hola',
+            nombre: 'Pollera Cala',
             descripcion: 'hola',
             comentarios: [
                 {
@@ -80,7 +97,7 @@ let db = {
         },
         {
             imagen: 'hola',
-            nombre: 'hola',
+            nombre: 'Pollera Muna',
             descripcion: 'hola',
             comentarios: [
                 {
@@ -97,7 +114,7 @@ let db = {
         },
         {
             imagen: 'hola',
-            nombre: 'hola',
+            nombre: 'Vestido Sofia',
             descripcion: 'hola',
             comentarios: [
                 {
@@ -114,7 +131,7 @@ let db = {
         },
         {
             imagen: 'hola',
-            nombre: 'hola',
+            nombre: 'Vestido Fiona',
             descripcion: 'hola',
             comentarios: [
                 {
@@ -131,24 +148,7 @@ let db = {
         },
         {
             imagen: 'hola',
-            nombre: 'hola',
-            descripcion: 'hola',
-            comentarios: [
-                {
-                    usuario: 'hola',
-                    texto: 'hola',
-                    fotoDePerfil: 'hola'
-                },
-                {
-                    usuario: 'hola',
-                    texto: 'hola',
-                    fotoDePerfil: 'hola'
-                }
-            ]
-        },
-        {
-            imagen: 'hola',
-            nombre: 'hola',
+            nombre: 'Vestido Amelia',
             descripcion: 'hola',
             comentarios: [
                 {
