@@ -11,7 +11,7 @@ let db = {
 
     productos: [
         {
-            imagen: 'images/products/BlusaAura.png', // Checkear
+            imagen: '/images/products/BlusaAura.png', 
             nombre: 'Blusa Aura',
             descripcion: 'hola',
             comentarios: [
@@ -28,7 +28,7 @@ let db = {
             ]
         },
         {
-            imagen: 'images',
+            imagen: '/images/products/BlusaCairo.png',
             nombre: 'Blusa Cairo',
             descripcion: 'hola',
             comentarios: [
@@ -45,7 +45,7 @@ let db = {
             ]
         },
         {
-            imagen: 'hola',
+            imagen: '/images/products/TopCora.png',
             nombre: 'Top Cora',
             descripcion: 'hola',
             comentarios: [
@@ -62,7 +62,7 @@ let db = {
             ]
         },
         {
-            imagen: 'hola',
+            imagen: '/images/products/PantalonLea.png',
             nombre: 'Pantalon Lea',
             descripcion: 'hola',
             comentarios: [
@@ -79,7 +79,7 @@ let db = {
             ]
         },
         {
-            imagen: 'hola',
+            imagen: '/images/products/PolleraCala.png',
             nombre: 'Pollera Cala',
             descripcion: 'hola',
             comentarios: [
@@ -96,7 +96,7 @@ let db = {
             ]
         },
         {
-            imagen: 'hola',
+            imagen: '/images/products/PolleraMuna.png',
             nombre: 'Pollera Muna',
             descripcion: 'hola',
             comentarios: [
@@ -113,7 +113,7 @@ let db = {
             ]
         },
         {
-            imagen: 'hola',
+            imagen: '/images/products/VestidoSofia.png',
             nombre: 'Vestido Sofia',
             descripcion: 'hola',
             comentarios: [
@@ -130,7 +130,7 @@ let db = {
             ]
         },
         {
-            imagen: 'hola',
+            imagen: '/images/products/VestidoFiona.png',
             nombre: 'Vestido Fiona',
             descripcion: 'hola',
             comentarios: [
@@ -147,7 +147,7 @@ let db = {
             ]
         },
         {
-            imagen: 'hola',
+            imagen: '/images/products/VestidoAmelia.png',
             nombre: 'Vestido Amelia',
             descripcion: 'hola',
             comentarios: [
@@ -164,8 +164,8 @@ let db = {
             ]
         },
         {
-            imagen: 'hola',
-            nombre: 'hola',
+            imagen: '/images/products/BolsoLuisa.png',
+            nombre: 'Bolso Luisa',
             descripcion: 'hola',
             comentarios: [
                 {
