@@ -11,6 +11,7 @@ let db = {
 
     productos: [
         {
+            id: 1,
             imagen: '/images/products/BlusaAura.png', 
             nombre: 'Blusa Aura',
             descripcion: 'hola',
@@ -28,6 +29,7 @@ let db = {
             ]
         },
         {
+            id: 2,
             imagen: '/images/products/BlusaCairo.png',
             nombre: 'Blusa Cairo',
             descripcion: 'hola',
@@ -45,6 +47,7 @@ let db = {
             ]
         },
         {
+            id: 3,
             imagen: '/images/products/TopCora.png',
             nombre: 'Top Cora',
             descripcion: 'hola',
@@ -62,6 +65,7 @@ let db = {
             ]
         },
         {
+            id: 4,
             imagen: '/images/products/PantalonLea.png',
             nombre: 'Pantalon Lea',
             descripcion: 'hola',
@@ -79,6 +83,7 @@ let db = {
             ]
         },
         {
+            id: 5,
             imagen: '/images/products/PolleraCala.png',
             nombre: 'Pollera Cala',
             descripcion: 'hola',
@@ -96,6 +101,7 @@ let db = {
             ]
         },
         {
+            id: 6,
             imagen: '/images/products/PolleraMuna.png',
             nombre: 'Pollera Muna',
             descripcion: 'hola',
@@ -113,6 +119,7 @@ let db = {
             ]
         },
         {
+            id: 7, 
             imagen: '/images/products/VestidoSofia.png',
             nombre: 'Vestido Sofia',
             descripcion: 'hola',
@@ -130,6 +137,7 @@ let db = {
             ]
         },
         {
+            id: 8,
             imagen: '/images/products/VestidoFiona.png',
             nombre: 'Vestido Fiona',
             descripcion: 'hola',
@@ -147,6 +155,7 @@ let db = {
             ]
         },
         {
+            id: 9,
             imagen: '/images/products/VestidoAmelia.png',
             nombre: 'Vestido Amelia',
             descripcion: 'hola',
@@ -164,6 +173,7 @@ let db = {
             ]
         },
         {
+            id: 10,
             imagen: '/images/products/BolsoLuisa.png',
             nombre: 'Bolso Luisa',
             descripcion: 'hola',
