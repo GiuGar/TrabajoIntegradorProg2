@@ -17,8 +17,8 @@ let db = {
             descripcion: 'Color beige con tirantes y bordado floral.',
             comentarios: [
                 {
-                    usuario: 'hola',
-                    texto: 'hola',
+                    usuario: '@cande.martinez',
+                    texto: 'Me encantó!!! Se lo recomende a una amiga y tambien se lo compró :)',
                     fotoDePerfil: 'hola'
                 },
                 {
