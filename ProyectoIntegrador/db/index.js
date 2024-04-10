@@ -51,7 +51,7 @@ let db = {
                 },
                 {
                     usuario: '@agusbenavent',
-                    texto: 'Voy a volver a comprar!!',
+                    texto: 'me conecta con la naturaleza cada vez que lo uso. ✌️🌿',
                     fotoDePerfil: 'hola'
                 }
             ]
@@ -86,8 +86,8 @@ let db = {
             descripcion: 'Distintas estampas, colores vibrantes.',
             comentarios: [
                 {
-                    usuario: 'hola',
-                    texto: 'Buena calidad',
+                    usuario: 'VibraAlto',
+                    texto: 'El tejido de esta pantalon de cáñamo es un abrazo de Madre Tierra. Sostenible y cómodo. 🌎❤️',
                     fotoDePerfil: 'hola'
                 },
                 {
@@ -96,8 +96,8 @@ let db = {
                     fotoDePerfil: 'hola'
                 },
                 {
-                    usuario: 'hola',
-                    texto: '',
+                    usuario: '@MadreTierra',
+                    texto: 'Me encantan los bolsillos de estos pantalones, son súper prácticos y cómodos',
                     fotoDePerfil: 'hola'
                 }
             ]
@@ -161,12 +161,12 @@ let db = {
                 },
                 {
                     usuario: '@FlorDelaLuna',
-                    texto: '',
+                    texto: ' ideal para el verano.',
                     fotoDePerfil: 'hola'
                 },
                 {
                     usuario: '@ArcoirisVibra',
-                    texto: '',
+                    texto: 'Me sorprendió lo bien que queda este vestido',
                     fotoDePerfil: 'hola'
                 }
             ]
@@ -178,13 +178,19 @@ let db = {
             descripcion: 'Vestido largo, con encajes en la parte superior. 100% lino. ',
             comentarios: [
                 {
-                    usuario: 'hola',
-                    texto: 'hola',
+                    usuario: '@Espiritualidad',
+                    texto: 'Combinable y atemporal',
                     fotoDePerfil: 'hola'
                 },
                 {
-                    usuario: 'hola',
-                    texto: 'hola',
+                    usuario: '@VivaLaVida',
+                    texto: 'Muy original',
+                    fotoDePerfil: 'hola'
+                },
+                
+                {
+                    usuario: '@Pachamama',
+                    texto: 'Práctico y estiloso',
                     fotoDePerfil: 'hola'
                 }
             ]
@@ -196,13 +202,18 @@ let db = {
             descripcion: 'Color verde militar, diseños minimalistas florales',
             comentarios: [
                 {
-                    usuario: 'hola',
-                    texto: 'hola',
+                    usuario: '@MuchoEstilo',
+                    texto: 'Es hermoso',
                     fotoDePerfil: 'hola'
                 },
                 {
-                    usuario: 'hola',
-                    texto: 'hola',
+                    usuario: '@Felicidad__',
+                    texto: 'Muy trendy',
+                    fotoDePerfil: 'hola'
+                },
+                {
+                    usuario: '@Iconic123_',
+                    texto: 'Encantada con la ropa que venden',
                     fotoDePerfil: 'hola'
                 }
             ]
