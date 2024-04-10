@@ -3,6 +3,8 @@ var router = express.Router();
 
 let profileController = require('../controllers/profileController')
 
-// router.get('/', heroeController.index); // heroes/
+router.get('/', profileController.index); // heroes/
+router.get('/register', profileController.register);
+router.get('/login', profileController.login);
 
-module.exports = router;
+module.exports = router;

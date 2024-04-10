@@ -3,6 +3,6 @@ const router = express.Router()
 
 let loginController = require('../controllers/loginController')
 
-// router.get('/', heroeController.index); // heroes/
+router.get('/', loginController.index); // heroes/
 
 module.exports = router
