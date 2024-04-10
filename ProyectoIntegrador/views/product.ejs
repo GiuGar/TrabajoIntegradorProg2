@@ -5,71 +5,27 @@
 <%- include('./partials/head') %>	
 <!-- /Head -->
 
-	<!-- Header -->	
-	<header class="main-header">
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-5 col-md-2">
-					<a href="index.html" class="main-header_home-link">
-						<img src="./images/logo-mercado-liebre.svg">
-					</a>
-				</div>
-	
-				<div class="col-7 col-md-6">
-					<form action="search-results.html" method="GET" class="search-form">
-						<input type="text" name="search" placeholder="Buscar productos, marcas y más"
-							class="search-form_input">
-						<button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
-					</form>
-				</div>
-	
-				<div class="col-12 col-md-4">
-					<a class="main-header_credit-link">
-						<i class="fas fa-hand-holding-usd"></i>
-						Todas las opiniones en un solo lugar.
-					</a>
-				</div>
-			</div>
-	
-			<button class="btn-toggle-navbar">
-				<i class="fas fa-bars"></i>
-			</button>
-	
-			<nav class="main-navbar">
-				<ul class="left-navbar">
-					<li><a href="index.html">Todos los productos</a></li>
-					<!-- solo logueado <li><a href="">Cargar productos</a></li> -->
-				</ul>
-	
-				<ul class="right-navbar">
-					<!-- Solo logueado <li><a href="profile.html">
-								Nombre del usuario <i class="fas fa-user"></i>
-							</a>
-						</li>
-						<li>
-							<form action="" method="post">
-								<button class="logout" type="submit">
-									Cerrar sesión <i class="fas fa-sign-in-alt"></i>
-								</button>
-							</form>
-						</li> -->
-					<li>
-						<a href="register.html">Creá tu cuenta <i class="far fa-address-card"></i>
-						</a>
-					</li>
-					<li>
-						<a href="login.html">Ingresá <i class="fas fa-sign-in-alt"></i></a>
-					</li>
-				</ul>
-			</nav>
-		</div>
-	</header>
-	<!-- /Header -->
-	
-	<!-- product detail -->
+<body>
+	<h1>Detalles de la banda </h1>
+	<ul>
+		<% for( let i = 0; i < index.length; i++ ) { %>
+			<li>Nombre: <%= index[i].nombre %></li>
+			<li>Integrantes: <%= index[i].integrantes %></li>
+			<li><a href="/bandas/porGenero/<%= index[i].genero %>">Genero:<%= index[i].genero %></a></li>
+			<li>topCanciones: <%= index[i].topCanciones %></li>
+			<li>Cover: <img src="/<%= index[i].cover %>" alt="<%= index[i].nombre %>"></li>
+			<li>Video: <iframe width="560" height="315" src="<%= index[i].video %>" frameborder="0" allowfullscreen></iframe></li>
+
+		   <% } %>
+	</ul>
+	<%- include('./partials/footer') %>
+</body>
+
+<!-- product detail -->
+<% for( let i = 0; i < index.length; i++ ) { %>
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title"><%= producto.productos[i].nombre %></h2> 
+			<h2 class="products-title"><%= index[i].nombre%></h2> 
 			<p class="product-detail-description">
 				<a href="product-add.html">Editar</a>
 			</p>
@@ -77,9 +33,9 @@
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src= "<%= producto.imagen %>" alt= "<%= producto.nombre %>">
+					<img src= "<%= index.imagen %>" alt= "<%= index.nombre %>">
 					<p class="product-detail-description">
-						<%= producto.descripcion %></p>
+						<%= index.descripcion %></p>
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
@@ -136,6 +92,8 @@
 			</div>
 		</div>
 	</div>
+
+	<% } %>
 	<!-- /product detail -->
 
 	<!-- footer -->
@@ -168,8 +126,4 @@
 				</div>
 			</div>
 		</div>
-	</footer>
-	<!-- /footer -->
-
-</body>	
 </html>

@@ -473,7 +473,7 @@ textarea.form-input {
   background-color: #1259c3;
   padding: 10px 20px;
   border-radius: 4px;
-  color: var(--dark-pink);
+  color: #fff;
 }
 
 
@@ -506,9 +506,7 @@ textarea.form-input {
     border-bottom: none;
   }
 
-  .left-navbar a:hover{
-    color: var(--light-pink);
-  }
+  .left-navbar a:hover,
   .right-navbar a:hover {
     color: var(--light-pink);
   }
