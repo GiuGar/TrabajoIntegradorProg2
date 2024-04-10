@@ -14,7 +14,7 @@ let db = {
             id: 1,
             imagen: '/images/products/BlusaAura.png', 
             nombre: 'Blusa Aura',
-            descripcion: 'hola',
+            descripcion: 'Color beige con tirantes y bordado floral.',
             comentarios: [
                 {
                     usuario: 'hola',
@@ -32,7 +32,7 @@ let db = {
             id: 2,
             imagen: '/images/products/BlusaCairo.png',
             nombre: 'Blusa Cairo',
-            descripcion: 'hola',
+            descripcion: 'Alta calidad, tela suave y colores vibrantes',
             comentarios: [
                 {
                     usuario: 'hola',
@@ -50,7 +50,7 @@ let db = {
             id: 3,
             imagen: '/images/products/TopCora.png',
             nombre: 'Top Cora',
-            descripcion: 'hola',
+            descripcion: 'Color morado, tela de gabardina.  ',
             comentarios: [
                 {
                     usuario: 'hola',
@@ -68,7 +68,7 @@ let db = {
             id: 4,
             imagen: '/images/products/PantalonLea.png',
             nombre: 'Pantalon Lea',
-            descripcion: 'hola',
+            descripcion: 'Distintas estampas, colores vibrantes.',
             comentarios: [
                 {
                     usuario: 'hola',
@@ -86,7 +86,7 @@ let db = {
             id: 5,
             imagen: '/images/products/PolleraCala.png',
             nombre: 'Pollera Cala',
-            descripcion: 'hola',
+            descripcion: 'Pollera larga, tela tusor, aporta frescura y comodidad.',
             comentarios: [
                 {
                     usuario: 'hola',
@@ -104,7 +104,7 @@ let db = {
             id: 6,
             imagen: '/images/products/PolleraMuna.png',
             nombre: 'Pollera Muna',
-            descripcion: 'hola',
+            descripcion: 'Colores vibrantes, con diseños de flores y mandalas.',
             comentarios: [
                 {
                     usuario: 'hola',
@@ -122,7 +122,7 @@ let db = {
             id: 7, 
             imagen: '/images/products/VestidoSofia.png',
             nombre: 'Vestido Sofia',
-            descripcion: 'hola',
+            descripcion: 'Vestido con vuelos, fresco y juvenil. Colores calidos. ',
             comentarios: [
                 {
                     usuario: 'hola',
@@ -140,7 +140,7 @@ let db = {
             id: 8,
             imagen: '/images/products/VestidoFiona.png',
             nombre: 'Vestido Fiona',
-            descripcion: 'hola',
+            descripcion: 'Vestido largo, con encajes en la parte superior. 100% lino. ',
             comentarios: [
                 {
                     usuario: 'hola',
@@ -158,7 +158,7 @@ let db = {
             id: 9,
             imagen: '/images/products/VestidoAmelia.png',
             nombre: 'Vestido Amelia',
-            descripcion: 'hola',
+            descripcion: 'Color verde militar, diseños minimalistas florales',
             comentarios: [
                 {
                     usuario: 'hola',
@@ -176,7 +176,7 @@ let db = {
             id: 10,
             imagen: '/images/products/BolsoLuisa.png',
             nombre: 'Bolso Luisa',
-            descripcion: 'hola',
+            descripcion: 'Bolso pequeño con diseños de mandalas',
             comentarios: [
                 {
                     usuario: 'hola',

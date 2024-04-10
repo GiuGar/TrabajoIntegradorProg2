@@ -1,16 +1,15 @@
 /*====== Fonts ======*/
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Marmelad&display=swap');
 
 /*====== Variables ======*/
 :root {
-  --yellow: #EAC926;
-  --dark-blue: #03264C;
-  --light-blue: #1259c3;
-  --gray: #666666;
-  --light-gray: #ebebeb;
-  --green: #39b54a;
-  --base-font-family: 'Roboto', sans-serif
+  --yellow:  #eee1dd;
+  --dark-pink: #d0969a;
+  --light-pink:  #eee1dd;
+  --gray: #beb2ae;
+  --light-gray: #d0969a;
+  --green: #749f88;
+  --base-font-family:  "Marmelad", sans-serif;
 }
 
 
@@ -112,7 +111,7 @@ hr {
 
 /*====== Main Navbar ======*/
 .btn-toggle-navbar {
-  background-color: var(--dark-blue);
+  background-color: var(--dark-pink);
   color: #ffffff;
   font-size: 1.5em;
   border: none;
@@ -140,7 +139,7 @@ hr {
 }
 
 .logout:hover{
-  color: #1259c3;
+  color: #d0969a;
 }
 
 .left-navbar a,
@@ -154,9 +153,9 @@ hr {
 
 /*====== Banner ======*/
 .banner {
-  background-image: url(/images/img-home-banner.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-image: url(/images/Fondo.jpg);
+  background-repeat: repeat;
+  background-size: contain;
   background-position: center center;
   height: 100px;
 }
@@ -175,7 +174,7 @@ hr {
 }
 
 .product-box {
-  background-color: #ffffff;
+  background-color:  #eee1dd;
   border-radius: 5px;
   overflow: hidden;
   transition: 300ms;
@@ -269,7 +268,7 @@ hr {
 }
 
 .footer-data i {
-  color: var(--light-blue);
+  color: var(--light-pink);
   font-size: 3.5em;
 }
 
@@ -369,7 +368,7 @@ hr {
 }
 
 .buy-now-button {
-  background-color: var(--light-blue);
+  background-color: var(--light-pink);
   font-size: 1.6em;
   color: #ffffff;
   padding: 15px;
@@ -508,7 +507,7 @@ textarea.form-input {
 
   .left-navbar a:hover,
   .right-navbar a:hover {
-    color: var(--light-blue);
+    color: var(--light-pink);
   }
 
   .left-navbar li {
