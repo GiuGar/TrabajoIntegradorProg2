@@ -17,15 +17,20 @@ let db = {
             descripcion: 'Color beige con tirantes y bordado floral.',
             comentarios: [
                 {
-                    usuario: '@cande.martinez',
-                    texto: 'Me encantó!!! Se lo recomende a una amiga y tambien se lo compró :)',
+                    usuario: '@maria.sanchez',
+                    texto: 'Amé la blusa Aura, fui el centro de atencion en mi fiesta de cumpleaños',
                     fotoDePerfil: 'hola'
                 },
                 {
-                    usuario: 'hola',
-                    texto: 'hola',
+                    usuario: '@amparo123',
+                    texto: 'Muy buena calidad, volveré a comprar!!',
                     fotoDePerfil: 'hola'
-                }
+                },
+                {
+                    usuario: '',
+                    texto: 'Me encantó!!! Se lo recomende a una amiga y tambien se lo compró :)',
+                    fotoDePerfil: 'hola'
+                },
             ]
         },
         {
@@ -35,13 +40,18 @@ let db = {
             descripcion: 'Alta calidad, tela suave y colores vibrantes',
             comentarios: [
                 {
-                    usuario: 'hola',
-                    texto: 'hola',
+                    usuario: '@sabrina.ok',
+                    texto: 'Muy buen calce!!',
                     fotoDePerfil: 'hola'
                 },
                 {
-                    usuario: 'hola',
-                    texto: 'hola',
+                    usuario: '@cande1aria.figueroa',
+                    texto: 'Muy buena calidad',
+                    fotoDePerfil: 'hola'
+                },
+                {
+                    usuario: '@agusbenavent',
+                    texto: 'Voy a volver a comprar!!',
                     fotoDePerfil: 'hola'
                 }
             ]
@@ -53,13 +63,18 @@ let db = {
             descripcion: 'Color morado, tela de gabardina.  ',
             comentarios: [
                 {
-                    usuario: 'hola',
-                    texto: 'hola',
+                    usuario: '@sofia_aragon',
+                    texto: 'Ya las recomendé :))',
+                    fotoDePerfil: 'hola'
+                },
+                {
+                    usuario: '@cande.martinez',
+                    texto: 'Me encantó!!!',
                     fotoDePerfil: 'hola'
                 },
                 {
                     usuario: 'hola',
-                    texto: 'hola',
+                    texto: 'Muy lindo todo y muy comodo',
                     fotoDePerfil: 'hola'
                 }
             ]
@@ -72,12 +87,17 @@ let db = {
             comentarios: [
                 {
                     usuario: 'hola',
-                    texto: 'hola',
+                    texto: 'Buena calidad',
+                    fotoDePerfil: 'hola'
+                },
+                {
+                    usuario: '@cande.martinez',
+                    texto: 'Quede encantada',
                     fotoDePerfil: 'hola'
                 },
                 {
                     usuario: 'hola',
-                    texto: 'hola',
+                    texto: '',
                     fotoDePerfil: 'hola'
                 }
             ]
@@ -90,12 +110,17 @@ let db = {
             comentarios: [
                 {
                     usuario: 'hola',
-                    texto: 'hola',
+                    texto: 'Quede enamorada de esta pollera!!!',
+                    fotoDePerfil: 'hola'
+                },
+                {
+                    usuario: '@cande.martinez',
+                    texto: 'Me encantó:)',
                     fotoDePerfil: 'hola'
                 },
                 {
                     usuario: 'hola',
-                    texto: 'hola',
+                    texto: 'Gracias',
                     fotoDePerfil: 'hola'
                 }
             ]
@@ -107,13 +132,18 @@ let db = {
             descripcion: 'Colores vibrantes, con diseños de flores y mandalas.',
             comentarios: [
                 {
-                    usuario: 'hola',
-                    texto: 'hola',
+                    usuario: '@cande.martinez',
+                    texto: 'Muy comoda y fresca',
                     fotoDePerfil: 'hola'
                 },
                 {
-                    usuario: 'hola',
-                    texto: 'hola',
+                    usuario: '@cande.martinez',
+                    texto: 'Muy linda',
+                    fotoDePerfil: 'hola'
+                },
+                {
+                    usuario: '@cande.martinez',
+                    texto: 'Muy a gusto. ',
                     fotoDePerfil: 'hola'
                 }
             ]
@@ -125,13 +155,18 @@ let db = {
             descripcion: 'Vestido con vuelos, fresco y juvenil. Colores calidos. ',
             comentarios: [
                 {
-                    usuario: 'hola',
-                    texto: 'hola',
+                    usuario: '@PazyAmor',
+                    texto: 'El amor es el hilo conductor de nuestro estilo hippie. ❤️🌻',
                     fotoDePerfil: 'hola'
                 },
                 {
-                    usuario: 'hola',
-                    texto: 'hola',
+                    usuario: '@FlorDelaLuna',
+                    texto: '',
+                    fotoDePerfil: 'hola'
+                },
+                {
+                    usuario: '@ArcoirisVibra',
+                    texto: '',
                     fotoDePerfil: 'hola'
                 }
             ]
