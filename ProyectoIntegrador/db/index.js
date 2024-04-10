@@ -63,12 +63,12 @@ let db = {
             descripcion: 'Color morado, tela de gabardina.  ',
             comentarios: [
                 {
-                    usuario: '@sofia_aragon',
+                    usuario: '@EspírituNaturalista',
                     texto: 'Ya las recomendé :))',
                     fotoDePerfil: 'hola'
                 },
                 {
-                    usuario: '@cande.martinez',
+                    usuario: '@ViajeroCósmico',
                     texto: 'Me encantó!!!',
                     fotoDePerfil: 'hola'
                 },
@@ -109,18 +109,18 @@ let db = {
             descripcion: 'Pollera larga, tela tusor, aporta frescura y comodidad.',
             comentarios: [
                 {
-                    usuario: 'hola',
+                    usuario: '@MantraMágico',
                     texto: 'Quede enamorada de esta pollera!!!',
                     fotoDePerfil: 'hola'
                 },
                 {
-                    usuario: '@cande.martinez',
+                    usuario: '@DanzaCósmica',
                     texto: 'Me encantó:)',
                     fotoDePerfil: 'hola'
                 },
                 {
-                    usuario: 'hola',
-                    texto: 'Gracias',
+                    usuario: '@UniversoFlotante',
+                    texto: '"¿Quién necesita etiquetas cuando puedes ser auténticamente hippie? 🌈 #LibertadDeExpresión"',
                     fotoDePerfil: 'hola'
                 }
             ]
@@ -132,18 +132,18 @@ let db = {
             descripcion: 'Colores vibrantes, con diseños de flores y mandalas.',
             comentarios: [
                 {
-                    usuario: '@cande.martinez',
+                    usuario: '@SoyAmaAlmendra',
                     texto: 'Muy comoda y fresca',
                     fotoDePerfil: 'hola'
                 },
                 {
-                    usuario: '@cande.martinez',
-                    texto: 'Muy linda',
+                    usuario: '@PerroPilaAlRescate',
+                    texto: '"El amor es el hilo conductor de nuestro estilo hippie. ❤️🌻"',
                     fotoDePerfil: 'hola'
                 },
                 {
-                    usuario: '@cande.martinez',
-                    texto: 'Muy a gusto. ',
+                    usuario: '@AmaYPerroPila',
+                    texto: '"La moda hippie: una celebración de la individualidad y la creatividad. 🎨✨" ',
                     fotoDePerfil: 'hola'
                 }
             ]
@@ -214,13 +214,18 @@ let db = {
             descripcion: 'Bolso pequeño con diseños de mandalas',
             comentarios: [
                 {
-                    usuario: 'hola',
-                    texto: 'hola',
+                    usuario: '@NubeNomada',
+                    texto: "Viste tu espíritu libre con la exuberancia del estilo bohemio. 🍃🌺",
                     fotoDePerfil: 'hola'
                 },
                 {
-                    usuario: 'hola',
-                    texto: 'hola',
+                    usuario: '@DanzaEspiral',
+                    texto: "La moda bohemia: un tributo a la creatividad y la individualidad. 🎨🌟",
+                    fotoDePerfil: 'hola'
+                },
+                {
+                    usuario: '@MariposaMágica',
+                    texto: "Muy bonito",
                     fotoDePerfil: 'hola'
                 }
             ]
