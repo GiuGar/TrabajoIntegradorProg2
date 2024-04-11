@@ -42,7 +42,7 @@ let db = {
                 {
                     usuario: '@sabrina.ok',
                     texto: 'Muy buen calce!!',
-                    fotoDePerfil: 'hola'
+                    fotoDePerfil: '/images/users/usuario1.jpg'
                 },
                 {
                     usuario: '@cande1aria.figueroa',
@@ -60,12 +60,12 @@ let db = {
             id: 3,
             imagen: '/images/products/TopCora.png',
             nombre: 'Top Cora',
-            descripcion: 'Color morado, tela de gabardina.  ',
+            descripcion: 'Color morado, tela de gabardina.',
             comentarios: [
                 {
                     usuario: '@EspírituNaturalista',
                     texto: 'Ya las recomendé :))',
-                    fotoDePerfil: 'hola'
+                    fotoDePerfil: ''
                 },
                 {
                     usuario: '@ViajeroCósmico',
@@ -152,7 +152,7 @@ let db = {
             id: 7, 
             imagen: '/images/products/VestidoSofia.png',
             nombre: 'Vestido Sofia',
-            descripcion: 'Vestido con vuelos, fresco y juvenil. Colores calidos. ',
+            descripcion: 'Vestido con vuelos, fresco y juvenil. Colores calidos.',
             comentarios: [
                 {
                     usuario: '@PazyAmor',
@@ -175,7 +175,7 @@ let db = {
             id: 8,
             imagen: '/images/products/VestidoFiona.png',
             nombre: 'Vestido Fiona',
-            descripcion: 'Vestido largo, con encajes en la parte superior. 100% lino. ',
+            descripcion: 'Vestido largo, con encajes en la parte superior. 100% lino.',
             comentarios: [
                 {
                     usuario: '@Espiritualidad',
@@ -222,7 +222,7 @@ let db = {
             id: 10,
             imagen: '/images/products/BolsoLuisa.png',
             nombre: 'Bolso Luisa',
-            descripcion: 'Bolso pequeño con diseños de mandalas',
+            descripcion: 'Bolso pequeño con diseños de mandalas.',
             comentarios: [
                 {
                     usuario: '@NubeNomada',
