@@ -42,7 +42,7 @@ let db = {
                 {
                     usuario: '@sabrina.ok',
                     texto: 'Muy buen calce!!',
-                    fotoDePerfil: 'hola'
+                    fotoDePerfil: '/images/users/usuario1.jpg'
                 },
                 {
                     usuario: '@cande1aria.figueroa',
@@ -65,7 +65,7 @@ let db = {
                 {
                     usuario: '@EspírituNaturalista',
                     texto: 'Ya las recomendé :))',
-                    fotoDePerfil: 'hola'
+                    fotoDePerfil: ''
                 },
                 {
                     usuario: '@ViajeroCósmico',
