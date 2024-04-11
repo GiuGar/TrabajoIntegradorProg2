@@ -1,16 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
-<!-- Include Head -->
-<!-- Head -->
-<%- include('./partials/head') %>	
-<!-- /Head -->
+<%- include('./partials/head') %>
 
 <body>
-	<!-- Header -->
-	<%- include('./partials/headerLogueado') %>	
-	<!-- /Header -->
+<%- include('./partials/headerLogueado') %>
 
-
+<<<<<<< HEAD
 <% for(let i = 0; i < index.length; i++) { %>
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
@@ -75,25 +70,38 @@
 									Tempora doloribus enim aspernatur fugit corrupti suscipit sit dolore</p>
 							</div>
 						</article>
+=======
+<% for( let i = 0; i < index.length; i++ ) { %>
+    <div class="container products-wrapper">
+        <div class="d-flex align-items-center">
+            <h2 class="products-title"><%= index[i].nombre %></h2> 
+            <p class="product-detail-description">
+                <a href="product-add.html">Agregar al carrito</a>
+                <!-- Asumiendo que querías mostrar una imagen relacionada con el producto o comentario -->
+                <figure class="product-box_image">
+                    <img src="<%= index[i].fotoPerfil %>" alt="<%= index[i].nombre %>">
+                </figure>
+            </p>
+        </div>
+        <div class="product-detail">
+            <div class="row">
+                <% for (let j = 0; j < index.length; j++) { %>
+                    <article class="col-12 col-lg-8 product-detail-info">
+                        <img src="<%= index[i].imagen %>" alt="<%= index[j].nombre %>">
+                        <p class="product-detail-description">
+                            <%= index[j].descripcion %>
+                        </p>
+                    </article>
+                <% } %>
+                <div class="col-12 col-lg-4">
+                    <!-- Sección de comentarios -->
+                </div>
+            </div>
+        </div>
+    </div>
+<% } %>
+>>>>>>> 754c81289e4f62ee98382e66f4b04cff5e8ce0d4
 
-					</section>
-					<form class="form" action="" method="POST">
-						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
-						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-					</form>
-					<hr>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<% } %>
-	<!-- /product detail -->
-
-
-	<!-- footer -->
-	<%- include('./partials/footer') %>	
-	<!-- /footer -->
-
-	</body>
+<%- include('./partials/footer') %>
+</body>
 </html>
