@@ -11,25 +11,30 @@
             <h2 class="products-title"><%= index[i].nombre %></h2> 
             <p class="product-detail-description">
                 <a href="product-add.html">Agregar al carrito</a>
-                <!-- Asumiendo que querías mostrar una imagen relacionada con el producto o comentario -->
-                <figure class="product-box_image">
-                    <img src="<%= index[i].fotoPerfil %>" alt="<%= index[i].nombre %>">
-                </figure>
             </p>
         </div>
         <div class="product-detail">
             <div class="row">
                 <% for (let j = 0; j < index.length; j++) { %>
                     <article class="col-12 col-lg-8 product-detail-info">
-                        <img src="<%= index[i].imagen %>" alt="<%= index[j].nombre %>">
+                        <img src="<%= index[j].imagen %>" alt="<%= index[j].nombre %>">
                         <p class="product-detail-description">
                             <%= index[j].descripcion %>
                         </p>
                     </article>
                 <% } %>
-                <div class="col-12 col-lg-4">
-                    <!-- Sección de comentarios -->
-                </div>
+            
+                    <div class="col-12 col-lg-4">
+                        <!-- Sección de comentarios -->
+                        <h3>Comentarios</h3>
+                        <% for (let k = 0; k < comentarios.length; k++) { %>
+                            <div class="comment">
+                                <img src="<%= comentarios[k].fotoDePerfil %>" alt="Foto de perfil">
+                                <p><%= comentarios[k].usuario %></p>
+                                <p><%= comentarios[k].texto %></p>
+                            </div>
+                        <% } %>
+                    </div>    
             </div>
         </div>
     </div>
