@@ -86,7 +86,7 @@ let db = {
             descripcion: 'Distintas estampas, colores vibrantes.',
             comentarios: [
                 {
-                    usuario: 'VibraAlto',
+                    usuario: '@VibraAlto',
                     texto: 'El tejido de esta pantalon de cáñamo es un abrazo de Madre Tierra. Sostenible y cómodo. 🌎❤️',
                     fotoDePerfil: 'hola'
                 },

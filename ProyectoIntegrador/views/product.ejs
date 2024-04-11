@@ -5,95 +5,43 @@
 <%- include('./partials/head') %>	
 <!-- /Head -->
 
-<body>
-	<!-- Header -->
-	<%- include('./partials/headerLogueado') %>	
-	<!-- /Header -->
+<!DOCTYPE html>
+<html lang="es">
+<%- include('./partials/head') %>
 
+<body>
+<%- include('./partials/headerLogueado') %>
 
 <% for( let i = 0; i < index.length; i++ ) { %>
-	<div class="container products-wrapper">
-		<div class="d-flex align-items-center">
-			<h2 class="products-title"><%= index[i].nombre%></h2> 
-			<p class="product-detail-description">
-				<a href="product-add.html">Agregar al carrito</a>
-				<figure class="product-box_image">
-					<img src= "<%= index[i].comentarios. %>" alt= "<%= data.productos[i].nombre %>">
-				</figure>
-			</p>
-		</div>
-		<div class="product-detail">
-			<div class="row">
-				<% for (let i = 0; i < index.length; i++) { %>
-				<article class="col-12 col-lg-8 product-detail-info">
-					<img src= "<%= index.imagen %>" alt= "<%= index.nombre %>">
-					<p class="product-detail-description">
-						<%= index.descripcion %></p>
-				</article>
-				<% } %>
-				<div class="col-12 col-lg-4">
-					<section class="comments">
-						<article>
-							<img src="https://via.placeholder.com/35" alt="">
-							<div class="data">
-								<p class="user">
-								<strong> <a href="profile.html">Nombre usuario: </a> </strong>
-								 Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora doloribus enim aspernatur fugit corrupti suscipit sit dolore magnam, praesentium explicabo inventore molestias facilis labore. Fugit ipsa mollitia odit inventore consequuntur.</p>
-							</div>
-						</article>
-						<article>
-							<img src="https://via.placeholder.com/35" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="profile.html">Nombre usuario: </a> </strong>
-									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur.</p>
-							</div>
-						</article>
-						<article>
-							<img src="https://via.placeholder.com/35" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="profile.html">Nombre usuario: </a> </strong>
-									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur adipisicing elit.
-									</p>
-							</div>
-						</article>
-						<article>
-							<img src="https://via.placeholder.com/35" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="profile.html">Nombre usuario: </a> </strong>
-									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet.</p>
-							</div>
-						</article>
-						<article>
-							<img src="https://via.placeholder.com/35" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="profile.html">Nombre usuario: </a> </strong>
-									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur adipisicing elit.
-									Tempora doloribus enim aspernatur fugit corrupti suscipit sit dolore</p>
-							</div>
-						</article>
+    <div class="container products-wrapper">
+        <div class="d-flex align-items-center">
+            <h2 class="products-title"><%= index[i].nombre %></h2> 
+            <p class="product-detail-description">
+                <a href="product-add.html">Agregar al carrito</a>
+                <!-- Asumiendo que querías mostrar una imagen relacionada con el producto o comentario -->
+                <figure class="product-box_image">
+                    <img src="<%= index[i].fotoPerfil %>" alt="<%= index[i].nombre %>">
+                </figure>
+            </p>
+        </div>
+        <div class="product-detail">
+            <div class="row">
+                <% for (let j = 0; j < index.length; j++) { %>
+                    <article class="col-12 col-lg-8 product-detail-info">
+                        <img src="<%= index[j].imagen %>" alt="<%= index[j].nombre %>">
+                        <p class="product-detail-description">
+                            <%= index[j].descripcion %>
+                        </p>
+                    </article>
+                <% } %>
+                <div class="col-12 col-lg-4">
+                    <!-- Sección de comentarios -->
+                </div>
+            </div>
+        </div>
+    </div>
+<% } %>
 
-					</section>
-					<form class="form" action="" method="POST">
-						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
-						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-					</form>
-					<hr>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<% } %>
-	<!-- /product detail -->
-
-
-	<!-- footer -->
-	<%- include('./partials/footer') %>	
-	<!-- /footer -->
-
-	</body>
+<%- include('./partials/footer') %>
+</body>
 </html>
