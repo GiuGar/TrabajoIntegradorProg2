@@ -1,6 +1,9 @@
 /*====== Fonts ======*/
 @import url('https://fonts.googleapis.com/css2?family=Marmelad&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+
 /*====== Variables ======*/
 :root {
   --yellow:  #eee1dd;
@@ -31,7 +34,9 @@ body {
   background-color: var(--light-gray);
   
 }
-
+h1{
+  font-family: 'Lora' sans-serif ;
+}
 ul,
 ol {
   list-style: none;
@@ -67,8 +72,14 @@ hr {
 
 /*====== Main Header ======*/
 .main-header {
-  padding: 15px 0;
+  padding: -5px 0;
   background-color: var(--yellow);
+}
+
+.nombre-marca { 
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 40px;
+  
 }
 
 .main-header_home-link,
@@ -269,7 +280,7 @@ hr {
 }
 
 .footer-data i {
-  color: var(--light-pink);
+  color: rgb(144, 67, 67);
   font-size: 3.5em;
 }
 
