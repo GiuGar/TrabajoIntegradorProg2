@@ -1,16 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
-<!-- Include Head -->
-<!-- Head -->
-<%- include('./partials/head') %>	
-<!-- /Head -->
-
-<!DOCTYPE html>
-<html lang="es">
 <%- include('./partials/head') %>
 
 <body>
-<%- include('./partials/headerLogueado') %>
+<!-- Header -->
+<%- include('./partials/headerDeslogueado') %>	
+<!-- /Header -->
 
 <% for( let i = 0; i < index.length; i++ ) { %>
     <div class="container products-wrapper">
@@ -28,7 +23,7 @@
             <div class="row">
                 <% for (let j = 0; j < index.length; j++) { %>
                     <article class="col-12 col-lg-8 product-detail-info">
-                        <img src="<%= index[j].imagen %>" alt="<%= index[j].nombre %>">
+                        <img src="<%= index[i].imagen %>" alt="<%= index[j].nombre %>">
                         <p class="product-detail-description">
                             <%= index[j].descripcion %>
                         </p>
