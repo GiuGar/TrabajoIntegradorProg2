@@ -70,7 +70,7 @@
 
 	<!-- Novedades -->
 	<div class="container products-wrapper">
-			<div class="register">	
+			<form action="/register" method="GET">
 				<div class="input_field">
 				  <input type="text" placeholder="Email" class="input" value="">
 				</div>
@@ -81,14 +81,14 @@
 				  <input type="password" placeholder="Contraseña" class="input" value="">
 				</div>
 				<div class="input_field"></div>
-					<input type="number" placeholder="DNI" max="8" value="">
+					<input type="number" placeholder="DNI" maxlength="8" value=""> <!--arreglar maximo-->
 				</div>
 				<div class="input_field"></div>
 					<input type="date" placeholder="Fecha de Nacimiento" class="input" value="">
 				</div>
 				<button type=submit><a href="login">Registrarse</a></button>
 			  	</div>
-			</div>
+			</form>
 		</div>
 
 
