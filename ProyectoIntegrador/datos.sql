@@ -4,11 +4,12 @@ use data;
 
 CREATE TABLE usuarios (
 id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT, -- Solamente el id puede tener primary key no todos
-email VARCHAR(500) NOT NULL,
+nombre VARCHAR(50) NOT NULL, 
+email VARCHAR(200) NOT NULL,
 contraseña VARCHAR(100) NOT NULL,
 fecha DATE NOT NULL,
 dni INT NOT NULL,
-foto_perfil VARCHAR(255),
+foto_perfil VARCHAR(300),
 createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 deletedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
@@ -17,7 +18,7 @@ deletedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 CREATE TABLE productos (
 id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 id_usuario INT UNSIGNED,
-imagen_producto VARCHAR(255) NOT NULL,
+imagen_producto VARCHAR(300) NOT NULL,
 nombre_produdcto VARCHAR(200) NOT NULL,
 descripcion_producto VARCHAR(1000) NOT NULL,
 createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -30,8 +31,8 @@ FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
 
 CREATE TABLE comentarios (
 id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-id_usuario INT UNSIGNED,
-id_producto INT UNSIGNED,
+id_usuario INT UNSIGNED NOT NULL,
+id_producto INT UNSIGNED NOT NULL,
 texto_comentario VARCHAR(1000) NOT NULL,
 createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -56,7 +57,7 @@ INSERT INTO usuarios VALUES (1,  "ab@udesa.edu.ar", "AG34", "2004-08-23",  "4576
 -- 10 posteos
 -- 1 
 INSERT INTO productos
-VALUES ("1", "1", "imagen", "nombre", "descripcion" , "created" , "updated" , "deleted" );
+VALUES (DEFAULT, "1", "imagen", "nombre", "descripcion" , "created" , "updated" , "deleted" );
 -- 2 
 INSERT INTO productos
 VALUES ("1", "1", "imagen", "nombre", "descripcion" , "created" , "updated" , "deleted" );
