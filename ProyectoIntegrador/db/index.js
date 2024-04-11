@@ -19,17 +19,17 @@ let db = {
                 {
                     usuario: '@maria.sanchez',
                     texto: 'Amé la blusa Aura, fui el centro de atencion en mi fiesta de cumpleaños',
-                    fotoDePerfil: 'hola'
+                    fotoDePerfil: '/images/users/usuario1.png'
                 },
                 {
                     usuario: '@amparo123',
                     texto: 'Muy buena calidad, volveré a comprar!!',
-                    fotoDePerfil: 'hola'
+                    fotoDePerfil: '/images/users/usuario2.png'
                 },
                 {
-                    usuario: '',
+                    usuario: '@UnicornioFeliz',
                     texto: 'Me encantó!!! Se lo recomende a una amiga y tambien se lo compró :)',
-                    fotoDePerfil: 'hola'
+                    fotoDePerfil: '/images/users/usuario3.png'
                 },
             ]
         },
@@ -42,17 +42,17 @@ let db = {
                 {
                     usuario: '@sabrina.ok',
                     texto: 'Muy buen calce!!',
-                    fotoDePerfil: '/images/users/usuario1.jpg'
+                    fotoDePerfil: '/images/users/usuario3.png'
                 },
                 {
                     usuario: '@cande1aria.figueroa',
                     texto: 'Muy buena calidad',
-                    fotoDePerfil: 'hola'
+                    fotoDePerfil: '/images/users/usuario4.png'
                 },
                 {
                     usuario: '@agusbenavent',
                     texto: 'me conecta con la naturaleza cada vez que lo uso. ✌️🌿',
-                    fotoDePerfil: 'hola'
+                    fotoDePerfil: '/images/users/usuario5.png'
                 }
             ]
         },
@@ -65,17 +65,17 @@ let db = {
                 {
                     usuario: '@EspírituNaturalista',
                     texto: 'Ya las recomendé :))',
-                    fotoDePerfil: ''
+                    fotoDePerfil: '/images/users/usuario5.png'
                 },
                 {
                     usuario: '@ViajeroCósmico',
                     texto: 'Me encantó!!!',
-                    fotoDePerfil: 'hola'
+                    fotoDePerfil: '/images/users/usuario3.png'
                 },
                 {
-                    usuario: 'hola',
+                    usuario: '@AlimentandoElAlma',
                     texto: 'Muy lindo todo y muy comodo',
-                    fotoDePerfil: 'hola'
+                    fotoDePerfil: '/images/users/usuario4.png'
                 }
             ]
         },
@@ -88,17 +88,17 @@ let db = {
                 {
                     usuario: 'VibraAlto',
                     texto: 'El tejido de esta pantalon de cáñamo es un abrazo de Madre Tierra. Sostenible y cómodo. 🌎❤️',
-                    fotoDePerfil: 'hola'
+                    fotoDePerfil: '/images/users/usuario2.png'
                 },
                 {
                     usuario: '@cande.martinez',
                     texto: 'Quede encantada',
-                    fotoDePerfil: 'hola'
+                    fotoDePerfil: '/images/users/usuario1.png'
                 },
                 {
                     usuario: '@MadreTierra',
                     texto: 'Me encantan los bolsillos de estos pantalones, son súper prácticos y cómodos',
-                    fotoDePerfil: 'hola'
+                    fotoDePerfil: '/images/users/usuario5.png'
                 }
             ]
         },
@@ -111,17 +111,17 @@ let db = {
                 {
                     usuario: '@MantraMágico',
                     texto: 'Quede enamorada de esta pollera!!!',
-                    fotoDePerfil: 'hola'
+                    fotoDePerfil: '/images/users/usuario5.png'
                 },
                 {
                     usuario: '@DanzaCósmica',
                     texto: 'Me encantó:)',
-                    fotoDePerfil: 'hola'
+                    fotoDePerfil: '/images/users/usuario3.png'
                 },
                 {
                     usuario: '@UniversoFlotante',
-                    texto: '"¿Quién necesita etiquetas cuando puedes ser auténticamente hippie? 🌈 #LibertadDeExpresión"',
-                    fotoDePerfil: 'hola'
+                    texto: "¿Quién necesita etiquetas cuando puedes ser auténticamente hippie? 🌈 #LibertadDeExpresión",
+                    fotoDePerfil: '/images/users/usuario1.png'
                 }
             ]
         },
