@@ -4,7 +4,7 @@
 
 <body>
 <!-- Header -->
-<%- include('./partials/headerDeslogueado') %>	
+<%- include('./partials/headerDeslogueado') %>    
 <!-- /Header -->
 
 <% for( let i = 0; i < index.length; i++ ) { %>
@@ -17,26 +17,23 @@
         </div>
         <div class="product-detail">
             <div class="row">
-                <% for (let j = 0; j < index.length; j++) { %>
-                    <article class="col-12 col-lg-8 product-detail-info">
-                        <img src="<%= index[j].imagen %>" alt="<%= index[j].nombre %>">
-                        <p class="product-detail-description">
-                            <%= index[j].descripcion %>
-                        </p>
-                    </article>
-                <% } %>
-            
-                    <div class="col-12 col-lg-4">
-                        <!-- Sección de comentarios -->
-                        <h3>Comentarios</h3>
-                        <% for (let k = 0; k < comentarios.length; k++) { %>
-                            <div class="comment">
-                                <img src="<%= comentarios[k].fotoDePerfil %>" alt="Foto de perfil" width="auto" height="auto">
-                                <p><%= comentarios[k].usuario %></p>
-                                <p><%= comentarios[k].texto %></p>
-                            </div>
-                        <% } %>
-                    </div>    
+                <article class="col-12 col-lg-8 product-detail-info">
+                    <img src="<%= index[i].imagen %>" alt="<%= index[i].nombre %>">
+                    <p class="product-detail-description">
+                        <%= index[i].descripcion %>
+                    </p>
+                </article>
+                <div class="col-12 col-lg-4">
+                    <!-- Sección de comentarios -->
+                    <h3>Comentarios</h3>
+                    <% for (let k = 0; k < comentarios.length; k++) { %>
+                        <div class="comment">
+                            <img src="<%= comentarios[k].fotoDePerfil %>" alt="Foto de perfil" width="auto" height="auto">
+                            <p><%= comentarios[k].usuario %></p>
+                            <p><%= comentarios[k].texto %></p>
+                        </div>
+                    <% } %>
+                </div>    
             </div>
         </div>
     </div>
