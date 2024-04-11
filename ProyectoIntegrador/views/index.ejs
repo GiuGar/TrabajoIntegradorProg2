@@ -11,9 +11,7 @@
 	<!-- /Header -->
 	
 	<!-- Banner -->
-	<div class="banner">
-		
-	</div>
+	<div class="banner"></div>
 	<!-- /Banner -->
 
 	<!-- Novedades -->
@@ -61,7 +59,7 @@
 						<article class="product-box_data">
 							<h2><%= data.productos[i].nombre %></h2>
 							<p> <%= data.productos[i].descripcion %></p>
-							<p>Comentarios: 7 </p>
+							<p>Comentarios: <%= data.productos[i].comentarios.length %></p>
 						</article>
 					</a>
 				</section>
