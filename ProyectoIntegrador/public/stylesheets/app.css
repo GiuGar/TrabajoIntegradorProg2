@@ -301,6 +301,48 @@ hr {
   box-shadow: 0 0 5px var(--green);
 }
 
+/*====== Register y Login ======*/
+.container-formulario {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 70vh;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 50vw;
+  height: 100%;
+}
+
+.input_field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  font-size: 15px;
+  color: var(--light-pink);
+}
+
+.input {
+  border: solid 1px var(--light-pink);
+  width: 80%;
+  border-radius: 2px;
+  height: 5vh;
+}
+
+.boton-enviar {
+  border: solid 1px var(--light-pink);
+  background-color: var(--darker-pink);
+  color: var(--light-pink);
+  width: 20vw;
+  border-radius: 2px;
+  height: 5vh;
+}
+
 /*====== Footer ======*/
 .main-footer {
   background-color: #ffffff;

@@ -1,6 +1,6 @@
 let data = require('../db/index');
 
-const profileController = {
+const userController = {
     index: function(req, res){
         return res.render('profile', {"data": data
         })
@@ -15,4 +15,4 @@ const profileController = {
     }
 }
 
-module.exports = profileController
+module.exports = userController
