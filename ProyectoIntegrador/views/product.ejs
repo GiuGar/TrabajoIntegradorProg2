@@ -10,9 +10,11 @@
 <% for( let i = 0; i < index.length; i++ ) { %>
     <div class="container products-wrapper">
         <div class="d-flex align-items-center">
-            <h2 class="products-title"><%= index[i].nombre %></h2> 
+            <h1 class="products-title"><%= index[i].nombre %></h1> 
             <p class="product-detail-description">
-                <a href="product-add.html" class="agregarProd">Agregar al carrito</a>
+                <form action="/producto-add/" method="get">
+					<button type="submit" class="agregarProd">Editar</button>
+				</form>
             </p>
         </div>
         <div class="product-detail">

@@ -8,6 +8,19 @@ const productController = {
     resultadosDeBusqueda: function(req, res){
         return res.render("search-results", {'data': data
         })
+    },
+    add: function(req,res) {
+
+        let productosAgregados = []
+        for (let i = 0; i < data.productos.length; i++) {
+            productosAgregados.push(data.productos[i])
+            return res.render("product-add", {
+                carrito: productosAgregados,
+                datos: data
+            })
+            
+        }
+
     }
 }
 
