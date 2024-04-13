@@ -10,16 +10,11 @@ const productController = {
         })
     },
     add: function(req,res) {
+        
+        return res.render("product-add", {
+            productos: data.productos
+        })
 
-        let productosAgregados = []
-        for (let i = 0; i < data.productos.length; i++) {
-            productosAgregados.push(data.productos[i])
-            return res.render("product-add", {
-                carrito: productosAgregados,
-                datos: data
-            })
-            
-        }
 
     }
 }

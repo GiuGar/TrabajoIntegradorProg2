@@ -241,6 +241,7 @@ hr {
   margin: 20px 0;
 }
 
+
 .product-box a {
   display: block;
 }
@@ -524,6 +525,14 @@ hr {
 .comments .user{
   font-size: 1.7em;
 }
+
+.comment {
+  background-color: #dec5a9;
+  background-position: center center;
+  width: 300px;
+  border-radius: 20px;
+}
+  
 
 /*====== Formularios ======*/
 .form-label {
