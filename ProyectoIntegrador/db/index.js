@@ -138,7 +138,7 @@ let db = {
                 },
                 {
                     usuario: '@PerroPilaAlRescate',
-                    texto: '"El amor es el hilo conductor de nuestro estilo hippie. ❤️🌻"',
+                    texto: "El amor es el hilo conductor de nuestro estilo hippie. ❤️🌻",
                     fotoDePerfil: 'hola'
                 },
                 {
