@@ -11,25 +11,31 @@
 	<!-- /Header -->
 
 	<!-- Novedades -->
-	<div class="container products-wrapper">
+	<div class="container-formulario">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Agregar productos</h2>
+				<h2 class="products-title">Editar:</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
 
-			<form action="/product/add" method="GET"> <!-- Cambio aquí -->
-				<div>
-					<label for="nombre">Nombre del Producto:</label>
-					<input type="text" id="nombre" name="nombre" required>
-				</div>
-				<div>
-					<label for="descripcion">Descripción:</label>
-					<textarea id="descripcion" name="descripcion" required></textarea>
-				</div>
-				<button type="submit">Guardar Producto</button>
-			</form>
-
+			<form class="formulario" action="/product/add" method="GET">
+				<div class="input_field">
+                    <label for="imagen">Imagen del Producto:</label>
+                    <input type="file" id="imagen" name="imagen" value="" required>
+                </div>
+                <div class="input_field">
+                    <label for="nombre">Nombre del Producto:</label>
+                    <input type="text" id="nombre" name="nombre" value="" required>
+                </div>
+                <div class="input_field">
+                    <label for="descripcion">Descripción:</label>
+                    <textarea id="descripcion" name="descripcion" value="" required></textarea>
+                </div>
+                <div class="input_field">
+                    <button type="submit" class="boton-enviar">Guardar Producto</button>
+                </div>
+			</div>
+	</div>
 
 	<!-- footer -->
 	<%- include('./partials/footer') %>	
