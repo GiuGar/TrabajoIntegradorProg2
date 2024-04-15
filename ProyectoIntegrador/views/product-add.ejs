@@ -12,13 +12,10 @@
 
 	<!-- Novedades -->
 	<div class="container-formulario">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Editar:</h2>
-			</div>
-			<!-- Show the "ultimos" products -->
 
 			<form class="formulario" action="/product/add" method="GET">
+				<h2 class="products-title">Editar:</h2>
+
 				<div class="input_field">
                     <label for="imagen">Imagen del Producto:</label>
                     <input type="file" id="imagen" name="imagen" value="" required>
@@ -31,10 +28,9 @@
                     <label for="descripcion">Descripción:</label>
                     <textarea id="descripcion" name="descripcion" value="" required></textarea>
                 </div>
-                <div class="input_field">
-                    <button type="submit" class="boton-enviar">Guardar Producto</button>
-                </div>
-			</div>
+                <button class="boton-enviar" type=submit><a href="login">Guardar Producto</a></button>
+			</form>
+		
 	</div>
 
 	<!-- footer -->
