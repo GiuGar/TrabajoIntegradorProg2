@@ -21,6 +21,10 @@ const productController = {
     resultadosDeBusqueda: function(req, res){
         let buscar = req.query.busqueda
 
+        for (let i = 0; i < data.productos.length; i++) {
+            
+        }
+
         return res.render("search-results", {datoBuscado: buscar})
     },
 
