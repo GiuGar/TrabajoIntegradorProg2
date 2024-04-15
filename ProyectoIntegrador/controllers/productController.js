@@ -26,8 +26,7 @@ const productController = {
 
     add: function(req,res) {
         
-        return res.render("product-add", {
-            productos: data.productos
+        return res.render("product-add", { "data": data
         })
     }
 }

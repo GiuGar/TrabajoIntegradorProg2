@@ -15,6 +15,7 @@ const userController = {
         return res.render('login', {"data": data
         })
     }
+    
 }
 
 module.exports = userController
