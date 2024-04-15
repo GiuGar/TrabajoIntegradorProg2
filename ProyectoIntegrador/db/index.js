@@ -51,7 +51,7 @@ let db = {
                 },
                 {
                     usuario: '@agusbenavent',
-                    texto: 'me conecta con la naturaleza cada vez que lo uso. ✌️🌿',
+                    texto: 'me conecta con la naturaleza cada vez que lo uso.',
                     fotoDePerfil: '/images/users/usuario5.png'
                 }
             ]
@@ -87,7 +87,7 @@ let db = {
             comentarios: [
                 {
                     usuario: '@VibraAlto',
-                    texto: 'El tejido de esta pantalon de cáñamo es un abrazo de Madre Tierra. Sostenible y cómodo. 🌎❤️',
+                    texto: 'El tejido de esta pantalon de cáñamo es un abrazo de Madre Tierra. Sostenible y cómodo. ',
                     fotoDePerfil: '/images/users/usuario2.png'
                 },
                 {
@@ -120,7 +120,7 @@ let db = {
                 },
                 {
                     usuario: '@UniversoFlotante',
-                    texto: "¿Quién necesita etiquetas cuando puedes ser auténticamente hippie? 🌈 #LibertadDeExpresión",
+                    texto: "¿Quién necesita etiquetas cuando puedes ser auténticamente hippie?  #LibertadDeExpresión",
                     fotoDePerfil: '/images/users/usuario1.png'
                 }
             ]
@@ -138,12 +138,12 @@ let db = {
                 },
                 {
                     usuario: '@PerroPilaAlRescate',
-                    texto: "El amor es el hilo conductor de nuestro estilo hippie. ❤️🌻",
+                    texto: "El amor es el hilo conductor de nuestro estilo hippie. ",
                     fotoDePerfil: 'hola'
                 },
                 {
                     usuario: '@AmaYPerroPila',
-                    texto: '"La moda hippie: una celebración de la individualidad y la creatividad. 🎨✨" ',
+                    texto: 'La moda hippie: una celebración de la individualidad y la creatividad.',
                     fotoDePerfil: 'hola'
                 }
             ]
@@ -155,8 +155,8 @@ let db = {
             descripcion: 'Vestido con vuelos, fresco y juvenil. Colores calidos.',
             comentarios: [
                 {
-                    usuario: '@PazyAmor',
-                    texto: 'El amor es el hilo conductor de nuestro estilo hippie. ❤️🌻',
+                    usuario: '@AmaElPapel',
+                    texto: 'El amor es el hilo conductor de nuestro estilo hippie.',
                     fotoDePerfil: 'hola'
                 },
                 {
@@ -226,12 +226,12 @@ let db = {
             comentarios: [
                 {
                     usuario: '@NubeNomada',
-                    texto: "Viste tu espíritu libre con la exuberancia del estilo bohemio. 🍃🌺",
+                    texto: "Viste tu espíritu libre con la exuberancia del estilo bohemio. ",
                     fotoDePerfil: 'hola'
                 },
                 {
                     usuario: '@DanzaEspiral',
-                    texto: "La moda bohemia: un tributo a la creatividad y la individualidad. 🎨🌟",
+                    texto: "La moda bohemia: un tributo a la creatividad y la individualidad. ",
                     fotoDePerfil: 'hola'
                 },
                 {
