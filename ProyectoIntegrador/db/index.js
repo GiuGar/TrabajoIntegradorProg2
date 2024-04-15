@@ -2,7 +2,7 @@ let db = {
 
     usuario: {
         email: 'hola',
-        usuario: 'hola',
+        usuario: '@Pachamama',
         contraseña: 'hola',
         fechaDeNacimiento: 'hola', 
         documento: 'hola',

@@ -9,10 +9,8 @@ const productController = {
         return res.render("search-results", {'data': data
         })
     },
-    add: function(req,res) {
-        
-        return res.render("product-add", {
-            productos: data.productos
+    productoAdd: function(req,res) {
+        return res.render("productadd", { 'data': data
         })
 
 

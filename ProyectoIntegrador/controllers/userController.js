@@ -12,6 +12,10 @@ const userController = {
     login: function(req, res){
         return res.render('login', {"data": data
         })
+    },
+    profile: function(req,res){
+        return res.render('profile', {"data": data
+    })
     }
 }
 
