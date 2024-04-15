@@ -152,7 +152,6 @@ hr {
 
 /*====== Main Navbar ======*/
 .btn-toggle-navbar {
-  background-color: blue;
   color: #ffffff;
   font-size: 1.5em;
   border: none;
@@ -167,7 +166,7 @@ hr {
   font-size: 1.5em;
   color: var(--darker-pink);
   justify-content: space-around;
-  width: 25vw
+  width: 30vw;
 }
 
 
@@ -176,6 +175,7 @@ hr {
   border: 0px;
   cursor: pointer;
   font-size: 1em;
+  font-family: var(--base-font-family) ;
   color: var(--darker-pink)
 }
 
@@ -183,13 +183,23 @@ hr {
   color: var(--dark-pink);
 }
 
+.left-navbar,
+.right-navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 .left-navbar a,
 .right-navbar a {
   display: flex;
-  padding: 5px 0;
-  border-bottom: solid 1px var(--gray);
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  padding: 5px;
 }
 
 .left-navbar a:hover,
@@ -569,6 +579,7 @@ textarea.form-input {
   border-bottom: 1px solid #ccc;
   padding-bottom: 30px;
   font-size: 16px;
+  color: var(--darkest-pink)
 }
 
 .foto-perfil{
@@ -580,31 +591,27 @@ textarea.form-input {
   margin-bottom: 10px;
 }
 
+.edit:hover {
+  color: var(--light-pink)
+}
+
 .btn{
-  background-color: #1259c3;
+  background-color: var(--darkest-pink);
   padding: 10px 20px;
   border-radius: 4px;
-  color: #fff;
+  color: var(--light-pink);
+}
+
+.btn:hover{
+  background-color: var(--light-pink);
+  color: var(--darkest-pink)
 }
 
 
 /*====== Media-Queries ======*/
 @media (min-width: 768px) {
-  /* .main-header_credit-link {
-    margin-top: 0;
-    text-align: right;
-  } */
-
   .btn-toggle-navbar {
     display: none;
-  }
-
-  .left-navbar,
-  .right-navbar {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
   }
 
   .left-navbar a,

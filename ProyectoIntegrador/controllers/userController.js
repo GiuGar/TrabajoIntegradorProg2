@@ -18,7 +18,7 @@ const userController = {
     profile: function(req, res){
         return res.render('profile', {
             productos: data.productos // Pasar los productos como detalleprofile
-        });
+        })
     }
 }
 
