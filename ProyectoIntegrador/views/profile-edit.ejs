@@ -10,19 +10,38 @@
 	<%- include('./partials/headerLogueado') %>	
 	<!-- /Header -->
 
-	<!-- Novedades -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Editar mi perfil</h2>
+	<div class="container-formulario">		
+
+		<form class="formulario" action="/user/profile" method="POST">
+			<h2 class="products-title">Editar Perfil:</h2>
+
+			<div class="input_field">
+			  <label for="email">Editar Email:</label>
+			  <input type="text" class="input" name="email" value="" placeholder="Email actual: <%= usuario.email %>">
 			</div>
-			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá va el formulario de edición de datos del perfil de usuario. <br>
-			Debe cumplir con los puntos de la consigna y ser coherente con la tabla de la base de datos deñ usuario<br>
-			Eliminen estás líneas y coloquen el formulario. <br>
-			Recuerden todo lo que necesita tanto la etiqueta form como los campos input para operar correctamtente</i> <br>
-			////////////////
-			</h2>
+			<div class="input_field">
+			  <label for="usuario">Editar Usuario:</label>
+			  <input type="text" class="input" name="usuario" value="" placeholder="Usuario actual: <%= usuario.usuario %>">
+			</div>
+			<div class="input_field">
+			  <label for="contraseña">Editar Contraseña:</label>
+			  <input type="password" class="input" name="contraseña" value="">
+			</div>
+			<div class="input_field">
+				<label for="dni">Editar DNI:</label>
+				<input type="number" class="input" name="dni" value="" placeholder="DNI actual: <%= usuario.dni %>"> 
+			</div>
+			<div class="input_field">
+				<label for="nacimiento">Editar Fecha de Nacimiento:</label>
+				<input type="date" class="input" name="nacimiento" value="" placeholder="Fecha de Nacimiento actual: <%= usuario.fechaDeNacimiento %>">
+			</div>
+			<div class="input_field">
+				<label for="imagen">Seleccionar nueva Foto de perfil:</label>
+				<input type="file" class="input" name="imagen" value="">
+			</div>
+			<button class="boton-enviar" type=submit><a href="/user/profile">Guardar Cambios</a></button>
+		</form>
+	</div>
 
 
 	<!-- footer -->

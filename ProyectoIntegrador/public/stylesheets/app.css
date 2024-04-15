@@ -38,9 +38,7 @@ body {
   background-color: var(--light-gray);
   
 }
-h1{
-  font-family: 'Lora' sans-serif ;
-}
+
 ul,
 ol {
   list-style: none;
@@ -576,14 +574,26 @@ textarea.form-input {
 
 /*====== Profile ======*/
 .info-usuario{
+  display: flex;
   border-bottom: 1px solid #ccc;
   padding-bottom: 30px;
   font-size: 16px;
-  color: var(--darkest-pink)
+  color: var(--darkest-pink);
+  justify-content: center;
+  align-items: center;
+}
+
+.img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40vw;
 }
 
 .foto-perfil{
   border-radius: 50%;
+  width: 13vw;
+  height: auto;
 }
 
 .main-title{
