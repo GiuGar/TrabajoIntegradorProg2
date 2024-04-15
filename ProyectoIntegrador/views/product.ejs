@@ -31,8 +31,8 @@
                     <% for (let k = 0; k < comentarios.length; k++) { %>
                         <div class="comment">
                             <img src="<%= comentarios[k].fotoDePerfil %>" alt="Foto de perfil" width="auto" height="auto">
-                            <p>Usuario: <%= comentarios[k].usuario %></p>
-                            <p>Comentario: <%= comentarios[k].texto %></p>
+                            <p class="usuario">Usuario: <%= comentarios[k].usuario %></p>
+                            <p class="comentario">Comentario: <%= comentarios[k].texto %></p>
                         </div>
                     <% } %>
                  

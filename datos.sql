@@ -1,11 +1,9 @@
 
 
-use data;
+USE data;
 
 CREATE TABLE usuarios (
-
- -- Solamente el id puede tener primary key no todos
-id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT, -- Solamente el id puede tener primary key no todos
 email VARCHAR(500) NOT NULL,
 contraseña VARCHAR(100) NOT NULL,
 fecha DATE NOT NULL,
@@ -13,7 +11,7 @@ dni INT NOT NULL,
 foto_perfil VARCHAR(255),
 createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-deletedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
+deletedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE productos (
@@ -44,16 +42,16 @@ FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
 );
 
 -- 5 usuarios
-INSERT INTO usuarios VALUES (1,  "ab@udesa.edu.ar", "AG34", "2004-08-23",  "45767990", "/agus.jpg", "10", "5", "18");
+INSERT INTO usuarios VALUES (1,  "sfigueroa@udesa.edu.ar", "hola123", "2004-08-23",  "45767751", "/foto1.jpg", NULL, NULL, NULL);
 
 -- Hacer 4 mas de estos usuarios
-INSERT INTO usuarios VALUES (1,  "ab@udesa.edu.ar", "AG34", "2004-08-23",  "45767990", "/agus.jpg", "10", "5", "18");
+INSERT INTO usuarios VALUES (1,  "mfreile@udesa.edu.ar", "galileo", "2004-08-23",  "45767752", "/foto2.jpg", NULL, NULL, NULL);
 
-INSERT INTO usuarios VALUES (1,  "ab@udesa.edu.ar", "AG34", "2004-08-23",  "45767990", "/agus.jpg", "10", "5", "18");
+INSERT INTO usuarios VALUES (1,  "abenavent@udesa.edu.ar", "marmota", "2004-08-23",  "45767753", "/foto3.jpg", NULL, NULL, NULL);
 
-INSERT INTO usuarios VALUES (1,  "ab@udesa.edu.ar", "AG34", "2004-08-23",  "45767990", "/agus.jpg", "10", "5", "18");
+INSERT INTO usuarios VALUES (1,  "ggiargiulo@udesa.edu.ar", "hola", "2004-08-23",  "45767754", "/foto4.jpg", NULL, NULL, NULL);
 
-INSERT INTO usuarios VALUES (1,  "ab@udesa.edu.ar", "AG34", "2004-08-23",  "45767990", "/agus.jpg", "10", "5", "18");
+INSERT INTO usuarios VALUES (1,  "ab@udesa.edu.ar", "holahola", "2004-08-23",  "45767755", "/foto5.jpg", NULL, NULL, NULL);
 
 -- 10 posteos
 -- 1 
@@ -79,6 +77,7 @@ INSERT INTO productos
 VALUES (DEFAULT, "4", "/images/products/VestidoSofia.png", "Vestido Sofia", "Vestido con vuelos, fresco y juvenil. Colores calidos." , DEFAULT, DEFAULT, DEFAULT);
 -- 8 
 INSERT INTO productos
+VALUES ("1", "1", "imagen", "nombre", "descripcion" , "created" , "updated" , "deleted" );
 VALUES (DEFAULT, "4", "/images/products/VestidoFiona.png", "Vestido Fiona", "Vestido largo, con encajes en la parte superior. 100% lino." , DEFAULT, DEFAULT, DEFAULT);
 -- 9
 INSERT INTO productos
@@ -86,7 +85,7 @@ VALUES (DEFAULT, "5", "/images/products/VestidoAmelia.png", "Vestido Amelia", "C
 -- 10
 INSERT INTO productos
 VALUES (DEFAULT, "5", "/images/products/BolsoLuisa.png", "Bolso Luisa", "Bolso pequeño con diseños de mandalas." , DEFAULT, DEFAULT, DEFAULT);
--
+
 -- 3 Comentarios por posteo
 -- para producto 1 
 INSERT INTO comentarios VALUES (DEFAULT,1, 1, 'Amé la blusa Aura, fui el centro de atencion en mi fiesta de cumpleaños' ,DEFAULT, DEFAULT ,DEFAULT  );
@@ -99,7 +98,7 @@ INSERT INTO comentarios VALUES (DEFAULT,2, 1, 'Muy buena calidad' ,DEFAULT, DEFA
 INSERT INTO comentarios VALUES (DEFAULT,2, 3, 'me conecta con la naturaleza cada vez que lo uso.' ,DEFAULT, DEFAULT ,DEFAULT  );
 
 -- para producto 3
-INSERT INTO comentarios VALUES (DEFAULT,3, 3, 'Ya las recomendé :))' ,DEFAULT, DEFAULT ,DEFAULT  );
+INSERT INTO comentarios VALUES (DEFAULT,3, 4, 'Ya las recomendé :))' ,DEFAULT, DEFAULT ,DEFAULT  );
 INSERT INTO comentarios VALUES (DEFAULT,3, 2, 'Me encantó!!!' ,DEFAULT, DEFAULT ,DEFAULT  );
 INSERT INTO comentarios VALUES (DEFAULT,3, 3, 'me conecta con la naturaleza cada vez que lo uso.' ,DEFAULT, DEFAULT ,DEFAULT  );
 
@@ -107,6 +106,11 @@ INSERT INTO comentarios VALUES (DEFAULT,3, 3, 'me conecta con la naturaleza cada
 INSERT INTO comentarios VALUES (DEFAULT,4, 4, 'El tejido de esta pantalon de cáñamo es un abrazo de Madre Tierra. Sostenible y cómodo.' ,DEFAULT, DEFAULT ,DEFAULT  );
 INSERT INTO comentarios VALUES (DEFAULT,4, 4, 'Quede encantada' ,DEFAULT, DEFAULT ,DEFAULT  );
 INSERT INTO comentarios VALUES (DEFAULT,4, 5, 'Me encantan los bolsillos de estos pantalones, son súper prácticos y cómodos' ,DEFAULT, DEFAULT ,DEFAULT  );
+
+-- para producto 4
+INSERT INTO comentarios VALUES (DEFAULT,5, 3, 'Quede enamorada de esta pollera!!!' ,DEFAULT, DEFAULT ,DEFAULT  );
+INSERT INTO comentarios VALUES (DEFAULT,5, 2, 'Me encantó:)' ,DEFAULT, DEFAULT ,DEFAULT  );
+INSERT INTO comentarios VALUES (DEFAULT,5, 2, '¿Quién necesita etiquetas cuando puedes ser auténticamente hippie?  #LibertadDeExpresión' ,DEFAULT, DEFAULT ,DEFAULT  );
 
 -- para producto 5
 INSERT INTO comentarios VALUES (DEFAULT,5, 3, 'Muy comoda y fresca' ,DEFAULT, DEFAULT ,DEFAULT  );
@@ -137,7 +141,6 @@ INSERT INTO comentarios VALUES (DEFAULT,9, 3, 'Muy bonito' ,DEFAULT, DEFAULT ,DE
 INSERT INTO comentarios VALUES (DEFAULT,10, 3, 'Muy lindo todo y muy comodo' ,DEFAULT, DEFAULT ,DEFAULT  );
 INSERT INTO comentarios VALUES (DEFAULT,10, 4, ' Me encantó!!! ' ,DEFAULT, DEFAULT ,DEFAULT  );
 INSERT INTO comentarios VALUES (DEFAULT,10, 2, 'Muy lindo todo y muy comodo' ,DEFAULT, DEFAULT ,DEFAULT  );
-
 
 
 

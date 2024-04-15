@@ -7,15 +7,22 @@
 
 <body>
 	<!-- Header -->
-	<%- include('./partials/headerLogueado') %>	
+	<%- include('./partials/headerDeslogueado') %>	
 	<!-- /Header -->
+
 
 	<!-- Novedades -->
 	<div class="container-formulario">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Editar:</h2>
+			</div>
+			<!-- Show the "ultimos" products -->
 
 			<form class="formulario" action="/product/add" method="GET">
 				<h2 class="products-title">Editar:</h2>
 
+				<h2 class="products-title">	Agregar producto </h2>
 				<div class="input_field">
                     <label for="imagen">Imagen del Producto:</label>
                     <input type="file" id="imagen" name="imagen" value="" required>
