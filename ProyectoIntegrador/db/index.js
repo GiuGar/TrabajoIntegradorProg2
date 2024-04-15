@@ -1,12 +1,12 @@
 let db = {
 
     usuario: {
-        email: 'hola',
-        usuario: 'hola',
-        contraseña: 'hola',
-        fechaDeNacimiento: 'hola', 
-        documento: 'hola',
-        fotoDePerfil: 'hola',
+        email: 'MirthaSeñoraConEstilo@gmail.com',
+        usuario: 'MirthaLaEmpoderada',
+        contraseña: 'MirthitaLlegamosALos100',
+        fechaDeNacimiento: '23/02/1927', 
+        documento: '11111',
+        fotoDePerfil: '/images/users/Mirtha.png',
     },
 
     productos: [

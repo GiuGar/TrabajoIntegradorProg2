@@ -17,9 +17,16 @@ const userController = {
     },
     profile: function(req, res){
         return res.render('profile', {
-            productos: data.productos // Pasar los productos como detalleprofile
+            productos: data.productos,
+            usuario: data.usuario
+        });
+    },
+    profileEdit: function(req, res){
+        return res.render('profile-edit', {
+            productos: data.productos
+           
         });
     }
-}
+};
 
 module.exports = userController
