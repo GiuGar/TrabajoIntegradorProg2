@@ -35,11 +35,25 @@
                             <p>Comentario: <%= comentarios[k].texto %></p>
                         </div>
                     <% } %>
-                </div>    
+                 
+                    <h2>Agregar Comentario</h2>
+                    <form action="/" method="POST">
+    
+                        <label for="comentario">Comentario:</label><br>
+                        <textarea id="comentario" name="comentario" rows="4" cols="50" required></textarea><br><br>
+                        
+                        <input type="submit" value="Agregar Comentario">
+                    </form>
+                </div> 
+                   
             </div>
+            
         </div>
+        
     </div>
+ 
 <% } %>
+
 
 <%- include('./partials/footer') %>
 </body>

@@ -7,6 +7,5 @@ router.get('/', userController.index);
 router.get('/register', userController.register);
 router.get('/login', userController.login);
 router.get('/profile', userController.profile);
-router.get('/profile/:id', userController.profile);
 
 module.exports = router;
