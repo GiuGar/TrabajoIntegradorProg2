@@ -1,12 +1,12 @@
 let db = {
 
     usuario: {
-        email: 'hola',
-        usuario: 'hola',
-        contraseña: 'hola',
-        fechaDeNacimiento: 'hola', 
-        documento: 'hola',
-        fotoDePerfil: 'hola',
+        email: 'mirthaseñoraconestilo@gmail.com',
+        usuario: 'MirthaLaEmpoderada',
+        contraseña: 'MirthitaLlegamosALos100',
+        fechaDeNacimiento: '23/02/1927', 
+        documento: '1111111',
+        fotoDePerfil: '/images/users/Mirtha.png',
     },
 
     productos: [
@@ -134,17 +134,17 @@ let db = {
                 {
                     usuario: '@SoyAmaAlmendra',
                     texto: 'Muy comoda y fresca',
-                    fotoDePerfil: 'hola'
+                    fotoDePerfil: '/images/users/usuario2.png'
                 },
                 {
                     usuario: '@PerroPilaAlRescate',
                     texto: "El amor es el hilo conductor de nuestro estilo hippie. ",
-                    fotoDePerfil: 'hola'
+                    fotoDePerfil: '/images/users/usuario2.png'
                 },
                 {
                     usuario: '@AmaYPerroPila',
                     texto: 'La moda hippie: una celebración de la individualidad y la creatividad.',
-                    fotoDePerfil: 'hola'
+                    fotoDePerfil: '/images/users/usuario2.png'
                 }
             ]
         },
@@ -157,17 +157,17 @@ let db = {
                 {
                     usuario: '@AmaElPapel',
                     texto: 'El amor es el hilo conductor de nuestro estilo hippie.',
-                    fotoDePerfil: 'hola'
+                    fotoDePerfil: '/images/users/usuario2.png'
                 },
                 {
                     usuario: '@FlorDelaLuna',
                     texto: ' ideal para el verano.',
-                    fotoDePerfil: 'hola'
+                    fotoDePerfil: '/images/users/usuario2.png'
                 },
                 {
                     usuario: '@ArcoirisVibra',
                     texto: 'Me sorprendió lo bien que queda este vestido',
-                    fotoDePerfil: 'hola'
+                    fotoDePerfil: '/images/users/usuario2.png'
                 }
             ]
         },
@@ -180,18 +180,18 @@ let db = {
                 {
                     usuario: '@Espiritualidad',
                     texto: 'Combinable y atemporal',
-                    fotoDePerfil: 'hola'
+                    fotoDePerfil: '/images/users/usuario2.png'
                 },
                 {
                     usuario: '@VivaLaVida',
                     texto: 'Muy original',
-                    fotoDePerfil: 'hola'
+                    fotoDePerfil: '/images/users/usuario2.png'
                 },
                 
                 {
                     usuario: '@Pachamama',
                     texto: 'Práctico y estiloso',
-                    fotoDePerfil: 'hola'
+                    fotoDePerfil: '/images/users/usuario2.png'
                 }
             ]
         },
@@ -204,17 +204,17 @@ let db = {
                 {
                     usuario: '@MuchoEstilo',
                     texto: 'Es hermoso',
-                    fotoDePerfil: 'hola'
+                    fotoDePerfil: '/images/users/usuario2.png'
                 },
                 {
                     usuario: '@Felicidad__',
                     texto: 'Muy trendy',
-                    fotoDePerfil: 'hola'
+                    fotoDePerfil: '/images/users/usuario2.png'
                 },
                 {
                     usuario: '@Iconic123_',
-                    texto: 'Encantada con la ropa que venden',
-                    fotoDePerfil: 'hola'
+                    texto: 'Encantada con la ropa que muestran',
+                    fotoDePerfil: '/images/users/usuario2.png'
                 }
             ]
         },
@@ -227,17 +227,17 @@ let db = {
                 {
                     usuario: '@NubeNomada',
                     texto: "Viste tu espíritu libre con la exuberancia del estilo bohemio. ",
-                    fotoDePerfil: 'hola'
+                    fotoDePerfil: '/images/users/usuario2.png'
                 },
                 {
                     usuario: '@DanzaEspiral',
                     texto: "La moda bohemia: un tributo a la creatividad y la individualidad. ",
-                    fotoDePerfil: 'hola'
+                    fotoDePerfil: '/images/users/usuario2.png'
                 },
                 {
                     usuario: '@MariposaMágica',
                     texto: "Muy bonito",
-                    fotoDePerfil: 'hola'
+                    fotoDePerfil: '/images/users/usuario2.png'
                 }
             ]
         }
