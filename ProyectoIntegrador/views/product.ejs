@@ -27,18 +27,32 @@
                 </article>
                 <div class="col-12 col-lg-4">
                     <!-- Sección de comentarios -->
-                    <h1>Comentarios</h1>
+                    <h1 class="comentPpal">Comentarios</h1>
                     <% for (let k = 0; k < comentarios.length; k++) { %>
                         <div class="comment">
-                            <img src="<%= comentarios[k].fotoDePerfil %>" alt="Foto de perfil" width="auto" height="auto">
-                            <p class="usuario">Usuario: <%= comentarios[k].usuario %></p>
-                            <p class="comentario">Comentario: <%= comentarios[k].texto %></p>
+                          <div class="comment-image-container">
+                            <img class="fotoPerfil" src="<%= comentarios[k].fotoDePerfil %>" alt="Foto de perfil">
+                          </div>
+                          <div class="comment-text-container">
+                            <p class="usuario"><%= comentarios[k].usuario %> ha comentado:</p>
+                            <p class="comentario">"<%= comentarios[k].texto %>"</p>
+                          </div>
                         </div>
-                    <% } %>
-                </div>    
-            </div>
-        </div>
+                      <% } %>
+                 
+                    <h2 class="comentPpal">Agregar Comentario</h2>
+                    <form action="/" method="POST">
+    
+                        <label for="comentario" class="comentAgregado">Comentario:</label><br>
+                        <textarea id="comentario" name="comentario" rows="4" cols="50" required></textarea><br><br>
+                        
+                        <input class="botoncito" type="submit" value="Agregar Comentario">
+                    </form>
+                </div>     
+            </div> 
+        </div>   
     </div>
+ 
 <% } %>
 
 <%- include('./partials/footer') %>
