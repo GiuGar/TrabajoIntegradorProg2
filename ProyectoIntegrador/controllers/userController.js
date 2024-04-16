@@ -19,8 +19,8 @@ const userController = {
     },
     profileEdit: function(req, res){
         return res.render('profile-edit', {
-            productos: data.productos
-           
+            productos: data.productos,
+            usuario: data.usuario
         });
     }
 };
