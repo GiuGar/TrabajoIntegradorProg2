@@ -28,7 +28,7 @@ let db = {
                 },
                 {
                     usuario: '@ViajeroCósmico',
-                    texto: 'Me encantó!!! Se lo recomende a una amiga y también se lo compró :)',
+                    texto: 'Me encantó!!! Se lo recomendé a una amiga y también se lo compró :)',
                     fotoDePerfil: '/images/users/usuario3.png'
                 },
             ]
@@ -132,19 +132,19 @@ let db = {
             descripcion: 'Colores vibrantes, con diseños de flores y mandalas.',
             comentarios: [
                 {
-                    usuario: '@SoyAmaAlmendra',
-                    texto: 'Muy comoda y fresca',
+                    usuario: '@DanzaEspiral',
+                    texto: 'Muy cómoda y fresca',
                     fotoDePerfil: '/images/users/usuario2.png'
                 },
                 {
-                    usuario: '@PerroPilaAlRescate',
+                    usuario: '@Felicidad__',
                     texto: "Es super versátil!",
-                    fotoDePerfil: '/images/users/usuario2.png'
+                    fotoDePerfil: '/images/users/usuario1.png'
                 },
                 {
-                    usuario: '@AmaYPerroPila',
+                    usuario: '@NubeNomada',
                     texto: 'La moda hippie: una celebración de la individualidad y la creatividad.',
-                    fotoDePerfil: '/images/users/usuario2.png'
+                    fotoDePerfil: '/images/users/usuario4.png'
                 }
             ]
         },
@@ -155,19 +155,19 @@ let db = {
             descripcion: 'Vestido con vuelos, fresco y juvenil. Colores cálidos.',
             comentarios: [
                 {
-                    usuario: '@AmaElPapel',
+                    usuario: '@MadreTierra',
                     texto: 'Me sorprendió lo bien que queda este vestido.',
-                    fotoDePerfil: '/images/users/usuario2.png'
+                    fotoDePerfil: '/images/users/usuario5.png'
                 },
                 {
-                    usuario: '@FlorDelaLuna',
+                    usuario: '@DanzaEspiral',
                     texto: 'Ideal para el verano.',
                     fotoDePerfil: '/images/users/usuario2.png'
                 },
                 {
-                    usuario: '@ArcoirisVibra',
+                    usuario: '@ViajeroCósmico',
                     texto: 'El amor es el hilo conductor de nuestro estilo hippie.',
-                    fotoDePerfil: '/images/users/usuario2.png'
+                    fotoDePerfil: '/images/users/usuario3.png'
                 }
             ]
         },
@@ -178,20 +178,20 @@ let db = {
             descripcion: 'Vestido largo, con encajes en la parte superior. 100% lino.',
             comentarios: [
                 {
-                    usuario: '@Espiritualidad',
+                    usuario: '@Felicidad__',
                     texto: 'Combinable y atemporal',
-                    fotoDePerfil: '/images/users/usuario2.png'
+                    fotoDePerfil: '/images/users/usuario1.png'
                 },
                 {
-                    usuario: '@VivaLaVida',
+                    usuario: '@NubeNomada',
                     texto: 'Lo quiero llevar a todos mis viajes!',
-                    fotoDePerfil: '/images/users/usuario2.png'
+                    fotoDePerfil: '/images/users/usuario4.png'
                 },
                 
                 {
-                    usuario: '@Pachamama',
+                    usuario: '@ViajeroCósmico',
                     texto: 'Práctico y estiloso',
-                    fotoDePerfil: '/images/users/usuario2.png'
+                    fotoDePerfil: '/images/users/usuario3.png'
                 }
             ]
         },
@@ -202,18 +202,18 @@ let db = {
             descripcion: 'Color verde militar, diseños minimalistas florales',
             comentarios: [
                 {
-                    usuario: '@MuchoEstilo',
-                    texto: 'Es hermoso',
-                    fotoDePerfil: '/images/users/usuario2.png'
-                },
-                {
                     usuario: '@Felicidad__',
-                    texto: 'Es tan elegante! Me encanta!',
-                    fotoDePerfil: '/images/users/usuario2.png'
+                    texto: 'Es hermoso',
+                    fotoDePerfil: '/images/users/usuario1.png'
                 },
                 {
-                    usuario: '@Iconic123_',
-                    texto: 'Encantada con la ropa que muestran',
+                    usuario: '@MadreTierra',
+                    texto: 'Es tan elegante! Me encanta!',
+                    fotoDePerfil: '/images/users/usuario5.png'
+                },
+                {
+                    usuario: '@DanzaEspiral',
+                    texto: 'Encantada con la ropa que venden',
                     fotoDePerfil: '/images/users/usuario2.png'
                 }
             ]
@@ -227,17 +227,17 @@ let db = {
                 {
                     usuario: '@NubeNomada',
                     texto: "Lo amo. Lo llevo a todos lados.",
-                    fotoDePerfil: '/images/users/usuario2.png'
+                    fotoDePerfil: '/images/users/usuario4.png'
                 },
                 {
-                    usuario: '@DanzaEspiral',
+                    usuario: '@ViajeroCósmico',
                     texto: "Super amplio. Entra de todo!!!",
-                    fotoDePerfil: '/images/users/usuario2.png'
+                    fotoDePerfil: '/images/users/usuario3.png'
                 },
                 {
-                    usuario: '@MariposaMágica',
+                    usuario: '@MadreTierra',
                     texto: "Muy bonito",
-                    fotoDePerfil: '/images/users/usuario2.png'
+                    fotoDePerfil: '/images/users/usuario5.png'
                 }
             ]
         }
