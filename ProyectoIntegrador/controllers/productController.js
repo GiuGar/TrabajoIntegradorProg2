@@ -25,7 +25,6 @@ const productController = {
         for (let i = 0; i < data.productos.length; i++) {
             if(buscar.toLowerCase() == data.productos[i].nombre.toLowerCase()) {
                 resultados.push(data.productos[i])
-                
             }
         }
 

@@ -17,18 +17,18 @@ let db = {
             descripcion: 'Color beige con tirantes y bordado floral.',
             comentarios: [
                 {
-                    usuario: '@maria.sanchez',
-                    texto: 'Amé la blusa Aura, fui el centro de atencion en mi fiesta de cumpleaños',
+                    usuario: '@Felicidad__',
+                    texto: 'Amé la blusa Aura, fui el centro de atencion en mi fiesta de cumpleaños.',
                     fotoDePerfil: '/images/users/usuario1.png'
                 },
                 {
-                    usuario: '@amparo123',
-                    texto: 'Muy buena calidad, volveré a comprar!!',
+                    usuario: '@DanzaEspiral',
+                    texto: 'Muy buena calidad, volveré a comprar!!!',
                     fotoDePerfil: '/images/users/usuario2.png'
                 },
                 {
-                    usuario: '@UnicornioFeliz',
-                    texto: 'Me encantó!!! Se lo recomende a una amiga y tambien se lo compró :)',
+                    usuario: '@ViajeroCósmico',
+                    texto: 'Me encantó!!! Se lo recomende a una amiga y también se lo compró :)',
                     fotoDePerfil: '/images/users/usuario3.png'
                 },
             ]
@@ -40,18 +40,18 @@ let db = {
             descripcion: 'Alta calidad, tela suave y colores vibrantes',
             comentarios: [
                 {
-                    usuario: '@sabrina.ok',
-                    texto: 'Muy buen calce!!',
+                    usuario: '@ViajeroCósmico',
+                    texto: 'Muy buen calce!!!',
                     fotoDePerfil: '/images/users/usuario3.png'
                 },
                 {
-                    usuario: '@cande1aria.figueroa',
+                    usuario: '@NubeNomada',
                     texto: 'Muy buena calidad',
                     fotoDePerfil: '/images/users/usuario4.png'
                 },
                 {
-                    usuario: '@agusbenavent',
-                    texto: 'me conecta con la naturaleza cada vez que lo uso.',
+                    usuario: '@MadreTierra',
+                    texto: 'Me conecta con la naturaleza cada vez que lo uso.',
                     fotoDePerfil: '/images/users/usuario5.png'
                 }
             ]
@@ -63,18 +63,18 @@ let db = {
             descripcion: 'Color morado, tela de gabardina.',
             comentarios: [
                 {
-                    usuario: '@EspírituNaturalista',
+                    usuario: '@MadreTierra',
                     texto: 'Ya las recomendé :))',
                     fotoDePerfil: '/images/users/usuario5.png'
                 },
                 {
-                    usuario: '@ViajeroCósmico',
+                    usuario: '@DanzaEspiral',
                     texto: 'Me encantó!!!',
-                    fotoDePerfil: '/images/users/usuario3.png'
+                    fotoDePerfil: '/images/users/usuario2.png'
                 },
                 {
-                    usuario: '@AlimentandoElAlma',
-                    texto: 'Muy lindo todo y muy comodo',
+                    usuario: '@NubeNomada',
+                    texto: 'Muy lindo todo y muy cómodo.',
                     fotoDePerfil: '/images/users/usuario4.png'
                 }
             ]
@@ -86,13 +86,13 @@ let db = {
             descripcion: 'Distintas estampas, colores vibrantes.',
             comentarios: [
                 {
-                    usuario: '@VibraAlto',
-                    texto: 'El tejido de esta pantalon de cáñamo es un abrazo de Madre Tierra. Sostenible y cómodo. ',
+                    usuario: '@DanzaEspiral',
+                    texto: 'El tejido de esta pantalón de cáñamo es un abrazo de Madre Tierra.',
                     fotoDePerfil: '/images/users/usuario2.png'
                 },
                 {
-                    usuario: '@cande.martinez',
-                    texto: 'Quede encantada',
+                    usuario: '@Felicidad__',
+                    texto: 'Quedé encantada',
                     fotoDePerfil: '/images/users/usuario1.png'
                 },
                 {
@@ -109,18 +109,18 @@ let db = {
             descripcion: 'Pollera larga, tela tusor, aporta frescura y comodidad.',
             comentarios: [
                 {
-                    usuario: '@MantraMágico',
-                    texto: 'Quede enamorada de esta pollera!!!',
-                    fotoDePerfil: '/images/users/usuario5.png'
+                    usuario: '@NubeNomada',
+                    texto: 'Estoy enamorada de esta pollera!!!',
+                    fotoDePerfil: '/images/users/usuario4.png'
                 },
                 {
-                    usuario: '@DanzaCósmica',
-                    texto: 'Me encantó:)',
+                    usuario: '@ViajeroCósmico',
+                    texto: 'Me encantó :)',
                     fotoDePerfil: '/images/users/usuario3.png'
                 },
                 {
-                    usuario: '@UniversoFlotante',
-                    texto: "¿Quién necesita etiquetas cuando puedes ser auténticamente hippie?  #LibertadDeExpresión",
+                    usuario: '@Felicidad__',
+                    texto: "¿Quién necesita etiquetas cuando puedes ser auténticamente hippie? #LibertadDeExpresión",
                     fotoDePerfil: '/images/users/usuario1.png'
                 }
             ]
@@ -138,7 +138,7 @@ let db = {
                 },
                 {
                     usuario: '@PerroPilaAlRescate',
-                    texto: "El amor es el hilo conductor de nuestro estilo hippie. ",
+                    texto: "Es super versátil!",
                     fotoDePerfil: '/images/users/usuario2.png'
                 },
                 {
@@ -152,21 +152,21 @@ let db = {
             id: 7, 
             imagen: '/images/products/VestidoSofia.png',
             nombre: 'Vestido Sofia',
-            descripcion: 'Vestido con vuelos, fresco y juvenil. Colores calidos.',
+            descripcion: 'Vestido con vuelos, fresco y juvenil. Colores cálidos.',
             comentarios: [
                 {
                     usuario: '@AmaElPapel',
-                    texto: 'El amor es el hilo conductor de nuestro estilo hippie.',
+                    texto: 'Me sorprendió lo bien que queda este vestido.',
                     fotoDePerfil: '/images/users/usuario2.png'
                 },
                 {
                     usuario: '@FlorDelaLuna',
-                    texto: ' ideal para el verano.',
+                    texto: 'Ideal para el verano.',
                     fotoDePerfil: '/images/users/usuario2.png'
                 },
                 {
                     usuario: '@ArcoirisVibra',
-                    texto: 'Me sorprendió lo bien que queda este vestido',
+                    texto: 'El amor es el hilo conductor de nuestro estilo hippie.',
                     fotoDePerfil: '/images/users/usuario2.png'
                 }
             ]
@@ -184,7 +184,7 @@ let db = {
                 },
                 {
                     usuario: '@VivaLaVida',
-                    texto: 'Muy original',
+                    texto: 'Lo quiero llevar a todos mis viajes!',
                     fotoDePerfil: '/images/users/usuario2.png'
                 },
                 
@@ -208,7 +208,7 @@ let db = {
                 },
                 {
                     usuario: '@Felicidad__',
-                    texto: 'Muy trendy',
+                    texto: 'Es tan elegante! Me encanta!',
                     fotoDePerfil: '/images/users/usuario2.png'
                 },
                 {
@@ -226,12 +226,12 @@ let db = {
             comentarios: [
                 {
                     usuario: '@NubeNomada',
-                    texto: "Viste tu espíritu libre con la exuberancia del estilo bohemio. ",
+                    texto: "Lo amo. Lo llevo a todos lados.",
                     fotoDePerfil: '/images/users/usuario2.png'
                 },
                 {
                     usuario: '@DanzaEspiral',
-                    texto: "La moda bohemia: un tributo a la creatividad y la individualidad. ",
+                    texto: "Super amplio. Entra de todo!!!",
                     fotoDePerfil: '/images/users/usuario2.png'
                 },
                 {

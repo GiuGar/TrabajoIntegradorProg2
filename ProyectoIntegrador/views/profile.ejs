@@ -53,12 +53,14 @@
 							</figure>
 							<article class="product-box_data">
 								<h2><%= productos[i].nombre %></h2>
-								<p>Descripción <%= productos[i].descripcion %></p>
-								<% for (let j = 0; j < productos[i].comentarios.length; j++) { %>
-										<p><%= productos[i].comentarios[j].texto %></p>
+								<p>Descripción: <%= productos[i].descripcion %></p>
+								<p>Comentarios:</p>
+								<% for (let j = 0; j < 2; j++) { %>
+										<p> <%= productos[i].comentarios[j].texto %></p>
 								<% } %>
 							</article>
 						</a>
+					</section>
 				</div>
 				<% } %>
 		</div>

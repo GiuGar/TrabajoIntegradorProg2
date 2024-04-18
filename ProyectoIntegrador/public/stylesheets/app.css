@@ -225,14 +225,16 @@ hr {
 .agregarProd {
   display: inline-block;
   padding: 10px 15px;
-  background-color: #4e1a42;
-  color: white;
+  background-color: var(--darkest-pink);
+  color: var(--light-pink);
   text-align: center;
-  border-radius: 20px;
+  border-radius: 5px;
+  border: 0px;
 }
 
-.button:hover {
-  background-color: #0056b3;
+.agregarProd:hover{
+  background-color: var(--light-pink);
+  color: var(--darkest-pink)
 }
 
 .products-title {
@@ -248,7 +250,6 @@ hr {
   transition: 300ms;
   margin: 20px 0;
 }
-
 
 .product-box a {
   display: block;
@@ -326,6 +327,10 @@ hr {
   box-shadow: 0 0 5px var(--green);
 }
 
+.comentarioAgregado {
+  width: 95%;
+}
+
 /*====== Register y Login ======*/
 .container-formulario {
   display: flex;
@@ -360,15 +365,6 @@ hr {
 }
 
 .boton-enviar {
-  border: solid 1px var(--light-pink);
-  background-color: var(--darker-pink);
-  color: var(--light-pink);
-  width: 20vw;
-  border-radius: 2px;
-  height: 5vh;
-}
-
-.botoncito {
   border: solid 1px var(--light-pink);
   background-color: var(--darker-pink);
   color: var(--light-pink);
@@ -588,7 +584,6 @@ hr {
   justify-content: center;
 
 }
-
 
 .usuario {
   font-size: 1.2em;
