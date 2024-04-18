@@ -12,7 +12,7 @@
 
 	<div class="container-formulario">		
 
-		<form class="formulario" action="/user/profile" method="POST">
+		<form class="formulario" action="/user/profile" method="GET">
 			<h2 class="products-title">Editar Perfil:</h2>
 
 			<div class="input_field">
@@ -36,8 +36,8 @@
 				<input type="date" class="input" name="nacimiento" value="" placeholder="Fecha de Nacimiento actual: <%= usuario.fechaDeNacimiento %>">
 			</div>
 			<div class="input_field">
-				<label for="imagen">Seleccionar nueva Foto de perfil:</label>
-				<input type="file" class="input" name="imagen" value="">
+				<label for="fotoPerfil">Foto de Perfil (URL):</label>
+				<input class="input" type="text" id="fotoPerfil" name="fotoPerfil" required>
 			</div>
 		</form>
 	</div>	
