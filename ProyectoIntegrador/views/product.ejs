@@ -7,7 +7,7 @@
 <%- include('./partials/headerDeslogueado') %>    
 <!-- /Header -->
 
-<% for( let i = 0; i < index.length; i++ ) { %>
+<% for( let i = 0; i < index.length; i++ ) { %> <!-- Podría ser sin el for, porque index solo tiene un elemento ([0]) -->
     <div class="container products-wrapper">
         <div class="d-flex align-items-center">
             <h1 class="products-title"><%= index[i].nombre %></h1> 
@@ -31,7 +31,7 @@
                     <% for (let k = 0; k < comentarios.length; k++) { %>
                         <div class="comment">
                           <div class="comment-image-container">
-                            <img class="fotoPerfil" src="<%= comentarios[k].fotoDePerfil %>" alt="Foto de perfil">
+                            <a href="/user/profile"><img class="fotoPerfil" src="<%= comentarios[k].fotoDePerfil %>" alt="Foto de perfil"></a>
                           </div>
                           <div class="comment-text-container">
                             <p class="usuario"><%= comentarios[k].usuario %> ha comentado:</p>
@@ -41,7 +41,7 @@
                       <% } %>
                  
                     <h2 class="comentPpal">Agregar Comentario</h2>
-                    <form action="" method="GET">
+                    <form action="/product/id/<%= index[0].id %>" method="GET">
                         <label for="comentario" class="comentAgregado">Comentario:</label><br>
                         <textarea id="comentario" class="comentarioAgregado" name="comentario" rows="4" cols="50" required></textarea><br><br>
                         

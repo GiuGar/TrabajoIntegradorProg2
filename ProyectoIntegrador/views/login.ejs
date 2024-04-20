@@ -13,7 +13,7 @@
 	<!-- Novedades -->
 	<div class="container-formulario">
 
-		<form class="formulario" action="/user/profile" method="POST">
+		<form class="formulario" action="/user/profile" method="GET"> <!-- Estaría bueno que funcionara con POST, pero se descompaginan el botón y el enter -->
 			<h2 class="products-title">Login</h2>
 
 			<div class="input_field">
@@ -28,7 +28,7 @@
 				<label for="recordar">Recordarme:</label>
 				<input type="checkbox" class="input" name="recordarme" value="true" required>
 			</div>  
-				<button class="boton-enviar" type="submit" ><a href="/user/profile">Iniciar sesión</a></button>
+				<button class="boton-enviar" type="submit">Iniciar sesión</button>
 			  </form>
 		</div>
 	</div>	

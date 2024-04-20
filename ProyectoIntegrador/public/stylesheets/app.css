@@ -385,7 +385,7 @@ hr {
 }
 
 .footer-data i {
-  color: rgb(144, 67, 67);
+  color: var(--darker-pink);
   font-size: 3.5em;
 }
 
