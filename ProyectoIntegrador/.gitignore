@@ -1,0 +1,3 @@
+/database/config/config.js 
+# para evitar conflictos de configuracion entre windows y macOS entre nuestro grupo
+# incluimos este archivo para colocar dentro "config.js" y de esta forma no se subira al repositorio y cada miembro del equipo tendra sus propios datos de configuracion.
