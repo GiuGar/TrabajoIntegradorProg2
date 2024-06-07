@@ -7,16 +7,14 @@
 <%- include('./partials/headerDeslogueado') %>    
 <!-- /Header -->
 
-<% for( let i = 0; i < index.length; i++ ) { %>
+<% for( let i = 0; i < index.length; i++ ) { %> <!-- Podría ser sin el for, porque index solo tiene un elemento ([0]) -->
     <div class="container products-wrapper">
         <div class="d-flex align-items-center">
             <h1 class="products-title"><%= index[i].nombre %></h1> 
             <p class="product-detail-description">
-        
-            <p>
-                <a href="/product/add" class="agregarProd"> Editar</a>
-            </p>   
-	
+                <form action="/product/add" method="get">
+					<button type="submit" class="agregarProd">Editar</button>
+				</form>
             </p>
         </div>
         <div class="product-detail">
@@ -29,19 +27,34 @@
                 </article>
                 <div class="col-12 col-lg-4">
                     <!-- Sección de comentarios -->
-                    <h1>Comentarios</h1>
+                    <h1 class="comentPpal">Comentarios</h1>
                     <% for (let k = 0; k < comentarios.length; k++) { %>
                         <div class="comment">
-                            <img src="<%= comentarios[k].fotoDePerfil %>" alt="Foto de perfil" width="auto" height="auto">
-                            <p>Usuario: <%= comentarios[k].usuario %></p>
-                            <p>Comentario: <%= comentarios[k].texto %></p>
+                          <div class="comment-image-container">
+                            <a href="/user/profile"><img class="fotoPerfil" src="<%= comentarios[k].fotoDePerfil %>" alt="Foto de perfil"></a>
+                          </div>
+                          <div class="comment-text-container">
+                            <p class="usuario"><%= comentarios[k].usuario %> ha comentado:</p>
+                            <p class="comentario">"<%= comentarios[k].texto %>"</p>
+                          </div>
                         </div>
-                    <% } %>
-                </div>    
-            </div>
-        </div>
+                      <% } %>
+                 
+                    <h2 class="comentPpal">Agregar Comentario</h2>
+                    <form action="/product/id/<%= index[0].id %>" method="GET">
+                        <label for="comentario" class="comentAgregado">Comentario:</label><br>
+                        <textarea id="comentario" class="comentarioAgregado" name="comentario" rows="4" cols="50" required></textarea><br><br>
+                        
+                        <input class="boton-enviar" type="submit" value="Agregar Comentario">
+                    </form>
+                </div>     
+            </div> 
+        </div>   
     </div>
+ 
+ 
 <% } %>
+
 
 <%- include('./partials/footer') %>
 </body>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<!-- Head -->
+<%- include('./partials/head') %>	
+<!-- /Head -->
+<body>
+	<!-- Header -->
+	<%- include('./partials/headerDeslogueado') %>	
+	<!-- /Header -->
+
+	<!-- Novedades -->
+	<div class="container-formulario">
+
+		<form class="formulario" action="/user/profile" method="GET">
+
+			<h2 class="products-title">Agregar producto </h2>
+			<div class="input_field">
+				<label for="fotoPerfil">Foto del producto (URL):</label>
+				<input type="text" id="fotoPerfil" name="fotoPerfil" required>
+			</div>
+			<div class="input_field">
+				<label for="nombre">Nombre del Producto:</label>
+				<input type="text" id="nombre" name="nombre" value="" required>
+			</div>
+			<div class="input_field">
+				<label for="descripcion">Descripción:</label>
+				<textarea id="descripcion" name="descripcion" value="" required></textarea>
+			</div>
+			<button class="boton-enviar" type=submit>Guardar Producto</button>
+		</form>
+		</div>
+	</div>	
+
+	<!-- footer -->
+	<%- include('./partials/footer') %>	
+	<!-- /footer -->
+</body>
+
+</html>
