@@ -1,21 +1,12 @@
 let db = {
 
     usuario: {
-<<<<<<< HEAD
-        email: 'hola',
-        usuario: '@Pachamama',
-        contraseña: 'hola',
-        fechaDeNacimiento: 'hola', 
-        documento: 'hola',
-        fotoDePerfil: 'hola',
-=======
         email: 'mirthaseñoraconestilo@gmail.com',
         usuario: 'MirthaLaEmpoderada',
         contraseña: 'MirthitaLlegamosALos100',
         fechaDeNacimiento: '23/02/1927', 
         documento: '1111111',
         fotoDePerfil: '/images/users/Mirtha.png',
->>>>>>> de905ca46e4f95d203848d3c2ea08c1ed8457822
     },
 
     productos: [

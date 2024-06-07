@@ -1,4 +1,6 @@
 let data = require('../db/index');
+const db = require('../database/models')
+
 
 const userController = {
     register: function(req, res){
