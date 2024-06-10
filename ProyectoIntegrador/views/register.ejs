@@ -19,27 +19,39 @@
 
 				<div class="input_field">
 				  <label for="email">Email:</label>
-				  <input type="text" class="input" name="email" value="" required>
+				  <input type="text" class="input" name="email" value="<%= locals.oldData && oldData.email ? oldData.email : null  %>" required>
+				  <% if (locals.errors && errors.email) { %>
+					<div class="error-msg"><%= errors.email.msg %></div>
+					<% } %>
 				</div>
 				<div class="input_field">
 				  <label for="usuario">Usuario:</label>
-				  <input type="text" class="input" name="usuario" value="" required>
+				  <input type="text" class="input" name="usuario" value="<%= locals.oldData && oldData.usuario ? oldData.usuario : null  %>" required>
+				  <% if (locals.errors && errors.usuario) { %>
+					<div class="error-msg"><%= errors.usuario.msg %></div>
+					<% } %>
 				</div>
 				<div class="input_field">
-				  <label for="contraseña">Contraseña:</label>
-				  <input type="password" class="input" name="contraseña" value="" required>
+				  <label for="password">Contraseña:</label>
+				  <input type="password" class="input" name="password" value="" required>
+				  <% if (locals.errors && errors.password) { %>
+					<div class="error-msg"><%= errors.password.msg %></div>
+					<% } %>
 				</div>
 				<div class="input_field">
 					<label for="dni">DNI:</label>
-					<input type="number" class="input" name="dni" value="" required> 
+					<input type="number" class="input" name="dni" value=""> 
 				</div>
 				<div class="input_field">
 					<label for="nacimiento">Fecha de Nacimiento:</label>
-					<input type="date" class="input" name="nacimiento" value="" required>
+					<input type="date" class="input" name="nacimiento" value="<%= locals.oldData && oldData.nacimiento ? oldData.nacimiento : null  %>">
+					<% if (locals.errors && errors.nacimiento) { %>
+						<div class="error-msg"><%= errors.nacimiento.msg %></div>
+						<% } %>
 				</div>
 				<div class="input_field">
 					<label for="imagen">Foto de perfil:</label>
-					<input type="text" class="input" name="imagen" value="" required>
+					<input type="text" class="input" name="imagen" value="<%= locals.oldData && oldData.imagen ? oldData.imagen : null  %>">
 				</div>
 				<button class="boton-enviar" type=submit>Registrarse</button>
 			</form>
