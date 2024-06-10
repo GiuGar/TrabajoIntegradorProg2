@@ -18,14 +18,14 @@ module.exports = function(sequelize,dataTypes){
         email: {
             type: dataTypes.STRING
         },
-        contraseña: {
+        password: {
             type: dataTypes.STRING
         },
         fecha: {
             type: dataTypes.DATE
         },
         dni: {
-            type: dataTypes.INTEGER
+            type: dataTypes.STRING
         },
         foto_perfil: {
             type: dataTypes.STRING
@@ -33,10 +33,23 @@ module.exports = function(sequelize,dataTypes){
     }
     let config = {
         tableName: "usuarios",
-        timestamps: true,
-        underscored: false
+        timestamps: false,
+        underscored: true
     }
+
     const User = sequelize.define(alias,cols,config)
+
+    User.associate = function(models){ //definimos una funcion en la propiedad .associate de nuestra variable que representa el modelo (User)
+       User.hasMany(models.Product, {
+        as: "products", //segundo parametro en el que detallamos la relacion
+        foreignKey: "id_producto"
+       });
+       User.hasMany(models.Comment, {
+        as: "comments",
+        foreignKey: "id_usuario" // q?
+       })
+    }
+
     return User;
 }
 

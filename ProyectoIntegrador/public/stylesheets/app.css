@@ -443,6 +443,21 @@ hr {
   line-height: 1.5;
 }
 
+.agregarProd {
+    position: absolute;
+    right: 0; 
+    top: 50%; 
+    transform: translateY(-50%); /* Centra el botón perfectamente al medio */
+    background-color: var(--light-pink);
+    background-color: #804645;
+    font-size: 1.6em;
+    color: #efe3e4;
+    padding: 15px;
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 15px;
+}
+
 .product-detail-price {
   font-size: 5.5em;
   margin: 10px 0;
