@@ -30,7 +30,7 @@ module.exports= function(sequelize,dataTypes){
     }
     let config = {
         tableName: "comentarios", //Agrego el nombre de la tabla
-        timestamps: true, //Coma pq son objetos literales
+        timestamps: false, //Coma pq son objetos literales
         underscorded: true// Por si algun nombre tiene guion bajo
     }
 
