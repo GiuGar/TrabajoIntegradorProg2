@@ -21,7 +21,13 @@ const registerValidation = [
         }),
     body("usuario")
         .notEmpty()
-        .withMessage("Debes elegir un nombre de usuario"),
+        .withMessage("Debes elegir un nombre de usuario")
+        .custom(function(value, {req}){
+            if(req.body.usuario[0] != "@"){
+                throw new Error("El nombre de usuario debe comenzar con @")
+            }
+            return true
+        }),
     body("password")
         .notEmpty()
         .withMessage("Debes completar con una contraseña")

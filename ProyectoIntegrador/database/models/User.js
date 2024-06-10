@@ -15,6 +15,9 @@ module.exports = function(sequelize,dataTypes){
         deletedAt: {
             type: dataTypes.DATE,
         },
+        usuario: {
+            type: dataTypes.STRING
+        },
         email: {
             type: dataTypes.STRING
         },

@@ -22,7 +22,7 @@ const userController = {
        } else {
     
        const usuario = {
-           usuario: req.body.nombre,
+           usuario: req.body.usuario,
            email: req.body.email,
            password: bcryptjs.hashSync(req.body.password, 10), 
            fecha: req.body.nacimiento,
