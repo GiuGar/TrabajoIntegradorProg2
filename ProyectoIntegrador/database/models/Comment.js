@@ -39,3 +39,17 @@ let Comment = sequelize.define(alias,cols,config);
     return Comment; // es una variable que va a
 
 }
+//Utilizo la variable Comment pq ya sequelize 
+Comment.associate = function(models){
+    Comment.belongsTo(models.User,{
+        as: "usuario", //Este alaias es el q usaremos en el controlador
+        foreignKey: "id_usuario"// Calve foranea que relaciona a ambas tablas
+    })
+}
+
+Comment.associate = function(models){
+    Comment.belongsTo(models.Product,{
+        as: "producto",
+        foreignKey: "id_producto"
+    })
+}
