@@ -1,5 +1,6 @@
 let data = require('../db/index');
 const db = require('../database/models')
+const {validationResult} = require("express-validator")
 const bcryptjs = require("bcryptjs")
 
 
@@ -13,9 +14,9 @@ const userController = {
         const errors = validationResult(req)
         
         if(!errors.isEmpty()){
-           console.log("errors:", JSON.stringify(resultValidation,null,4));
+           console.log("errors:", JSON.stringify(errors,null,4));
            return res.render("register", { 
-               errors: resultValidation.mapped(),
+               errors: errors.mapped(),
                oldData: req.body
             })
        } else {
@@ -23,7 +24,7 @@ const userController = {
        const usuario = {
            usuario: req.body.nombre,
            email: req.body.email,
-           password: bcrypt.hashSync(req.body.password, 10), 
+           password: bcryptjs.hashSync(req.body.password, 10), 
            fecha: req.body.nacimiento,
            dni: req.body.dni,
            foto_perfil: req.body.imagen,

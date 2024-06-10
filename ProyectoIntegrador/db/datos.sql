@@ -1,7 +1,7 @@
 -- LISTOOOOOO 
 
-CREATE SCHEMA TrabajoIntegrador;
-USE TrabajoIntegrador;
+CREATE SCHEMA TrabajoIntegrador2;
+USE TrabajoIntegrador2;
 
 
 CREATE TABLE usuarios (
