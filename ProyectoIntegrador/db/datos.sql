@@ -3,6 +3,7 @@
 CREATE SCHEMA TrabajoIntegrador;
 USE TrabajoIntegrador;
 
+
 CREATE TABLE usuarios (
 id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT, -- Solamente el id puede tener primary key no todos
 usuario VARCHAR(100) NOT NULL,
