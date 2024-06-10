@@ -1,13 +1,11 @@
-const express = require('express')
-const router = express.Router()
+const express = require('express');
+const router = express.Router();
 
-let productController = require('../controllers/productController')
+let productController = require('../controllers/productController');
 
 router.get('/id/:id', productController.detalleProducto);
-router.get('/resultados', productController.resultadosDeBusqueda) //No funciona escribiendo la ruta porque falta el parametro que se obtiene con el buscador. 
-// router.get ('/add', productController.add);
+router.get('/resultados', productController.resultadosDeBusqueda);
+router.get('/create', productController.create);
+router.post('/store', productController.storeNewPelicula);  // Asegúrate de que esta ruta coincida con la acción del formulario.
 
-// router.post('/create', productController.create)
-
-
-module.exports = router
+module.exports = router;
