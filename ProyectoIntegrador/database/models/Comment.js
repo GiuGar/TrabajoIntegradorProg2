@@ -1,10 +1,11 @@
+
 module.exports = function(sequelize, DataTypes) {
     let alias = "Comment";
     let cols = {
         id: {
             autoIncrement: true,
             primaryKey: true,
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER // Cambiado a INTEGER
         },
         id_usuario: {
             type: DataTypes.INTEGER
@@ -26,23 +27,27 @@ module.exports = function(sequelize, DataTypes) {
         }
     };
     let config = {
-        tableName: "comentarios",
-        timestamps: true,
-        underscored: true
+        tableName: "comentarios", // Nombre de la tabla
+        timestamps: true, // Habilitar timestamps
+        underscored: true // Cuando hay guion bajo
     };
 
-    const Comment = sequelize.define(alias, cols, config);
+    let Comment = sequelize.define(alias, cols, config);
 
     Comment.associate = function(models) {
         Comment.belongsTo(models.User, {
-            as: "usuario",
-            foreignKey: "id_usuario"
+            as: "usuario", // Alias utilizado en el controlador
+            foreignKey: "id_usuario" // Clave foránea
         });
         Comment.belongsTo(models.Product, {
             as: "producto",
             foreignKey: "id_producto"
         });
     };
+
+    return Comment; // Devolver el modelo definido
+};
+
 
     return Comment;
 };

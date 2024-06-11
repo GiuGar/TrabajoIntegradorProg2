@@ -1,14 +1,14 @@
 -- LISTOOOOOO 
 
-CREATE SCHEMA TrabajoIntegrador;
-USE TrabajoIntegrador;
+CREATE SCHEMA TrabajoIntegrador2;
+USE TrabajoIntegrador2;
 
 
 CREATE TABLE usuarios (
 id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT, -- Solamente el id puede tener primary key no todos
 usuario VARCHAR(100) NOT NULL,
 email VARCHAR(500) NOT NULL,
-contraseña VARCHAR(100) NOT NULL,
+password VARCHAR(100) NOT NULL,
 fecha DATE NOT NULL,
 dni INT NOT NULL,
 foto_perfil VARCHAR(255),

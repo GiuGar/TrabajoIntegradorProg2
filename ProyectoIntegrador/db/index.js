@@ -3,7 +3,7 @@ let db = {
     usuario: {
         email: 'mirthaseñoraconestilo@gmail.com',
         usuario: 'MirthaLaEmpoderada',
-        contraseña: 'MirthitaLlegamosALos100',
+        password: 'MirthitaLlegamosALos100',
         fechaDeNacimiento: '23/02/1927', 
         documento: '1111111',
         fotoDePerfil: '/images/users/Mirtha.png',
