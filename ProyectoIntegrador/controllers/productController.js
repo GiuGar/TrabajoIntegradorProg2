@@ -1,4 +1,6 @@
 let data = require('../db/index');
+const db = require('../database/models');
+
 
 const productController = {
     detalleProducto: function (req, res) {
@@ -42,12 +44,26 @@ const productController = {
             }
         
     },
-
-    buscador: function(req, res){
+   
+    create: function(req,res){ // crea el form, trae los generos para que el usuario seleccione el genero de la nueva pelicula a agregar
+        res.render('product-add');
     },
 
-    create: function(req,res){
-        
+    storeNewPelicula: function (req, res) {
+        // debe guardar un nuevo producto en la base de datos
+        let product = {
+            imagen_producto: req.body.imagen,
+            nombre_producto: req.body.nombre_producto,  // Corregido para coincidir con el nombre correcto
+            descripcion_producto: req.body.descripcion
+        }
+        db.Product.create(product)
+        .then(function(){
+            return res.redirect('/');
+        })
+        .catch(function(error){
+            console.log(error);
+            res.status(500).send("Error al guardar el producto");
+        });
     },
 }
 
