@@ -43,6 +43,9 @@ const productController = {
         
     },
 
+    buscador: function(req, res){
+    },
+
     create: function(req,res){
         
     },
