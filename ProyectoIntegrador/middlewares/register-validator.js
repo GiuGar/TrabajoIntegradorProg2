@@ -32,10 +32,7 @@ const registerValidation = [
         .notEmpty()
         .withMessage("Debes completar con una contraseña")
         .isLength({min: 4})
-        .withMessage("La contraseña debe tener al menos 4 caracteres"),
-    body("nacimiento")
-        .isDate()
-        .withMessage("Debes agregar una fecha"),
+        .withMessage("La contraseña debe tener al menos 4 caracteres")
 ]
 
 module.exports = registerValidation;

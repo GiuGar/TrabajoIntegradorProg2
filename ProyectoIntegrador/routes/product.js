@@ -5,9 +5,8 @@ let productController = require('../controllers/productController');
 const loginValidation = require('../middlewares/login-validator');
 
 router.get('/id/:id', productController.detalleProducto);
-router.get('/resultados', productController.resultadosDeBusqueda);
-router.get('/create', productController.create);
-router.post('/store', productController.storeNewPelicula);  // Asegúrate de que esta ruta coincida con la acción del formulario.
+router.get('/resultados', productController.resultadosDeBusqueda) //No funciona escribiendo la ruta porque falta el parametro que se obtiene con el buscador. 
+// router.get ('/add', productController.add);
 
 // router.post('/create', productController.create)
 

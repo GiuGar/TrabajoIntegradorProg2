@@ -44,7 +44,7 @@ const productController = {
             }
         
     },
-
+   
     create: function(req,res){ // crea el form, trae los generos para que el usuario seleccione el genero de la nueva pelicula a agregar
         res.render('product-add');
     },
