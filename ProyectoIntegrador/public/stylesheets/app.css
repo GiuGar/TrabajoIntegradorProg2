@@ -291,6 +291,16 @@ hr {
   overflow: hidden;
 }
 
+.product-box_data li {
+  font-size: 1.2em;
+  width: 100%;
+  color: var(--darkest-pink);
+  margin: 0;
+  height: 0;
+  transition: 300ms;
+  overflow: hidden;
+}
+
 .product-box_data i {
   color: var(--green);
   font-size: 1.8em;
@@ -318,8 +328,12 @@ hr {
 }
 
 .product-box:hover p {
-  height: 36px;
-  margin-top: 15px;
+  height: 35px;
+  margin-top: 10px;
+}
+
+.product-box:hover li {
+  height: 30px;
 }
 
 .product-box:hover i {

@@ -31,7 +31,7 @@ module.exports = function(sequelize, DataTypes) {
     let config = {
         tableName: "comentarios", // Nombre de la tabla
         timestamps: true, // Habilitar timestamps
-        underscored: true // Cuando hay guion bajo
+        underscored: false // Cuando hay guion bajo
     };
 
     let Comment = sequelize.define(alias, cols, config);
@@ -39,11 +39,13 @@ module.exports = function(sequelize, DataTypes) {
     Comment.associate = function(models) {
         Comment.belongsTo(models.User, {
             as: "usuario", // Alias utilizado en el controlador
-            foreignKey: "id_usuario" // Clave foránea
+            foreignKey: "id_usuario", // Clave foránea
+            timestamps: false,
         });
         Comment.belongsTo(models.Product, {
             as: "producto",
-            foreignKey: "id_producto"
+            foreignKey: "id_producto",
+            timestamps: false,
         });
     };
 

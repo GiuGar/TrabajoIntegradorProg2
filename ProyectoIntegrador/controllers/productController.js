@@ -1,5 +1,6 @@
 let data = require('../db/index');
 const db = require('../database/models');
+const {validationResult} = require("express-validator")
 const op = db.Sequelize.Op
 //requerimos express validator y validationResult
 const { validationResult } = require ('express-validator')
@@ -26,11 +27,29 @@ const productController = {
     resultadosDeBusqueda: function(req, res){
         let buscar = req.query.busqueda
         db.Product.findAll({
-            where: [{nombre_producto: {[op.like]:  buscar} }]
+            include: [{association: "usuario"}, {association: "comentarios"}],
+
+            where: { [op.or] : [
+                {nombre_producto: {[op.like]:  `%${buscar}%`}},
+                {descripcion_producto: {[op.like]:  `%${buscar}%`}}
+                ]},
+                
+            order: [ ["createdAt", "DESC"] ],
         })
         .then(data => {
-            return res.render('search-results', { resultados: data })
-        }) 
+            if(data.length >= 1) {
+                return res.render("search-results", {
+                    mensaje: `Resultados de búsqueda para ${buscar}`,
+                    resultados: data
+                })
+    
+            } else {
+                return res.render("search-results", {
+                    mensaje: `No se han encontrado resultados para ${buscar}`,
+                    resultados: data
+                })
+                }
+            })
         .catch(error => {
             console.log(error);
         })
