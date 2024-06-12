@@ -1,7 +1,8 @@
 let data = require('../db/index');
 const db = require('../database/models');
-const {validationResult} = require("express-validator")
 const op = db.Sequelize.Op
+//requerimos express validator y validationResult
+const { validationResult } = require ('express-validator')
 
 
 const productController = {
@@ -61,19 +62,30 @@ const productController = {
     },
 
     storeNewPelicula: function (req, res) {
-        // guardar un nuevo producto en la base de datos
-        let product = {
-            imagen_producto: req.body.imagen,
-            nombre_producto: req.body.nombre_producto,  // Corregido para coincidir con el nombre correcto
-            descripcion_producto: req.body.descripcion
+        //obtenemos resultados de las validaciones
+        const errors = validationResult(req) //guarda en la variable resultValidation todos los errores encontrados durante la validación de los campos de la solicitud (req).
+        //preguntamos si hay errores y si hay errores los enviamos a la vista
+        if (!errors.isEmpty()){ // verificar si el objeto contiene errores con .isEmpty() (que devuelve false si hay errores)
+            console.log('errors:', JSON.stringify(errors,null,4));
+            return res.render('product-add', {errors: errors.mapped(), oldData: req.body}) // mapped envia los errores a la vista como objeto literal el cual contendra una propiedad con el primer error de cada campo
+        //enviamos tambien los contenidos de req.body para oreservar los datos completados por el usuario al volver al formulario.
         }
-        db.Product.create(product)
-        .then(function(){
+        else{
+            // guardar un nuevo producto en la base de datos
+         let product = {
+            imagen_producto: req.body.imagen,
+            nombre_producto: req.body.nombre_producto,  
+            descripcion_producto: req.body.descripcion_producto
+         }
+         db.Product.create(product)
+         .then(function(){
             return res.redirect('/');
-        })
-        .catch(function(error){
+         })
+         .catch(function(error){
             console.log(error);
-        });
+         });
+        }
+        
     },
     // prueba: function(req,res){
     //     db.Product.findAll()

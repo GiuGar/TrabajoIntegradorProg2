@@ -16,17 +16,26 @@
 			<h2 class="products-title">Agregar producto</h2>
 			<div class="input_field">
 				<label for="fotoPerfil">Imagen del producto (URL):</label>
-				<input type="text" id="fotoPerfil" name="imagen" required>
+				<input type="text" id="fotoPerfil" name="imagen" value="<%= locals.oldData && oldData.imagen ? oldData.imagen : null %>"> <!--primero pregunta si hay oldData en locals, si es que hay manda oldData.imagen y sino deja el campo vacio-->
+				<% if (locals.errors && errors.imagen ) { %>
+					<div class="error-msg"><%= errors.imagen.msg %></div> <!-- locals.errors me devuelve el objeto literal con los errores-->
+				<% } %>
 			</div>
 			<div class="input_field">
 				<label for="nombre">Nombre del Producto:</label>
-				<input type="text" id="nombre" name="nombre_producto" required> 
+				<input type="text" id="nombre" name="nombre_producto" value="<%= locals.oldData && oldData.nombre_producto ? oldData.nombre_producto : null %>"> 
+				<% if (locals.errors && errors.nombre_producto) { %>
+					<div class="error-msg"> <%= errors.nombre_producto.msg %> </div>
+				<% } %>
 			</div>
 			<div class="input_field">
 				<label for="descripcion">Descripción:</label>
-				<textarea id="descripcion" name="descripcion" required></textarea>
+				<textarea id="descripcion" name="descripcion_producto"><%= locals.oldData && oldData.descripcion_producto ? oldData.descripcion_producto : '' %></textarea>
+				<% if (locals.errors && errors.descripcion_producto) { %>
+					<div class="error-msg"><%= errors.descripcion_producto.msg %></div>
+				<% } %>
 			</div>
-			<button class="boton-enviar" type="submit">Guardar Producto</button>
+			<button class="boton-enviar" value="" type="submit">Guardar Producto </button>
 		</form>
 		</div>
 	</div>	
