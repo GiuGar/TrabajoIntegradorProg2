@@ -23,12 +23,18 @@
 						<section class="product-box">
 							<a href="/product/id/<%= resultados[i].id %>">
 								<figure class="product-box_image">
-									<img src= "<%= resultados[i].imagen %>" alt= "<%= resultados[i].nombre %>">
+									<img src= "<%= resultados[i].imagen_producto %>" alt= "<%= resultados[i].nombre_producto %>">
 								</figure>
 								<article class="product-box_data">
-									<h2><%= resultados[i].nombre %></h2>
-									<p><%= resultados[i].descripcion %></p>
-									<p>Comentarios: <%= resultados[i].comentarios.length %></p>
+									<h2><%= resultados[i].nombre_producto %></h2>
+									<p><%= resultados[i].descripcion_producto %></p>
+                                    <p><strong>Publicado por:</strong> <%= resultados[i].usuario.usuario %></p>
+									<p><strong>Comentarios:</strong></p>
+                                    <ul>
+			                        <% for (let c = 0; c < resultados[i].comentarios.length; c++) { %>
+                                        <li><%= resultados[i].comentarios[c].texto_comentario %></li>
+                                        <% } %>
+                                    </ul>
 								</article>
 							</a>
 						</section>
