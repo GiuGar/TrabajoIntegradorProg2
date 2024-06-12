@@ -1,3 +1,4 @@
+const { usuarios } = require("../../db");
 
 module.exports = function(sequelize, DataTypes) {
     let alias = "Comment";
@@ -26,6 +27,7 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.DATE
         }
     };
+
     let config = {
         tableName: "comentarios", // Nombre de la tabla
         timestamps: true, // Habilitar timestamps
@@ -45,9 +47,5 @@ module.exports = function(sequelize, DataTypes) {
         });
     };
 
-    return Comment; // Devolver el modelo definido
-};
-
-
-    return Comment;
-};
+    return Comment
+}

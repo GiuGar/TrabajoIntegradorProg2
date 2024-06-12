@@ -1,3 +1,5 @@
+const { usuario } = require("../../db");
+
 module.exports = function(sequelize, DataTypes) {
     let alias = "User";
     let cols = {
@@ -15,7 +17,7 @@ module.exports = function(sequelize, DataTypes) {
         deletedAt: {
             type: DataTypes.DATE
         },
-        email: {
+        usuario: {
             type: DataTypes.STRING
         },
         email: {
@@ -28,16 +30,17 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.DATE
         },
         dni: {
-            type: DataTypes.STRING
+            type: DataTypes.INTEGER
         },
         foto_perfil: {
             type: DataTypes.STRING
         }
     };
+
     let config = {
         tableName: "usuarios",
         timestamps: true,
-        underscored: true
+        underscored: false
     };
 
     const User = sequelize.define(alias, cols, config);

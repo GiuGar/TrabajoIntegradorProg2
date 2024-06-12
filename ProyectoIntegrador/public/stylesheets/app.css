@@ -373,6 +373,11 @@ hr {
   height: 5vh;
 }
 
+.error-msg {
+  font-size: 12px;
+  color: red
+}
+
 /*====== Footer ======*/
 .main-footer {
   background-color: #ffffff;

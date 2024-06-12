@@ -1,5 +1,7 @@
 let data = require('../db/index');
 const db = require('../database/models');
+const {validationResult} = require("express-validator")
+const op = db.Sequelize.Op
 
 
 const productController = {
@@ -22,6 +24,17 @@ const productController = {
 
     resultadosDeBusqueda: function(req, res){
         let buscar = req.query.busqueda
+        db.Product.findAll({
+            where: [{nombre_producto: {[op.like]:  buscar} }]
+        })
+        .then(data => {
+            return res.render('search-results', { resultados: data })
+        }) 
+        .catch(error => {
+            console.log(error);
+        })
+    },
+        /* let buscar = req.query.busqueda
         let resultados = []
 
         for (let i = 0; i < data.productos.length; i++) {
@@ -41,15 +54,13 @@ const productController = {
                 mensaje: `No se han encontrado resultados para ${buscar}`,
                 resultados: resultados 
             })
-            }
-        
-    },
+            } */
    
-    create: function(req,res){ // crea el form, trae los generos para que el usuario seleccione el genero de la nueva pelicula a agregar
+    create: function(req, res){ // crea el form, trae los generos para que el usuario seleccione el genero de la nueva pelicula a agregar
         res.render('product-add');
     },
 
-    storeNewPelicula: function (req, res) {
+    /* storeNewPelicula: function (req, res) {
         // debe guardar un nuevo producto en la base de datos
         let product = {
             imagen_producto: req.body.imagen,
@@ -64,7 +75,7 @@ const productController = {
             console.log(error);
             res.status(500).send("Error al guardar el producto");
         });
-    },
+    }, */
 }
 
 module.exports = productController
