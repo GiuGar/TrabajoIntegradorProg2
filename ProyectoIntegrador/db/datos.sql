@@ -1,7 +1,7 @@
 -- LISTOOOOOO 
 
-CREATE SCHEMA TrabajoIntegrador2;
-USE TrabajoIntegrador2;
+CREATE SCHEMA TrabajoIntegrador;
+USE TrabajoIntegrador;
 
 
 CREATE TABLE usuarios (
@@ -21,7 +21,7 @@ CREATE TABLE productos (
 id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 id_usuario INT UNSIGNED,
 imagen_producto VARCHAR(255) NOT NULL,
-nombre_produdcto VARCHAR(200) NOT NULL,
+nombre_producto VARCHAR(200) NOT NULL,
 descripcion_producto VARCHAR(1000) NOT NULL,
 createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
