@@ -45,12 +45,12 @@ const productController = {
         
     },
    
-    create: function(req,res){ // crea el form, trae los generos para que el usuario seleccione el genero de la nueva pelicula a agregar
+    create: function(req,res){ // crea el form
         res.render('product-add');
     },
 
     storeNewPelicula: function (req, res) {
-        // debe guardar un nuevo producto en la base de datos
+        // guardar un nuevo producto en la base de datos
         let product = {
             imagen_producto: req.body.imagen,
             nombre_producto: req.body.nombre_producto,  // Corregido para coincidir con el nombre correcto
@@ -64,6 +64,16 @@ const productController = {
             console.log(error);
         });
     },
+    // prueba: function(req,res){
+    //     db.Product.findAll()
+    //     .then(function(productos){
+    //         console.log('datos de producto:', JSON.stringify(productos, null, 4))
+    //         res.send(productos)
+    //     })
+    //     .catch(function(error){
+    //         console.log(error)
+    //     })
+    // }
 }
 
 module.exports = productController

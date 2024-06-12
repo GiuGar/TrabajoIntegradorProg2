@@ -7,6 +7,7 @@ const registerValidations = require("../middlewares/register-validator")
 // router.get('/', userController.index); 
 router.get('/register', userController.register);
 router.post('/register', registerValidations, userController.store);
+// router.get('/prueba', userController.prueba) para probar que el modelo User esta bien, (si anda)
 
 router.get('/login', userController.login);
 

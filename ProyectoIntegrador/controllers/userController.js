@@ -57,7 +57,17 @@ const userController = {
             productos: data.productos,
             usuario: data.usuario
         });
-    }
+    },
+//     prueba: function(req,res){
+//         db.User.findAll()
+//         .then(function(data){
+//           console.log('datos de producto:', JSON.stringify(data, null, 4));
+//           res.send(data)
+//         })
+//         .catch(function(e){
+//           console.log(e);
+//         })
+// }
 };
 
 module.exports = userController
