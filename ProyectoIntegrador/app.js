@@ -27,6 +27,7 @@ app.use(session(
     resave: false,
     saveUninitialized: true }
 ));
+
 // quiero que todos los datos de la sesion esten disponibles para todas las vistas:
 app.use(function(req,res,next){
   console.log('en session middleware')

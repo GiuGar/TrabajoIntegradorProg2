@@ -11,6 +11,9 @@ router.post('/register', registerValidations, userController.store);
 
 router.get('/login', userController.login);
 
-// router.get('/profile', userController.profile)
+router.get('/profile', userController.profile)
+
+router.get('/edit', userController.profileEdit)
+router.post('/storeprofile', userController.storeProfile)
 
 module.exports = router;
