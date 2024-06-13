@@ -3,7 +3,7 @@ const db = require('../database/models');
 const {validationResult} = require("express-validator")
 const op = db.Sequelize.Op
 //requerimos express validator y validationResult
-const { validationResult } = require ('express-validator')
+
 
 
 const productController = {
