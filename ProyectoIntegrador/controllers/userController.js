@@ -1,7 +1,8 @@
 let data = require('../db/index');
 const db = require('../database/models')
 const {validationResult} = require("express-validator")
-const bcryptjs = require("bcryptjs")
+const bcryptjs = require("bcryptjs");
+const session = require('express-session');
 
 
 const userController = {
@@ -53,10 +54,12 @@ const userController = {
         });
     },
     profileEdit: function(req, res){
-        return res.render('profile-edit', {
-            productos: data.productos,
-            usuario: data.usuario
-        });
+        
+        const idUser = req.session.user.dni
+        db.User.findPk(idUser)
+        .then(function(user){
+
+        })
     },
     prueba: function(req,res){
         db.User.findAll()
