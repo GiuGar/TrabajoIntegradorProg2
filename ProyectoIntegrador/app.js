@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+//Instalamos session para usarla
 const session = require("express-session")
 
 var indexRouter = require('./routes/index');
