@@ -2,11 +2,34 @@ let data = require('../db/index');
 const db = require('../database/models');
 const op = db.Sequelize.Op
 //requerimos express validator y validationResult
-const { validationResult } = require ('express-validator')
+//Hacemos 2 variables para traer la info de la base de datos
+const Producto = db.Product
+const Comentario = db.Comment
 
 
 const productController = {
+    // detalleProducto: function (req,res) {
+    //     Producto.findByPk(req.params.id, {
+    //         include: [{association:'User'}, {association:'comentarios', include:[{association:'usuarios'}]}],
+    //         order: [[{model:Comentario, as: 'comentarios'},'createdAt', 'DESC']]
+    //     })
+    //     .then(function(data){
+    //         return res.render('product', {data: data})
+    //     })
+    //     .catch(function(err){
+    //         console.log(err);
+    //     })
+    // },
     detalleProducto: function (req, res) {
+        // const id = req.params.id
+        // db.Product.findByPk(id)
+        // .then(function(data){
+        
+        //     res.render("product", {data: data} ) //Nos vamos a la vista de index y usamos data que es la que tiene la db
+        // })
+        // .catch(function(error){
+        //     console.log(error)
+        // })
         let idEnviado = req.params.id;
         let detalleProducto = [];
         let comentariosProducto = [];

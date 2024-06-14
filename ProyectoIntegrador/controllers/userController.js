@@ -46,7 +46,54 @@ const userController = {
         return res.render('login', {"data": data
         })
     },
+    loginStore: async function (req, res) { // Necesitamos que sea async
+        const errors = validationResult(req);
 
+        if (!errors.isEmpty()) {
+            // Si hay errores, volvemos al login y mapeamos los errores
+            return res.render("login", {
+                errors: errors.mapped(),
+                oldData: req.body
+            });
+        } else {
+            const { usuario, password } = req.body;
+            try {
+                const user = await db.User.findOne({ where: { usuario } }); // Agregamos await para la búsqueda asincrónica
+                if (!user) {
+                    return res.render('login', {
+                        error: 'Usuario no encontrado',
+                        oldData: req.body
+                    });
+                }
+
+                const isPasswordValid = bcryptjs.compareSync(password, user.password);
+                if (!isPasswordValid) {
+                    return res.render('login', {
+                        error: 'Contraseña incorrecta',
+                        oldData: req.body
+                    });
+                }
+
+                // Guardar el usuario en la sesión
+                req.session.user = user;
+
+                // Si el usuario seleccionó "recordar", establecer una cookie de larga duración
+                if (req.body.remember) {
+                    res.cookie('userId', user.id, { maxAge: 30 * 24 * 60 * 60 * 1000 }); // 30 días
+                }
+
+                // Redirigir al usuario a la página principal
+                return res.redirect("/");
+            } catch (error) {
+                console.log("Error al iniciar sesión:", error);
+                return res.render('login', {
+                    error: 'Ocurrió un error. Por favor, intenta de nuevo.',
+                    oldData: req.body
+                });
+            }
+        }
+    },
+  
     profile: function(req, res){
         return res.render('profile', {
             productos: data.productos,
@@ -61,9 +108,6 @@ const userController = {
 
         })
     },
-    storeProfile: function(req,res){
-
-    }
 //     prueba: function(req,res){
 //         db.User.findAll()
 //         .then(function(data){
