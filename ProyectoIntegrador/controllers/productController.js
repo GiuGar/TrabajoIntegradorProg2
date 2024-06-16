@@ -103,7 +103,7 @@ const productController = {
         res.render('product-add');
     },
 
-    storeNewPelicula: function (req, res) {
+    storeNewProducto: function (req, res) {
         //obtenemos resultados de las validaciones
         const errors = validationResult(req) //guarda en la variable resultValidation todos los errores encontrados durante la validación de los campos de la solicitud (req).
         //preguntamos si hay errores y si hay errores los enviamos a la vista
