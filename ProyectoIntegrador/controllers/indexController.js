@@ -1,6 +1,6 @@
-let data = require('../db/index');
+//let data = require('../db/index');
 const db = require('../database/models');
-const productos = db.Product
+
 //Mostramos los productos de forma descendente
 const indexController = {
     productos: function(req,res){
@@ -10,9 +10,9 @@ const indexController = {
             ],
             limit: 10
         })
-        .then(function(data){
-        
-            res.render("index", {data: data} ) //Nos vamos a la vista de index y usamos data que es la que tiene la db
+        .then(function(data){  //Este then agarra el db.Product todos los productos y los pone en data
+            console.log("data:",data)
+            res.render("index", {data: data} ) //Nos lleva a index.ejs y lo de la funcion data lo pone en data para usarlo en la vista
         })
         .catch(function(error){
             console.log(error)

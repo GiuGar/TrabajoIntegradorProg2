@@ -1,8 +1,9 @@
-let data = require('../db/index');
+
 const db = require('../database/models');
 const op = db.Sequelize.Op
 //requerimos express validator y validationResult
 //Hacemos 2 variables para traer la info de la base de datos
+const {validationResult} = require("express-validator")
 const Producto = db.Product
 const Comentario = db.Comment
 
