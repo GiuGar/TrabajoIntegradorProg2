@@ -8,20 +8,32 @@ const Comentario = db.Comment
 
 
 const productController = {
-
-       detalleProducto: function(req, res){
-            db.Product.findByPk(req.params.id, {
-                include: [{association:'usuario'}, {association:'comentarios', include:[{association:'usuario'}]}],
-                order: [[{model:db.Comment, as: 'comentarios'},'createdAt', 'DESC']]
-            })
-            .then(function(data){
-                return res.render('product', {data: data})
-            })
-            .catch(function(err){
-                console.log(err);
-            })
-        },
-
+ 
+    detalleProducto: function (req, res) {
+        // const id = req.params.id
+        // db.Product.findByPk(id)
+        // .then(function(data){
+        
+        //     res.render("product", {data: data} ) //Nos vamos a la vista de index y usamos data que es la que tiene la db
+        // })
+        // .catch(function(error){
+        //     console.log(error)
+        // })
+        let idEnviado = req.params.id;
+        let detalleProducto = [];
+        let comentariosProducto = [];
+        for (let i = 0; i < data.productos.length; i++) {
+            if (idEnviado == data.productos[i].id) {
+                detalleProducto.push(data.productos[i]);
+                comentariosProducto = data.productos[i].comentarios; // Obtener comentarios del producto
+                break; // Terminar el bucle una vez encontrado el producto
+            }
+        }
+        return res.render('product', {
+            index: detalleProducto,
+            comentarios: comentariosProducto // Pasar los comentarios al render
+        })
+    },
 
     resultadosDeBusqueda: function(req, res){
         let buscar = req.query.busqueda
@@ -114,35 +126,6 @@ const productController = {
     //     .catch(function(error){
     //         console.log(error)
     //     })
-    // }
-
-//Comentarios en el detalle del producto
-
-    // comentario: function(req, res){
-    //     let id = req.body.id
-    //     db.Product.findByPk(id, {include:[{association:'comentarios', include: {association: 'usuario'}},]})
-    //     .then(function(data){
-    //         if(req.session.user != null){
-    //             comment = req.body.comment
-    //             db.Comment.create({
-    //                 idPost: data.id,
-    //                 idUsuario: req.session.id_usuario,
-    //                 comentario: comment,
-    //                 })
-    //             .then(function(info){
-    //                 res.redirect('/product/id' + id);  
-    //             })
-    //             .catch(function(err){
-    //                 console.log(err);
-    //             }) 
-    //         }
-    //         else{
-    //             res.redirect('/user/login')
-    //         }
-    //     })
-    //     .catch(function(err){
-    //         console.log(err);
-    //     }) 
     // }
 }
 
