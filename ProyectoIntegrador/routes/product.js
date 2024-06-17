@@ -9,9 +9,11 @@ router.get('/create', productController.create)
 // router.get('/pruebaProd', productController.prueba) //prueba de que el modelo Product anda
 
 //requerimos validaciones de la carpeta middlewares, ahora vamos a requerir los resultados de la validacion de express-validator (en el controlador)
-router.post('/store', newProductValidation ,productController.storeNewProducto);  
+// router.post('/store', newProductValidation ,productController.storeNewProducto);  
 
+//Ruta de comentario
+//router.post('/comentario', productController.comentario)
 
-// router.post('/', loginValidation,indexController.login)
+// router.post('/', login-validator,indexController.login)
 
 module.exports = router

@@ -17,7 +17,7 @@ const indexController = {
             console.log(error)
         })
     },
-    Login: function(req,res){
+    login: function(req,res){
         return res.render("login", {data:data})
     }
 }

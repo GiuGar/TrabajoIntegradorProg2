@@ -1,4 +1,4 @@
-let data = require('../db/index');
+// let data = require('../db/index');
 const db = require('../database/models')
 const {validationResult} = require("express-validator")
 const bcryptjs = require("bcryptjs");
@@ -43,57 +43,68 @@ const userController = {
     },
     
     login: function(req, res){
-        return res.render('login', {"data": data
-        })
+        return res.render('login')
     },
-    loginStore: async function (req, res) { // Necesitamos que sea async
-        const errors = validationResult(req);
+    loginStore:function (req, res) { 
 
-        if (!errors.isEmpty()) {
-            // Si hay errores, volvemos al login y mapeamos los errores
-            return res.render("login", {
-                errors: errors.mapped(),
-                oldData: req.body
-            });
+        // const errors = validationResult(req);
+        db.User.findOne({
+            //Nos trae un usuario que se logueó
+            where:[{
+                //El email es el mismo email que ingreso el usuario
+                email:req.body.email 
+            }] 
+        })
+        .then(function(user){
+            req.session.user = user
+            console.log('user en session',req.session.user)
+            res.resdirect("/")
+        })
+        .catch(function(err){
+            console.log(err)
+        })
+        // if (!errors.isEmpty()) {
+        //     // Si hay errores, volvemos al login y mapeamos los errores
+        //     return res.render("login", {
+        //         errors: errors.mapped(),
+        //         oldData: req.body
+        //     });
+        // } else {
+        //     const { usuario, password } = req.body;
+        //      const user = db.User.findOne({ where: { usuario } }); // Agregamos await para la búsqueda asincrónica
+        //         if (!user) {
+        //             return res.render('login', {
+        //                 error: 'Usuario no encontrado',
+        //                 oldData: req.body
+        //             });
+        //         }
 
-        } else {
-            const { usuario, password } = req.body;
+        //         const isPasswordValid = bcryptjs.compareSync(password, user.password);
+        //         if (!isPasswordValid) {
+        //             return res.render('login', {
+        //                 error: 'Contraseña incorrecta',
+        //                 oldData: req.body
+        //             });
+        //         }
 
-            try {
-                const user = await db.User.findOne({ where: { usuario } }); // Agregamos await para la búsqueda asincrónica
-                if (!user) {
-                    return res.render('login', {
-                        error: 'Usuario no encontrado',
-                        oldData: req.body
-                    });
-                }
+        //         // Guardar el usuario en la sesión
+        //         req.session.user = user;
 
-                const isPasswordValid = bcryptjs.compareSync(password, user.password);
-                if (!isPasswordValid) {
-                    return res.render('login', {
-                        error: 'Contraseña incorrecta',
-                        oldData: req.body
-                    });
-                }
+        //         // Si el usuario seleccionó "recordar", establecer una cookie de larga duración
+        //         if (req.body.remember) {
+        //             res.cookie('userId', user.id, { maxAge: 30 * 24 * 60 * 60 * 1000 }); // 30 días
+        //         }
 
-                // Guardar el usuario en la sesión
-                req.session.user = user;
-
-                // Si el usuario seleccionó "recordar", establecer una cookie de larga duración
-                if (req.body.remember) {
-                    res.cookie('userId', user.id, { maxAge: 30 * 24 * 60 * 60 * 1000 }); // 30 días
-                }
-
-                // Redirigir al usuario a la página principal
-                return res.redirect("/");
-            } catch (error) {
-                console.log("Error al iniciar sesión:", error);
-                return res.render('login', {
-                    error: 'Ocurrió un error. Por favor, intenta de nuevo.',
-                    oldData: req.body
-                });
-            }
-        }
+        //         // Redirigir al usuario a la página principal
+        //         return res.redirect("/");
+        //     } catch (error) {
+        //         console.log("Error al iniciar sesión:", error);
+        //         return res.render('login', {
+        //             error: 'Ocurrió un error. Por favor, intenta de nuevo.',
+        //             oldData: req.body
+        //         });
+        //     }
+        // }
     },
   
     profile: function(req, res){
