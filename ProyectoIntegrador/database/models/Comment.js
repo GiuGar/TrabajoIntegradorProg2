@@ -35,6 +35,8 @@ module.exports = function(sequelize, DataTypes) {
     };
 
     let Comment = sequelize.define(alias, cols, config);
+    
+    //Aca van las relaciones
 
     Comment.associate = function(models) {
         Comment.belongsTo(models.User, {
