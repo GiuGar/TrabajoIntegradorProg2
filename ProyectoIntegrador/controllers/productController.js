@@ -92,35 +92,6 @@ const productController = {
     //         console.log(error)
     //     })
     // }
-
-//Comentarios en el detalle del producto
-
-    // comentario: function(req, res){
-    //     let id = req.body.id
-    //     db.Product.findByPk(id, {include:[{association:'comentarios', include: {association: 'usuario'}},]})
-    //     .then(function(data){
-    //         if(req.session.user != null){
-    //             comment = req.body.comment
-    //             db.Comment.create({
-    //                 idPost: data.id,
-    //                 idUsuario: req.session.id_usuario,
-    //                 comentario: comment,
-    //                 })
-    //             .then(function(info){
-    //                 res.redirect('/product/id' + id);  
-    //             })
-    //             .catch(function(err){
-    //                 console.log(err);
-    //             }) 
-    //         }
-    //         else{
-    //             res.redirect('/user/login')
-    //         }
-    //     })
-    //     .catch(function(err){
-    //         console.log(err);
-    //     }) 
-    // }
 }
 
 module.exports = productController
