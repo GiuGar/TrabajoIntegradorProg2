@@ -7,41 +7,39 @@
 <%- include('./partials/headerDeslogueado') %>    
 <!-- /Header -->
 
-<% for( let i = 0; i < index.length; i++ ) { %> <!-- Podría ser sin el for, porque index solo tiene un elemento ([0]) -->
     <div class="container products-wrapper">
         <div class="d-flex align-items-center">
-            <h1 class="products-title"><%= index[i].nombre %></h1> 
+            <h1 class="products-title"><%= producto.nombre_producto %></h1> 
             <p class="product-detail-description">
                 <form action="/product/add" method="get">
-					<button type="submit" class="boton-enviar">Editar</button>
-				</form>
+                    <button type="submit" class="boton-enviar">Editar</button>
+                </form>
             </p>
         </div>
         <div class="product-detail">
             <div class="row">
                 <article class="col-12 col-lg-8 product-detail-info">
-                    <img src="<%= index[i].imagen %>" alt="<%= index[i].nombre %>">
-                    <p class="product-detail-description">
-                        <%= index[i].descripcion %>
-                    </p>
+                    <img src="<%= producto.imagen_producto %>" alt="<%= producto.nombre_producto %>">
+                    <p class="product-detail-description"><strong>Publicado por: </strong><%= producto.usuario.usuario %></p>
+                    <p class="product-detail-description"><%= producto.descripcion_producto %></p>
                 </article>
                 <div class="col-12 col-lg-4">
                     <!-- Sección de comentarios -->
-                    <h1 class="comentPpal">Comentarios</h1>
-                    <% for (let k = 0; k < comentarios.length; k++) { %>
+                    <h2 class="comentPpal">Comentarios</h2>
+                    <% for (let k = 0; k < producto.comentarios.length; k++) { %>
                         <div class="comment">
-                          <div class="comment-image-container">
-                            <a href="/user/profile"><img class="fotoPerfil" src="<%= comentarios[k].fotoDePerfil %>" alt="Foto de perfil"></a>
-                          </div>
-                          <div class="comment-text-container">
-                            <p class="usuario"><%= comentarios[k].usuario %> ha comentado:</p>
-                            <p class="comentario">"<%= comentarios[k].texto %>"</p>
-                          </div>
+                            <div class="comment-image-container">
+                            <a href="/user/profile"><img class="fotoPerfil" src="<%= producto.comentarios[k].usuario.foto_perfil %>" alt="Foto de perfil"></a>
+                            </div>
+                            <div class="comment-text-container">
+                            <p class="usuario"><%= producto.comentarios[k].usuario.usuario %> ha comentado:</p>
+                            <p class="comentario"><%= producto.comentarios[k].texto_comentario %></p>
+                            </div>
                         </div>
-                      <% } %>
-                 
-                    <h2 class="comentPpal">Agregar Comentario</h2>
-                    <form action="/product/id/<%= index[0].id %>" method="GET">
+                        <% } %>
+                    
+                    <h3 class="comentPpal">Agregar Comentario</h3>
+                    <form action="/product/id/<%= producto.id %>" method="GET">
                         <label for="comentario" class="comentAgregado">Comentario:</label><br>
                         <textarea id="comentario" class="comentarioAgregado" name="comentario" rows="4" cols="50" required></textarea><br><br>
                         
@@ -51,9 +49,6 @@
             </div> 
         </div>   
     </div>
- 
- 
-<% } %>
 
 
 <%- include('./partials/footer') %>

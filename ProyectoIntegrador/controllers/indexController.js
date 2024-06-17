@@ -11,7 +11,6 @@ const indexController = {
             limit: 10
         })
         .then(function(data){  //Este then agarra el db.Product todos los productos y los pone en data
-            console.log("data:",data)
             res.render("index", {data: data} ) //Nos lleva a index.ejs y lo de la funcion data lo pone en data para usarlo en la vista
         })
         .catch(function(error){
@@ -22,5 +21,5 @@ const indexController = {
         return res.render("login", {data:data})
     }
 }
-console.log(this.productos)
+
 module.exports = indexController

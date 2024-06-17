@@ -20,8 +20,8 @@ const userController = {
                errors: errors.mapped(),
                oldData: req.body
             })
+
        } else {
-    
        const usuario = {
            usuario: req.body.usuario,
            email: req.body.email,
@@ -55,8 +55,10 @@ const userController = {
                 errors: errors.mapped(),
                 oldData: req.body
             });
+
         } else {
             const { usuario, password } = req.body;
+
             try {
                 const user = await db.User.findOne({ where: { usuario } }); // Agregamos await para la búsqueda asincrónica
                 if (!user) {

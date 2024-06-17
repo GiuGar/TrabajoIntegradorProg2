@@ -20,6 +20,9 @@ module.exports = function(sequelize, DataTypes) {
         usuario: {
             type: DataTypes.STRING
         },
+        email: {
+            type: DataTypes.STRING
+        },
         password: {
             type: DataTypes.STRING
         },

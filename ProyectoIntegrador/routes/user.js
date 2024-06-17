@@ -1,14 +1,14 @@
 var express = require('express');
 var router = express.Router();
-//Requeri el validation de login para usarlo en la ruta
-const loginValidation = require('../middlewares/login-validator');
 
 let userController = require('../controllers/userController')
+//Requeri el validation de login para usarlo en la ruta
+const loginValidation = require('../middlewares/login-validator');
 const registerValidations = require("../middlewares/register-validator")
 
 // router.get('/', userController.index); 
 router.get('/register', userController.register);
- router.post('/register', registerValidations, userController.store);
+router.post('/register', registerValidations, userController.store);
 //  router.get('/prueba', userController.prueba) para probar que el modelo User esta bien, (si anda)
 
 router.get('/login', userController.login);
