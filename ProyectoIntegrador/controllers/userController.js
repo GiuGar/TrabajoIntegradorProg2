@@ -61,6 +61,7 @@ const userController = {
             .then(function(user){
                 console.log('PASSWORD: ', user.password)
                 let isPasswordValid = bcrypt.compareSync(req.body.password, user.password)
+                console.log("Es valida la contraseña", isPasswordValid)
                 req.session.user = user
                 console.log('aca',user)
                 if(req.body.recordarme != undefined){
