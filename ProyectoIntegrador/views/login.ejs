@@ -16,15 +16,13 @@
 		<form class="formulario" action="/user/login" method="POST"> <!-- Estaría bueno que funcionara con POST, pero se descompaginan el botón y el enter -->
 			<h2 class="products-title">Login</h2>
 
-			<div class="input_field">
-				<label for="usuario">Usuario:</label>
-				<input type="text" class="input" name="usuario" value="<%= locals.oldData && oldData.email ? oldData.email : null %>">
+			  <div class="input_field">
+				<label for="email">Email:</label>
+				<input type="text" class="input" name="email" value="<%= locals.oldData && oldData.email ? oldData.email : null  %>">
 				<!-- vemos si hay errorers y si coincide con el name del input, enviamos el msg -->
 				<% if (locals.errors && errors.email) { %>
-					<div>
-						<%= errors.email.msg %>
-					</div>
-					<% } %>
+				  <div class="error-msg"><%= errors.email.msg %></div>
+				  <% } %>
 			  </div>
 			  <div class="input_field">
 				<label for="password">Contraseña:</label>

@@ -18,6 +18,9 @@ const registerValidation = [
                         throw new Error ("Este email ya está registrado")                    
                     }
                 })
+                .catch(function(error){
+                    console.log(error)
+                })
         }),
     body("usuario")
         .notEmpty()

@@ -44,33 +44,40 @@ const userController = {
     login: function(req, res){
         return res.render('login')
     },
+    
     loginStore:function (req, res) { 
-
         const errors = validationResult(req);
+
         if(!errors.isEmpty()){
             console.log("errores",errors)
-            return res.render('login',{errors: errors.mapped, oldData : req.body})
-        } else{
-            db.User.findOne({
-                //Nos trae un usuario que se logueó
-                where:[{
-                    //El email es el mismo email que ingreso el usuario
-                    email:req.body.email 
-                }] 
+            return res.render("login", { 
+               errors: errors.mapped(),
+               oldData: req.body
             })
-            .then(function(user){
-                console.log('PASSWORD: ', user.password)
-                let isPasswordValid = bcrypt.compareSync(req.body.password, user.password)
-                req.session.user = user
-                console.log('aca',user)
-                if(req.body.recordarme != undefined){
-                    res.cookie("userID", user.id, { maxAge: 1000 * 60 * 5 })
-                }
-                return res.redirect('/')
-            })
-            .catch(function(err){
-                console.log(err)
-            })
+        } else {
+        
+            return res.redirect("/");
+            
+            // db.User.findOne({
+            //     //Nos trae un usuario que se logueó
+            //     where: {
+            //         //El email es el mismo email que ingreso el usuario
+            //         email: req.body.email 
+            //     }
+            // })
+
+            // .then(function(user){
+            //     let isPasswordValid = bcrypt.compareSync(req.body.password, user.password)
+            //     req.session.user = user
+               
+            //     if(req.body.recordarme != undefined){
+            //         res.cookie("userID", user.id, { maxAge: 1000 * 60 * 5 })
+            //     }
+            //     return res.redirect('/')
+            // })
+            // .catch(function(error){
+            //     console.log(error)
+            // })
 
         }
 
