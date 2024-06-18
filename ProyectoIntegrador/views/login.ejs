@@ -18,10 +18,13 @@
 
 			<div class="input_field">
 				<label for="usuario">Usuario:</label>
-				<input type="text" class="input" name="usuario" value="<%= locals.oldData && oldData.usuario ? oldData.usuario : null  %>">
-				<% if (locals.errors && errors.usuario) { %>
-				  <div class="error-msg"><%= errors.usuario.msg %></div>
-				  <% } %>
+				<input type="text" class="input" name="usuario" value="<%= locals.oldData && oldData.email ? oldData.email : null %>">
+				<!-- vemos si hay errorers y si coincide con el name del input, enviamos el msg -->
+				<% if (locals.errors && errors.email) { %>
+					<div>
+						<%= errors.email.msg %>
+					</div>
+					<% } %>
 			  </div>
 			  <div class="input_field">
 				<label for="password">Contraseña:</label>

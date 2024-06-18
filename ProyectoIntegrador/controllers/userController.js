@@ -46,22 +46,37 @@ const userController = {
     },
     loginStore:function (req, res) { 
 
-        // const errors = validationResult(req);
-        db.User.findOne({
-            //Nos trae un usuario que se logueó
-            where:[{
-                //El email es el mismo email que ingreso el usuario
-                email:req.body.email 
-            }] 
-        })
-        .then(function(user){
-            req.session.user = user
-            console.log('user en session',req.session.user)
-            res.resdirect("/")
-        })
-        .catch(function(err){
-            console.log(err)
-        })
+        const errors = validationResult(req);
+        if(!errors.isEmpty()){
+            console.log("errores",errors)
+            return res.render('login',{errors: errors.mapped, oldData : req.body})
+        } else{
+            db.User.findOne({
+                //Nos trae un usuario que se logueó
+                where:[{
+                    //El email es el mismo email que ingreso el usuario
+                    email:req.body.email 
+                }] 
+            })
+            .then(function(user){
+                console.log('PASSWORD: ', user.password)
+                let isPasswordValid = bcrypt.compareSync(req.body.password, user.password)
+                req.session.user = user
+                console.log('aca',user)
+                if(req.body.recordarme != undefined){
+                    res.cookie("userID", user.id, { maxAge: 1000 * 60 * 5 })
+                }
+                return res.redirect('/')
+            })
+            .catch(function(err){
+                console.log(err)
+            })
+
+        }
+
+
+            
+        
         // if (!errors.isEmpty()) {
         //     // Si hay errores, volvemos al login y mapeamos los errores
         //     return res.render("login", {
