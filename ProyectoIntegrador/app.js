@@ -37,7 +37,7 @@ app.use(function(req,res,next){
     console.log('entre en locals')
     console.log('res.locals')
     return next()
-  } //basicamente en este if estoy preguntando a nivel global de la app: si existe un usuario quiero esa infrmacion de usuario replicarla en locals(para usar esa info en las vistas)
+  } //basicamente en este if estoy preguntando a nivel global de la app: si existe un usuario quiero esa informacion de usuario replicarla en locals(para usar esa info en las vistas)
   return next() //en caso de que no entre al if(si no hay usuario), tenemos que asegurarnos que siga con el codigo
 })
 

@@ -7,8 +7,7 @@ const session = require('express-session');
 
 const userController = {
     register: function(req, res){
-        return res.render('register', {"data": data
-        })
+        return res.render('register')
     },
 
     store: function (req, res) {
@@ -113,6 +112,7 @@ const userController = {
             usuario: data.usuario
         });
     },
+
     profileEdit: function(req, res){
         
         const idUser = req.session.user.dni

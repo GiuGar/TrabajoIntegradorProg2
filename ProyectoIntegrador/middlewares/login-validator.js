@@ -5,7 +5,7 @@ const bcryptjs = require("bcryptjs")
 const loginValidation = [
     body("usuario")
     .notEmpty()
-    .withMessage("Debes elegir un nombre de usuario")
+    .withMessage("Debes ingresar un nombre de usuario")
     .custom(function(value, {req}){
         if(req.body.usuario[0] != "@"){
             throw new Error("El nombre de usuario debe comenzar con @")
