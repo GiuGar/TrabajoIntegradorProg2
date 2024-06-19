@@ -13,14 +13,15 @@
 	<!-- Novedades -->
 	<div class="container-formulario">
 
-		<form class="formulario" action="/user/profile" method="POST"> <!-- Estaría bueno que funcionara con POST, pero se descompaginan el botón y el enter -->
+		<form class="formulario" action="/user/login" method="POST"> <!-- Estaría bueno que funcionara con POST, pero se descompaginan el botón y el enter -->
 			<h2 class="products-title">Login</h2>
 
-			<div class="input_field">
-				<label for="usuario">Usuario:</label>
-				<input type="text" class="input" name="usuario" value="<%= locals.oldData && oldData.usuario ? oldData.usuario : null  %>">
-				<% if (locals.errors && errors.usuario) { %>
-				  <div class="error-msg"><%= errors.usuario.msg %></div>
+			  <div class="input_field">
+				<label for="email">Email:</label>
+				<input type="text" class="input" name="email" value="<%= locals.oldData && oldData.email ? oldData.email : null  %>">
+				<!-- vemos si hay errorers y si coincide con el name del input, enviamos el msg -->
+				<% if (locals.errors && errors.email) { %>
+				  <div class="error-msg"><%= errors.email.msg %></div>
 				  <% } %>
 			  </div>
 			  <div class="input_field">
@@ -32,7 +33,7 @@
 			  </div>
 			<div class="input_field">
 				<label for="recordar">Recordarme:</label>
-				<input type="checkbox" class="input" name="recordarme" value="true" required>
+				<input type="checkbox" class="input" name="recordarme" value="true">
 			</div>  
 				<button class="boton-enviar" type="submit">Iniciar sesión</button>
 			  </form>

@@ -1,4 +1,3 @@
-
 const db = require('../database/models');
 const op = db.Sequelize.Op
 //requerimos express validator y validationResult
@@ -9,41 +8,16 @@ const Comentario = db.Comment
 
 
 const productController = {
-    // detalleProducto: function (req,res) {
-    //     Producto.findByPk(req.params.id, {
-    //         include: [{association:'User'}, {association:'comentarios', include:[{association:'usuarios'}]}],
-    //         order: [[{model:Comentario, as: 'comentarios'},'createdAt', 'DESC']]
-    //     })
-    //     .then(function(data){
-    //         return res.render('product', {data: data})
-    //     })
-    //     .catch(function(err){
-    //         console.log(err);
-    //     })
-    // },
     detalleProducto: function (req, res) {
-        // const id = req.params.id
-        // db.Product.findByPk(id)
-        // .then(function(data){
-        
-        //     res.render("product", {data: data} ) //Nos vamos a la vista de index y usamos data que es la que tiene la db
-        // })
-        // .catch(function(error){
-        //     console.log(error)
-        // })
-        let idEnviado = req.params.id;
-        let detalleProducto = [];
-        let comentariosProducto = [];
-        for (let i = 0; i < data.productos.length; i++) {
-            if (idEnviado == data.productos[i].id) {
-                detalleProducto.push(data.productos[i]);
-                comentariosProducto = data.productos[i].comentarios; // Obtener comentarios del producto
-                break; // Terminar el bucle una vez encontrado el producto
-            }
-        }
-        return res.render('product', {
-            index: detalleProducto,
-            comentarios: comentariosProducto // Pasar los comentarios al render
+        Producto.findByPk(req.params.id, {
+            include: [{association: "usuario"}, {association: "comentarios", include: [{association: "usuario"}]}],
+            order: [[{model: Comentario, as: 'comentarios'},'createdAt', 'DESC']]
+        })
+        .then(function(producto){
+            return res.render('product', {producto: producto})
+        })
+        .catch(function(error){
+            console.log(error);
         })
     },
 
@@ -77,27 +51,6 @@ const productController = {
             console.log(error);
         })
     },
-        /* let buscar = req.query.busqueda
-        let resultados = []
-
-        for (let i = 0; i < data.productos.length; i++) {
-            if(buscar.toLowerCase() == data.productos[i].nombre.toLowerCase()) {
-                resultados.push(data.productos[i])
-            }
-        }
-
-        if(resultados.length >= 1) {
-            return res.render("search-results", {
-                mensaje: `Resultados de búsqueda para ${buscar}`,
-                resultados: resultados
-            })
-
-        } else {
-            return res.render("search-results", {
-                mensaje: `No se han encontrado resultados para ${buscar}`,
-                resultados: resultados 
-            })
-            } */
    
     create: function(req,res){ // crea el form
        if(req.session.usuario == undefined){

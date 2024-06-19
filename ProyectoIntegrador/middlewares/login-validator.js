@@ -3,20 +3,44 @@ const db = require("../database/models")
 const bcryptjs = require("bcryptjs")
 
 const loginValidation = [
-    body("usuario")
+    body("email")
     .notEmpty()
-    .withMessage("Debes elegir un nombre de usuario")
+    .withMessage("Debes ingresar un nombre de usuario")
     .custom(function(value, {req}){
-        if(req.body.usuario[0] != "@"){
-            throw new Error("El nombre de usuario debe comenzar con @")
-        }
-        return true
+        return db.User.findOne({
+            where: {email: value
+            },
+        })
+            .then(function(user){
+                if(!user){
+                    throw new Error ("Este email no está registrado")                    
+                }
+                req.user = user;
+            })
+            .catch(function(error){
+                console.log(error)
+            })
     }),
 body("password")
     .notEmpty()
     .withMessage("Debes completar con una contraseña")
-    .isLength({min: 4})
-    .withMessage("La contraseña debe tener al menos 4 caracteres")
+    .custom(function(value,{req}){
+        return db.User.findOne({
+            where: { email: req.body.email}
+        })
+        .then(function(user) {
+            if (user) {
+                const passwordValida = bcryptjs.compareSync(value, user.password)
+                if (!passwordValida) {
+                    throw new Error("Contraseña incorrecta")
+                }
+            }
+        })
+        .catch(function(error){
+           console.log(error)
+        })
+        
+    })        
 ]
 module.exports = loginValidation;
 
