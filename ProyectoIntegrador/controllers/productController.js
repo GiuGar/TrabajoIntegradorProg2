@@ -100,8 +100,14 @@ const productController = {
             } */
    
     create: function(req,res){ // crea el form
-        res.render('product-add');
+       if(req.session.usuario == undefined){
+        return res.redirect('/user/register')
+       }
+       else{
+        return res.redirect('/');
+       }
     },
+       
 
     storeNewProducto: function (req, res) {
         //obtenemos resultados de las validaciones

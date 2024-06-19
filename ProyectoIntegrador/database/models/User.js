@@ -1,5 +1,3 @@
-const { usuario } = require("../../db");
-
 module.exports = function(sequelize, DataTypes) {
     let alias = "User";
     let cols = {
@@ -44,7 +42,7 @@ module.exports = function(sequelize, DataTypes) {
 
     User.associate = function(models) {
         User.hasMany(models.Product, {
-            as: "productos",
+            as: "productos", //alias de como llamo a la relacion en el controller
             foreignKey: "id_usuario"
         });
         User.hasMany(models.Comment, {
