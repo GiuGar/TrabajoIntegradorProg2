@@ -7,47 +7,16 @@
 
 <body>
 	
-	
+	<!-- Nombre de usuario si esta logueado -->
+	<% if (locals.user != undefined) { %>
+		<%- include('./partials/headerLogueado')  %>
+	<% } else { %>
+		<%- include('./partials/headerDeslogueado')  %>
+	<% } %>
+
 	<!-- Banner -->
 	<div class="banner"></div>
 	<!-- /Banner -->
-
-	
-
-	<!-- Nombre de usuario si esta logueado -->
-	
-<% if (local.user) { %>
-	<ul class="right-navbar">
-		 <li><a href="profile.html">
-					<%= locals.user.usuario %> <i class="fas fa-user"></i>
-				</a>
-			</li>
-			<li>
-				<form action="/user/login" method="post">
-					<button class="logout" type="submit">
-						Cerrar sesión <i class="fas fa-sign-in-alt"></i>
-					</button>
-				</form>
-			</li> 
-
-	<% } else{  %>
-			
-		<li>
-			<a href="/user/register">Creá tu cuenta <i class="far fa-address-card"></i>
-			</a>
-		</li>
-		<li>
-			<a href="/user/login"> Login <i class="fas fa-sign-in-alt"></i></a>
-		</li>
-	</ul>
-<% } %>
-
-
-
-
-
-
-
 
 	<!-- Novedades -->
 	<div class="container products-wrapper">
