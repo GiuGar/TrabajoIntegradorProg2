@@ -98,14 +98,12 @@ const userController = {
     },
 
     profile: function(req, res) {
-
         const id = req.session.user.id;
         db.User.findByPk(id, {
-            include: [
-                { association: "productos" },
-            ]
+            include: [{association: "productos"}],
         })
         .then(function(data) {
+            console.log(data)
             return res.render('profile', { data: data });
         })
         .catch(function(error) {
