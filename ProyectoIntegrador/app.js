@@ -50,23 +50,30 @@ app.use(function(req, res, next) {
   }
   return next();
 });
-//  middleware para cookies FALTA ESTO 
-// app.use(function(req, res, next) {
-//   if (req.cookies.usuario != undefined && req.session.user == undefined) {
-//       let idUsuarioEnCookie = req.cookies.usuario;
-//       Usuario.findByPk(idUsuarioEnCookie)
-//       .then((data) => {
-//         req.session.user = data.dataValues;
-//         res.locals.user  = data.dataValues;
-//         return next();
-//       }).catch((err) => {
-//         console.log(err);
-//         return next();
-//       });
-//   } else {
-//     return next();
-//   }
-// });
+//  middleware para cookies
+app.use(function(req,res,next){
+  //Preguntamos si hay cookies y tiene la propiedad de userId
+  if(req.cookies.userId != undefined && req.session.user == undefined){ //si tenemos cookie y el usuario no esta logueado
+    let idDeLaCookie = req.cookies.userId; //capturamos el id q guardamos en la cookie
+
+    db.User.findByPk(idDeLaCookie) //preguntamos a la base de datos cual es el id de la cookies
+    .then(function(user){
+      console.log("middleware de la cookie")
+      req.session.user = user
+      console.log("en la cookie middleware")
+      //Para tener las cookies disponibles en vistas
+      res.locals.user = user;
+      return next()
+    })
+   //si ahay un error desp del codigo de arriba lo muestra aca
+    .catch(function(error){
+      console.log("error en cookies",error)
+    })
+    //si no entra en el if sigue
+  } else{
+    return next()
+  }
+})
 
 app.use('/', indexRouter);
 app.use('/user', userRouter);

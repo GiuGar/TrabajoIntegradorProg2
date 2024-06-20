@@ -5,26 +5,32 @@ const bcryptjs = require("bcryptjs")
 const loginValidation = [
     body("email")
     .notEmpty()
-    .withMessage("Debes ingresar un nombre de usuario")
+    .withMessage("Debes ingresar su email")
+    // .bail()
+    // .isEmail()
     .custom(function(value, {req}){
         return db.User.findOne({
-            where: {email: value
-            },
+            where: {email: value},
         })
             .then(function(user){
                 if(!user){
                     throw new Error ("Este email no está registrado")                    
+                } else{
+                    req.user = user
                 }
-                req.user = user;
+
             })
             .catch(function(error){
                 console.log(error)
             })
     }),
-body("password")
+
+
+    body("password")
     .notEmpty()
     .withMessage("Debes completar con una contraseña")
     .custom(function(value,{req}){
+    
         return db.User.findOne({
             where: { email: req.body.email}
         })
@@ -37,8 +43,7 @@ body("password")
             }
         })
         .catch(function(error){
-           console.log(error)
-        })
+           console.log(error)        })
         
     })        
 ]
