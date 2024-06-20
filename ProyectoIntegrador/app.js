@@ -47,16 +47,16 @@ app.use(function(req,res,next){
 
     db.User.findByPk(idDeLaCookie) //preguntamos a la base de datos cual es el id de la cookies
     .then(function(user){
-      console.log("middleware de la cookie")
+      // console.log("middleware de la cookie")
       req.session.user = user
-      console.log("en la cookie middleware")
+      // console.log("en la cookie middleware")
       //Para tener las cookies disponibles en vistas
       res.locals.user = user;
       return next()
     })
    //si ahay un error desp del codigo de arriba lo muestra aca
     .catch(function(error){
-      console.log("error en cookies",error)
+      console.log("Error en cookies", error)
     })
     //si no entra en el if sigue
   } else{

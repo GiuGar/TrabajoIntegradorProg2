@@ -31,7 +31,7 @@ const userController = {
             db.User.create(usuario)
             .then(function(user) {
                 req.session.user = user; // Guarda el usuario completo en la sesión
-                console.log("Sesión de usuario configurada:", req.session.user);
+                // console.log("Sesión de usuario configurada:", req.session.user);
                 return res.redirect("/user/login");
             })
             .catch(function(error) {
@@ -49,6 +49,8 @@ const userController = {
     },
 
     loginStore: function(req, res) {
+        const errors = validationResult(req);
+
         db.User.findOne({
             where: {
                 email: req.body.email
@@ -57,7 +59,7 @@ const userController = {
         .then(function(user) {
             if (!user) {
                 return res.render('login', {
-                    errors: { email: { msg: 'Email not found' } },
+                    errors: errors.mapped(),
                     oldData: req.body
                 });
             }
@@ -65,13 +67,13 @@ const userController = {
             let validPassword = bcryptjs.compareSync(req.body.password, user.password);
             if (!validPassword) {
                 return res.render('login', {
-                    errors: { password: { msg: 'Incorrect password' } },
+                    errors: errors.mapped(),
                     oldData: req.body
                 });
             }
 
             req.session.user = user;
-            console.log("Sesión de usuario configurada:", req.session.user);
+            // console.log("Sesión de usuario configurada:", req.session.user);
 
             if (req.body.recordarme != undefined) {
                 res.cookie('userId', user.id, { maxAge: 1000 * 60 * 5 });

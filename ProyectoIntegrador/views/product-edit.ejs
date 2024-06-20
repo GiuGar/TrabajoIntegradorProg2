@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<!-- Head -->
+<%- include('./partials/head') %>	
+<!-- /Head -->
+<body>
+	<!-- Header -->
+	<% if (locals.user != undefined) { %>
+		<%- include('./partials/headerLogueado')  %>
+	<% } else { %>
+		<%- include('./partials/headerDeslogueado')  %>
+	<% } %>
+	<!-- /Header -->
+
+	<!-- Novedades -->
+	<div class="container-formulario">
+
+        <% if (locals.user.email == producto.usuario.email) { %>
+        
+		<form class="formulario" action="/product/edit/id/<%= producto.id %>" method="POST"> 
+			<h2 class="products-title">Modificar Producto: <%= producto.nombre_producto %></h2>
+			<div class="input_field">
+				<label for="fotoPerfil">Imagen del producto (URL):</label>
+				<input type="text" id="fotoPerfil" name="imagen" value="<%= locals.oldData && oldData.imagen ? oldData.imagen : null %>" placeholder="Actual: <%= producto.imagen_producto %>">
+				<% if (locals.errors && errors.imagen ) { %>
+					<div class="error-msg"><%= errors.imagen.msg %></div> 
+				<% } %>
+			</div>
+			<div class="input_field">
+				<label for="nombre">Nombre del Producto:</label>
+				<input type="text" id="nombre" name="nombre_producto" value="<%= locals.oldData && oldData.nombre_producto ? oldData.nombre_producto : null %>" placeholder="Actual: <%= producto.nombre_producto %>"> 
+				<% if (locals.errors && errors.nombre_producto) { %>
+					<div class="error-msg"> <%= errors.nombre_producto.msg %> </div>
+				<% } %>
+			</div>
+			<div class="input_field">
+				<label for="descripcion">Descripción:</label>
+				<textarea id="descripcion" name="descripcion_producto" value="<%= locals.oldData && oldData.descripcion_producto ? oldData.descripcion_producto : null %>" placeholder="Actual: <%= producto.descripcion_producto %>"> </textarea>
+				<% if (locals.errors && errors.descripcion_producto) { %>
+					<div class="error-msg"><%= errors.descripcion_producto.msg %></div>
+				<% } %>
+			</div>
+			<button class="boton-enviar" value="" type="submit">Modificar Producto </button>
+		</form>
+
+        <% } else { %>
+            <form class="formulario" action="/product/edit/id/<%= producto.id %>" method="POST"> 
+                <h2 class="products-title">No puede modificar este producto: <%= producto.nombre_producto %></h2>
+            </form>
+        <% } %>
+	</div>	
+
+	<!-- footer -->
+	<%- include('./partials/footer') %>	
+	<!-- /footer -->
+</body>
+
+</html>

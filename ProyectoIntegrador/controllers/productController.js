@@ -9,7 +9,7 @@ const Comentario = db.Comment
 
 const productController = {
     detalleProducto: function (req, res) {
-        Producto.findByPk(req.params.id, {
+        db.Product.findByPk(req.params.id, {
             include: [{association: "usuario"}, {association: "comentarios", include: [{association: "usuario"}]}],
             order: [[{model: Comentario, as: 'comentarios'},'createdAt', 'DESC']]
         })
@@ -59,7 +59,6 @@ const productController = {
             return res.render('registerNewProd');
         }
     },
-       
 
     storeNewProducto: function (req, res) {
         //obtenemos resultados de las validaciones
@@ -76,7 +75,7 @@ const productController = {
          let product = {
             
             id_usuario: userId,
-            imagen_producto: req.body.imagen,
+            imagen_producto: "/images/products/" + req.body.imagen,
             nombre_producto: req.body.nombre_producto,  
             descripcion_producto: req.body.descripcion_producto
             
@@ -91,6 +90,64 @@ const productController = {
         }
         
     },
+       
+    edit: function(req, res) {
+        db.Product.findByPk(req.params.id, {
+            include: [{association: "usuario"}],
+        })
+        .then(function(producto){
+            return res.render('product-edit', {producto: producto})
+        })
+        .catch(function(error){
+            console.log(error);
+        })
+    },
+
+    editedProduct: function(req, res) {
+        const errors = validationResult(req);
+
+        if (!errors.isEmpty()) {
+            console.log("errors:", JSON.stringify(errors, null, 4));
+            return res.render("register", { 
+                errors: errors.mapped(),
+                oldData: req.body
+            });
+        } else {
+    
+            db.Product.update({
+                imagen_producto: req.body.imagen,
+                nombre_producto: req.body.nombre_producto,
+                descripcion_producto: req.body.descripcion_producto,
+            },
+                { where: { id: req.params.id }
+            })
+
+            .then(function(product) {
+                return res.redirect(`/product/id/${req.params.id}`);
+            })
+
+            .catch(function(error) {
+                console.log("Error al modificar el producto", error);
+            });
+        }
+    },
+
+    delete: function(req, res) {
+        db.Product.destroy({
+            where: [
+                { id: req.params.id }
+            ]
+        })
+
+        .then(function(product) {
+            return res.redirect("/");
+        })
+
+        .catch(function(error) {
+            console.log("Error al eliminar el producto", error);
+        });
+    },
+    
     // prueba: function(req,res){
     //     db.Product.findAll()
     //     .then(function(productos){
