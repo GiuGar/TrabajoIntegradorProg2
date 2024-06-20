@@ -49,6 +49,8 @@ const userController = {
     },
 
     loginStore: function(req, res) {
+        const errors = validationResult(req);
+
         db.User.findOne({
             where: {
                 email: req.body.email
@@ -57,7 +59,7 @@ const userController = {
         .then(function(user) {
             if (!user) {
                 return res.render('login', {
-                    errors: { email: { msg: 'Email not found' } },
+                    errors: errors.mapped(),
                     oldData: req.body
                 });
             }
@@ -65,7 +67,7 @@ const userController = {
             let validPassword = bcryptjs.compareSync(req.body.password, user.password);
             if (!validPassword) {
                 return res.render('login', {
-                    errors: { password: { msg: 'Incorrect password' } },
+                    errors: errors.mapped(),
                     oldData: req.body
                 });
             }
