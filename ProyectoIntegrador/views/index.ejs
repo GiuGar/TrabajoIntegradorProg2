@@ -8,13 +8,12 @@
 <body>
 	
 	<!-- Nombre de usuario si esta logueado -->
+	
 	<% if (locals.user != undefined) { %>
 		<%- include('./partials/headerLogueado')  %>
 	<% } else { %>
 		<%- include('./partials/headerDeslogueado')  %>
 	<% } %>
-
-	
 
 	<!-- Banner -->
 	<div class="banner"></div>
