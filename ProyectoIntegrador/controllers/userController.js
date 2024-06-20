@@ -87,11 +87,13 @@ const userController = {
     },
 
     logout: function(req, res) {
+        console.log("Intentando cerrar sesión para el usuario:", req.session.user);
         req.session.destroy(function(err) {
             if (err) {
-                console.log(err);
+                console.log("Error al destruir la sesión:", err);
             } else {
                 res.clearCookie('userId');
+                console.log("Sesión destruida y cookie eliminada. Redirigiendo al usuario a la página principal.");
                 return res.redirect('/');
             }
         });
@@ -102,11 +104,11 @@ const userController = {
         const id = req.session.user.id;
         db.User.findByPk(id, {
             include: [
-                { association: "productos" },
-            ],
-            order: [
-                []
+                { association: "productos" }
             ]
+            // order: [
+            //     []
+            // ]
         })
         .then(function(data) {
             return res.render('profile', { data: data });
