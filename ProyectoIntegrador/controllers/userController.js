@@ -92,15 +92,7 @@ const userController = {
     }
     },
 
-    logout: function(req,res){ //destruimos session y cookie pq sino la cookie me la vuelve a crear
-        //Destruir la sessión
-        req.session.destroy();
-
-        //Destruir la coockie
-        res.clearCookie("userId")
-        
-        //redireccionar a home
-        res.redirect('/');
+    logout: function(req,res){ 
     
     },
 
