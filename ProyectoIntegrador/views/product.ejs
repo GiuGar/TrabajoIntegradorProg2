@@ -31,7 +31,7 @@
             <div class="row">
                 <article class="col-12 col-lg-8 product-detail-info">
                     <img src="<%= producto.imagen_producto %>" alt="<%= producto.nombre_producto %>">
-                    <p class="product-detail-description"><strong>Publicado por: </strong><a href="/user/profile/id/<%= producto.id_usuario %>"><%= producto.usuario.usuario %></a></p>
+                    
                     <p class="product-detail-description"><%= producto.descripcion_producto %></p>
                 </article>
                 <div class="col-12 col-lg-4">
@@ -43,7 +43,7 @@
                             <a href="/user/profile"><img class="fotoPerfil" src="<%= producto.comentarios[k].usuario.foto_perfil %>" alt="Foto de perfil"></a>
                             </div>
                             <div class="comment-text-container">
-                            <p class="usuario"><%= producto.comentarios[k].usuario.usuario %> ha comentado:</p>
+                            <p class="usuario"><%= producto.comentarios[k].usuario.usuario %> Ha comentado:</p>
                             <p class="comentario"><%= producto.comentarios[k].texto_comentario %></p>
                             </div>
                         </div>

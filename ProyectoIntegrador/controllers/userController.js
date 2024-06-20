@@ -92,17 +92,16 @@ const userController = {
     }
     },
 
-    logout: function(req, res) {
-        console.log("Intentando cerrar sesión para el usuario:", req.session.user);
-        req.session.destroy(function(err) {
-            if (err) {
-                console.log("Error al destruir la sesión:", err);
-            } else {
-                res.clearCookie('userId');
-                console.log("Sesión destruida y cookie eliminada. Redirigiendo al usuario a la página principal.");
-                return res.redirect('/');
-            }
-        });
+    logout: function(req,res){ //destruimos session y cookie pq sino la cookie me la vuelve a crear
+        //Destruir la sessión
+        req.session.destroy();
+
+        //Destruir la coockie
+        res.clearCookie("userId")
+        
+        //redireccionar a home
+        res.redirect('/');
+    
     },
 
     profile: function(req, res) {
