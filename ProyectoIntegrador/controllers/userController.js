@@ -1,4 +1,3 @@
-// let data = require('../db/index');
 const db = require('../database/models')
 const {validationResult} = require("express-validator")
 const bcryptjs = require("bcryptjs");
@@ -29,7 +28,8 @@ const userController = {
            dni: req.body.dni,
            foto_perfil: req.body.imagen,
        };
-       
+       req.session.user = usuario
+           
        db.User
            .create(usuario)
            .then(function (user) {
@@ -75,6 +75,16 @@ const userController = {
             })
 
         }
+    },
+
+    logout: function(req,res){
+        //Destruimos sesion 
+        req.session.destroy();
+        //Destruimos cookie
+
+        //redireccionamos al home
+        return res.redirect('/')
+    },
 
 
             
@@ -121,7 +131,6 @@ const userController = {
         //         });
         //     }
         // }
-    },
   
     profile: function(req, res){
         return res.render('profile', {
@@ -138,16 +147,8 @@ const userController = {
 
         })
     },
-//     prueba: function(req,res){
-//         db.User.findAll()
-//         .then(function(data){
-//           console.log('datos de producto:', JSON.stringify(data, null, 4));
-//           res.send(data)
-//         })
-//         .catch(function(e){
-//           console.log(e);
-//         })
-// }
+
+
 };
 
 module.exports = userController

@@ -16,6 +16,8 @@ router.post('/login', loginValidation, userController.loginStore);
 
 router.get('/profile', userController.profile)
 
+router.get('/logout', userController.logout)
+
 // router.get('/edit', userController.profileEdit)
 // router.post('/storeprofile', userController.storeProfile)
 

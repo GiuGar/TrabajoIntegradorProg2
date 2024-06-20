@@ -9,12 +9,13 @@
 	<div class="container-header">
 
 		<h1 class="nombre-marca"> BOHO STYLE </h1>
-		
+
 		<div class="buscador">
 			<form action="/product/resultados" method="GET" class="search-form">
 				<input type="text" name="busqueda" placeholder="Buscar productos, marcas y más" class="search-form_input">
 				<button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
 			</form>
+			
 		</div>
 	
 		<!--ESTO QUE ES?????-->
@@ -24,21 +25,22 @@
 		
 			<nav class="main-navbar">
 				<ul class="left-navbar">
-					<li><a href="/">Productos</a></li>
-					<li><a href="/product/add">Cargar productos</a></li> 
+					<li><a href="/">Productos</a></li> 
+					<!-- <li><a href="/product/create" class="agregarProd" > Agregar producto</a></li> -->
 				</ul>
+			
 	
 				<ul class="right-navbar">
 					<li><a href="/user/profile">MirthaLaEmpoderada <i class="fas fa-user"></i></a>
 					</li>
 					<li>
-						<form action="" method="post">
-							<button class="logout" type="submit">
+							<form action="/user/logout" method="post">
 								<a href="/">Cerrar sesión <i class="fas fa-sign-in-alt"></i></a>
-							</button>
-						</form>
+							</form>
 					</li> 
 				</ul>
 			</nav>
+			
 	</div>
+	
 </header>

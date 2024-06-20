@@ -52,13 +52,12 @@ const productController = {
         })
     },
    
-    create: function(req,res){ // crea el form
-       if(req.session.usuario == undefined){
-        return res.redirect('/user/register')
-       }
-       else{
-        return res.redirect('/');
-       }
+    create: function(req, res) {
+        if (req.session.user != undefined) {
+            return res.render('product-add');
+        } else {
+            return res.redirect('/user/register');
+        }
     },
        
 
