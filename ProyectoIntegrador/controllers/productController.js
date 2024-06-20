@@ -56,7 +56,7 @@ const productController = {
         if (req.session.user != undefined) {
             return res.render('product-add');
         } else {
-            return res.redirect('/user/register');
+            return res.render('registerNewProd');
         }
     },
        
@@ -72,10 +72,14 @@ const productController = {
         }
         else{
             // guardar un nuevo producto en la base de datos
+         const userId = req.session.user.id
          let product = {
+            
+            id_usuario: userId,
             imagen_producto: req.body.imagen,
             nombre_producto: req.body.nombre_producto,  
             descripcion_producto: req.body.descripcion_producto
+            
          }
          db.Product.create(product)
          .then(function(){

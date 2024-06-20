@@ -243,6 +243,12 @@ hr {
   color: var(--darkest-pink);
 }
 
+.register-title {
+  font-size: 2.6em;
+  font-weight: 400;
+  color: #4b2243;
+}
+
 .product-box {
   background-color:  #eee1dd;
   border-radius: 5px;

@@ -17,7 +17,7 @@ router.post('/logout', userController.logout);
 
 router.get('/profile', userController.profile)
 
-router.get('/logout', userController.logout)
+//router.get('/logout', userController.logout)
 
 // router.get('/edit', userController.profileEdit)
 // router.post('/storeprofile', userController.storeProfile)
