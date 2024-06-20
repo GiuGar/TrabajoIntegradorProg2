@@ -67,30 +67,16 @@ const userController = {
         //             //El email es el mismo email que ingreso el usuario
         //             email: req.body.email 
         //         }
-        //     })
-        //     .then(function(user){
-        //         let validPassword = bcrypt.compareSync(req.body.password, user.password)
-        //     console.log('validPassword? :', validPassword);
-
-        //         req.session.user = user;
-        //         if(req.body.recordarme != undefined){
-        //             res.cookie('userId',user.id,{maxAge: 1000 * 60 * 5})
-        //             console.log(res.cookie.userId)
-        //         }
-        //         return res.redirect("/");
-        //     })
-        //     .catch(function(error){
-        //         console.log(error)
-        //     })
-
-        // } 
 
         db.User.findOne({
             where:[{
-                email: req.body.email 
+                email: req.body.email,
             }]
         })
         .then(function(user){ //Esta funcion nos devuelve el resultado de where
+            //Recibe la password q puso el usuario en el formulario, y el 2 parametro es el "name" del form
+            let ValidPassword= bcryptjs.compareSync(req.body.password,user.password) 
+            console.log('validPassword:',ValidPassword)
             //Guardar al usuario en session
             req.session.user = user
             console.log('user en session:',req.session.user)
