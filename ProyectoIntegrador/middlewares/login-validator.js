@@ -5,7 +5,7 @@ const bcryptjs = require("bcryptjs")
 const loginValidation = [
     body("email")
     .notEmpty()
-    .withMessage("Debes ingresar su email")
+    .withMessage("Debe ingresar su email")
     // .bail()
     // .isEmail()
     .custom(function(value, {req}){
