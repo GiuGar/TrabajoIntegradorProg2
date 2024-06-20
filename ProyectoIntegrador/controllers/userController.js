@@ -110,6 +110,9 @@ const userController = {
         db.User.findByPk(id, {
             include: [
                 { association: "productos" },
+            ],
+            order: [
+                []
             ]
         })
         .then(function(data) {
