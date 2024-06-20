@@ -16,9 +16,7 @@ const loginValidation = [
                 .then(function(user){
                     if(!user){
                         throw new Error ("Este email no está registrado")                    
-                    } else{
-                        req.user = user
-                    }
+                    } 
 
                 })
                 .catch(function(error){
@@ -37,14 +35,15 @@ const loginValidation = [
         })
         .then(function(user) {
             if (user) {
-                const passwordValida = bcryptjs.compareSync(value, user.password)
+                const passwordValida = bcryptjs.compareSync(value, user.password) //Compara con la contraseña q ingresa el usuario y la de la base de datos
                 if (!passwordValida) {
                     throw new Error("Contraseña incorrecta")
                 }
             }
         })
         .catch(function(error){
-           console.log(error)        })
+           console.log(error)        
+        })
         
     })        
 ]
