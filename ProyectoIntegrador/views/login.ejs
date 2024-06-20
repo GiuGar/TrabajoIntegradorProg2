@@ -13,12 +13,12 @@
 	<!-- Novedades -->
 	<div class="container-formulario">
 
-		<form class="formulario" action="/user/login" method="POST"> <!-- Estaría bueno que funcionara con POST, pero se descompaginan el botón y el enter -->
+		<form class="formulario" action="/user/login" method="POST" novalidate> <!-- Estaría bueno que funcionara con POST, pero se descompaginan el botón y el enter -->
 			<h2 class="products-title">Login</h2>
 
 			  <div class="input_field">
 				<label for="email">Email:</label>
-				<input type="text" class="input" name="email" value="<%= locals.oldData && oldData.email ? oldData.email : null  %>">
+				<input type="text" class="input" name="email" value="">
 				<!-- vemos si hay errorers y si coincide con el name del input, enviamos el msg -->
 				<% if (locals.errors && errors.email) { %>
 				  <div class="error-msg"><%= errors.email.msg %></div>
