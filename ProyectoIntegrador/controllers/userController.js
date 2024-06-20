@@ -2,7 +2,7 @@ const db = require('../database/models');
 const { validationResult } = require('express-validator');
 const bcryptjs = require('bcryptjs');
 const session = require('express-session');
-const { where, Association } = require('sequelize');
+
 
 const userController = {
     register: function(req, res) {
@@ -49,41 +49,47 @@ const userController = {
     },
 
     loginStore: function(req, res) {
-        const errors = validationResult(req);
 
-        db.User.findOne({
-            where: {
-                email: req.body.email
-            }
+        //Obtenemos los resultados de las validaciones
+        const resultValidation = validationResult(req)
+        //Preguntamos si hay errores y que nos mande al login-validator
+        if(!resultValidation.isEmpty()){
+            return res.render('login', {
+                        errors: resultValidation.mapped(),  
+                        oldData:req.body 
+                    })
+                }else{ //Si no hay errores pasa a todo lo demas
+                    
+                 // Buscar el usuario que se quiere loguear.
+       db.User.findOne({  //este User es el alias 
+        where:[{
+            email:req.body.email, //esto nos trae el usuario q se logueo con ese mail
+            
+        }],
         })
-        .then(function(user) {
-            if (!user) {
-                return res.render('login', {
-                    errors: errors.mapped(),
-                    oldData: req.body
-                });
-            }
+        .then(function(user){ //Esta funcion nos devuelve el resultado de where
+            //Recibe la password q puso el usuario en el formulario, y el 2 parametro es el "name" del form
+            let ValidPassword= bcryptjs.compareSync(req.body.password,user.password) 
+            console.log('validPassword:',ValidPassword)
+            //Guardar al usuario en session
+            req.session.user = user
+            console.log('user en session:',req.session.user)
 
-            let validPassword = bcryptjs.compareSync(req.body.password, user.password);
-            if (!validPassword) {
-                return res.render('login', {
-                    errors: errors.mapped(),
-                    oldData: req.body
-                });
-            }
-
-            req.session.user = user;
-            // console.log("Sesión de usuario configurada:", req.session.user);
-
-            if (req.body.recordarme != undefined) {
-                res.cookie('userId', user.id, { maxAge: 1000 * 60 * 5 });
-                console.log("Cookie userId configurada:", res.cookie.userId);
-            }
-            return res.redirect('/');
+             //Si apreta recordarme que haga las cookies (utilizamos el "name" del formulario)
+        if(req.body.recordarme != undefined){
+            //El 1 parametro es el nombre que queremos guardar en este caso 'userId'
+            //(Lo sacamos del app.js cookies )
+            //El 2 accedemos al id del usuario de la promesa
+            //El 3 es el tiempo
+            res.cookie('userId', user.id, {maxAge: 1000 * 60 * 5})
+        }
+        return res.redirect('/')
+        //Para ver la cookie tenemos que ir a inspeccionar en google y a cookies
         })
         .catch(function(error) {
             console.log(error);
         });
+    }
     },
 
     logout: function(req, res) {
