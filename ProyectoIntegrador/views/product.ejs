@@ -49,13 +49,26 @@
                         </div>
                         <% } %>
                     
-                    <h3 class="comentPpal">Agregar Comentario</h3>
-                    <form action="/product/id/<%= producto.id %>" method="GET">
+                     <% if (locals.user) { %>
+                        <form action="/product/id/<%= producto.id %>" method="post">
+                            <input class="boton-enviar" type="submit" name="comentario" value="">
+                            <% if (locals.errors && errors.comentario) { %>
+                                <div class="error-msg"><%= errors.comentario.msg %></div>
+                            <% } %>
+                                <h3 class="comentPpal">Agregar Comentario</h3>
+                        </form>
+                            <% } else {%>
+                                <h3 class="comentPpal">Debe iniciar sesion para comentario</h3>
+                                <p><a href="/user/login">Inicie sesion</a></p>
+                     <% } %>   
+
+                    
+                    <form action="/product/id/<%= producto.id %>" method="post">
                         <label for="comentario" class="comentAgregado">Comentario:</label><br>
                         <textarea id="comentario" class="comentarioAgregado" name="comentario" rows="4" cols="50" required></textarea><br><br>
                         
-                        <input class="boton-enviar" type="submit" value="Agregar Comentario">
-                    </form>
+                        
+                    
                 </div>     
             </div> 
         </div>   

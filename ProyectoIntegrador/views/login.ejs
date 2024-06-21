@@ -18,15 +18,18 @@
 
 			  <div class="input_field">
 				<label for="email">Email:</label>
-				<input type="text" class="input" name="email" value="">
+				<input type="email" class="input" name="email" required
+				value="<%= locals.oldData && oldData.email ? oldData.email : null %>">
 				<!-- vemos si hay errorers y si coincide con el name del input, enviamos el msg -->
 				<% if (locals.errors && errors.email) { %>
-				  <div class="error-msg"><%= errors.email.msg %></div>
+				  <div class="error-msg"><%= errors.email.msg %>
+				</div>
 				  <% } %>
 			  </div>
 			  <div class="input_field">
 				<label for="password">Contraseña:</label>
-				<input type="password" class="input" name="password" value="">
+				<input type="password" class="input" name="password" required
+				novalidate>
 				<% if (locals.errors && errors.password) { %>
 				  <div class="error-msg"><%= errors.password.msg %></div>
 				  <% } %>

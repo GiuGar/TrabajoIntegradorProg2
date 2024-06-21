@@ -68,12 +68,13 @@ const userController = {
         }],
         })
         .then(function(user){ //Esta funcion nos devuelve el resultado de where
+            console.log('PASSWORD : ', user.password);
             //Recibe la password q puso el usuario en el formulario, y el 2 parametro es el "name" del form
             let ValidPassword= bcryptjs.compareSync(req.body.password,user.password) 
             console.log('validPassword:',ValidPassword)
             //Guardar al usuario en session
             req.session.user = user
-            console.log('user en session:',req.session.user)
+            console.log('user en session:',user)
 
              //Si apreta recordarme que haga las cookies (utilizamos el "name" del formulario)
         if(req.body.recordarme != undefined){
