@@ -133,19 +133,32 @@ const productController = {
     },
 
     delete: function(req, res) {
-        db.Product.destroy({
-            where: [
-                { id: req.params.id }
-            ]
+        db.Product.findByPk(req.params.id, {
+            include: [{association: "usuario"}]
+        })
+        .then(function(producto){
+            let usuario = producto.usuario.id
+            return usuario
+        })
+        .catch(function(error){
+            console.log(error);
         })
 
-        .then(function(product) {
-            return res.redirect("/");
-        })
+            if (usuario = req.session.user.id) {
+            db.Product.destroy({
+                where: [
+                    { id: req.params.id }
+                ]
+            })
 
-        .catch(function(error) {
-            console.log("Error al eliminar el producto", error);
-        });
+            .then(function(product) {
+                return res.redirect("/");
+            })
+
+            .catch(function(error) {
+                console.log("Error al eliminar el producto", error);
+            });
+            }
     },
     
     // prueba: function(req,res){

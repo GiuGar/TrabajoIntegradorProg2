@@ -5,9 +5,8 @@ const db = require('../database/models');
 const indexController = {
     productos: function(req,res){
         db.Product.findAll({
-            order:[
-                ["createdAt","DESC"]
-            ],
+            include: [{association: "usuario"}],
+            order:[["createdAt","DESC"]],
             limit: 10
         })
         .then(function(data){  //Este then agarra el db.Product todos los productos y los pone en data
@@ -17,9 +16,6 @@ const indexController = {
             console.log(error)
         })
     },
-    login: function(req,res){
-        return res.render("login", {data:data})
-    }
 }
 
 module.exports = indexController

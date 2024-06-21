@@ -63,7 +63,7 @@ const userController = {
                  // Buscar el usuario que se quiere loguear.
        db.User.findOne({  //este User es el alias 
         where:[{
-            email:req.body.email, //esto nos trae el usuario q se logueo con ese mail
+            email: req.body.email, //esto nos trae el usuario q se logueo con ese mail
             
         }],
         })
@@ -105,14 +105,18 @@ const userController = {
     },
 
     profile: function(req, res) {
-        const id = req.session.user.id;
-        db.User.findByPk(id, {
+        const idUsuario = req.params.id
+        
+        db.User.findByPk(idUsuario, {
             include: [{association: "productos"}],
+            order: [[{model: db.Product, as: 'productos'},'createdAt', 'DESC']]
         })
+
         .then(function(data) {
             console.log(data)
             return res.render('profile', { data: data });
         })
+        
         .catch(function(error) {
             console.log(error);
         });

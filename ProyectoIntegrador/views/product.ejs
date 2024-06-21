@@ -21,9 +21,17 @@
                     </form>
                 </p>
                 <p class="product-detail-description">
-                    <form action="/product/delete/id/<%= producto.id %>" method="POST">
-                        <button type="submit" class="boton-enviar">Eliminar producto</button>
-                    </form>
+                    <form action="/product/delete/id/<%= producto.id %>" method="POST" onsubmit="return confirmar()">
+                    <button type="subit" class="boton-enviar">Eliminar producto</button>
+                    </form> 
+                        <script>
+                            function confirmar(){
+                                const aprobacion = confirm("¿Deseas eliminar este producto?")
+                                return aprobacion
+                            }
+                        </script> 
+                        
+                    
                 </p>
             <% } %>
         </div>
@@ -31,7 +39,7 @@
             <div class="row">
                 <article class="col-12 col-lg-8 product-detail-info">
                     <img src="<%= producto.imagen_producto %>" alt="<%= producto.nombre_producto %>">
-                    
+                    <p class="product-detail-description"><strong>Publicado por: </strong><a href="/user/profile/id/<%= producto.id_usuario %>"><%= producto.usuario.usuario %></a></p>
                     <p class="product-detail-description"><%= producto.descripcion_producto %></p>
                 </article>
                 <div class="col-12 col-lg-4">

@@ -30,7 +30,7 @@
 			
 	
 				<ul class="right-navbar">
-					<li><a href="/user/profile">Hola <%= locals.user.usuario %> <i class="fas fa-user"></i></a>
+					<li><a href="/user/profile/id/<%= locals.user.id %>">Hola <%= locals.user.usuario %> <i class="fas fa-user"></i></a>
 					</li>
 					<li>
 							<form action="/user/logout" method="post">
