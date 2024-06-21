@@ -51,7 +51,7 @@
                     
                         <% if (locals.user) { %>
                             <h3 class="comentPpal">Agregar Comentario</h3>
-                            <form action="/product/id/<%= data[i].id %>" method="post">
+                            <form action="/product/id/<%= producto.id %>" method="post">
                                 <input class="boton-enviar" type="submit" name="comentario" value="Agregar Comentario">
                                 <br><br>
                                 <label for="comentario" class="comentAgregado">Comentario:</label><br>
@@ -61,7 +61,7 @@
                                 <% } %>
                             <% } else {%>
                                     <h3 class="comentPpal">Debe iniciar sesion para comentar</h3>
-                                    <p><a href="/user/login">Iniciar sesion</a></p>
+                                    <button class="boton-enviar"><a href="/user/login">Iniciar sesion</a></button>
                             <% } %> 
                 </div>     
             </div> 

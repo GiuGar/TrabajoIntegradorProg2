@@ -172,8 +172,44 @@ const productController = {
     //     })
     // }
     comentario: function(req, res) {
-        // const errors = validationResult(req);
-        // if (req.session.user)
+        const errors = validationResult(req);
+        if (req.session.user != undefined){
+            if(errors.isEmpty()){
+                let id = req.params.id
+
+                db.Comment.create({
+                    comentario : req.body.comentario,
+                    idUser : req.session.user.id,
+                    idProduct : req.params.id
+                })
+
+                .then(function(data){
+                    res.redirect(`/product/id/${id}`)
+                })
+                .catch(function(error){
+                    console.log(error)
+                })
+            }
+            else{
+                let id = req.params.id
+
+                db.Product.findByPk(id,{include:[{association:'Comment',
+                     include: {association: 'User'}},
+                             {association: 'User'}]})
+            
+            .then(function(data){
+                return res.render("product", { 
+                    data: data.idProduct,
+                    errors: errors.mapped(),
+                    oldData: req.body
+                });
+            })
+            .catch(function(error){
+                console.log(error)
+            })
+        
+        }
+        }
         
     },
 
