@@ -10,8 +10,7 @@ const registerValidation = [
         .withMessage("Debes escribir un formato de email valido")
         .custom(function(value, {req}){
             return db.User.findOne({
-                where: {email: value
-                },
+                where: {email: value},
             })
                 .then(function(user){
                     if(user){

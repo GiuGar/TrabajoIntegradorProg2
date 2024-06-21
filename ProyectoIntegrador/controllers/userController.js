@@ -63,7 +63,7 @@ const userController = {
                  // Buscar el usuario que se quiere loguear.
        db.User.findOne({  //este User es el alias 
         where:[{
-            email:req.body.email, //esto nos trae el usuario q se logueo con ese mail
+            email: req.body.email, //esto nos trae el usuario q se logueo con ese mail
             
         }],
         })
@@ -93,24 +93,31 @@ const userController = {
     }
     },
 
-    logout: function(req,res){ 
+    logout: function(req,res){ //destruimos session y cookie pq sino la cookie me la vuelve a crear
+        //Destruir la sessión
+        req.session.destroy();
+
+        //Destruir la coockie
+        res.clearCookie("userId")
+        
+        //redireccionar a home
+        res.redirect('/');
     
     },
 
     profile: function(req, res) {
-
-        const id = req.session.user.id;
-        db.User.findByPk(id, {
-            include: [
-                { association: "productos" },
-            ],
-            order: [
-                []
-            ]
+        const idUsuario = req.params.id
+        
+        db.User.findByPk(idUsuario, {
+            include: [{association: "productos"}],
+            order: [[{model: db.Product, as: 'productos'},'createdAt', 'DESC']]
         })
+
         .then(function(data) {
+            console.log(data)
             return res.render('profile', { data: data });
         })
+        
         .catch(function(error) {
             console.log(error);
         });

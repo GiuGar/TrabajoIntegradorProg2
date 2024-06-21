@@ -21,9 +21,17 @@
                     </form>
                 </p>
                 <p class="product-detail-description">
-                    <form action="/product/delete/id/<%= producto.id %>" method="POST">
-                        <button type="submit" class="boton-enviar">Eliminar producto</button>
-                    </form>
+                    <form action="/product/delete/id/<%= producto.id %>" method="POST" onsubmit="return confirmar()">
+                    <button type="subit" class="boton-enviar">Eliminar producto</button>
+                    </form> 
+                        <script>
+                            function confirmar(){
+                                const aprobacion = confirm("¿Deseas eliminar este producto?")
+                                return aprobacion
+                            }
+                        </script> 
+                        
+                    
                 </p>
             <% } %>
         </div>
@@ -43,7 +51,7 @@
                             <a href="/user/profile"><img class="fotoPerfil" src="<%= producto.comentarios[k].usuario.foto_perfil %>" alt="Foto de perfil"></a>
                             </div>
                             <div class="comment-text-container">
-                            <p class="usuario"><%= producto.comentarios[k].usuario.usuario %> ha comentado:</p>
+                            <p class="usuario"><%= producto.comentarios[k].usuario.usuario %> Ha comentado:</p>
                             <p class="comentario"><%= producto.comentarios[k].texto_comentario %></p>
                             </div>
                         </div>

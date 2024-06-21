@@ -15,7 +15,7 @@ router.post('/login', loginValidation, userController.loginStore);
 router.post('/logout', userController.logout);
 
 
-router.get('/profile', userController.profile)
+router.get('/profile/id/:id', userController.profile)
 
 //router.get('/logout', userController.logout)
 

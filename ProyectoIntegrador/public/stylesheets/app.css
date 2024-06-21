@@ -690,6 +690,7 @@ textarea.form-input {
 .foto-perfil{
   border-radius: 50%;
   width: 13vw;
+  margin-right: 5vw;
   height: auto;
 }
 
