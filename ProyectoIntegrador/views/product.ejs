@@ -21,17 +21,9 @@
                     </form>
                 </p>
                 <p class="product-detail-description">
-                    <form action="/product/delete/id/<%= producto.id %>" method="POST" onsubmit="return confirmar()">
-                    <button type="subit" class="boton-enviar">Eliminar producto</button>
-                    </form> 
-                        <script>
-                            function confirmar(){
-                                const aprobacion = confirm("¿Deseas eliminar este producto?")
-                                return aprobacion
-                            }
-                        </script> 
-                        
-                    
+                    <form action="/product/delete/id/<%= producto.id %>" method="POST">
+                        <button type="submit" class="boton-enviar">Eliminar producto</button>
+                    </form>
                 </p>
             <% } %>
         </div>
@@ -51,38 +43,36 @@
                             <a href="/user/profile"><img class="fotoPerfil" src="<%= producto.comentarios[k].usuario.foto_perfil %>" alt="Foto de perfil"></a>
                             </div>
                             <div class="comment-text-container">
-                            <p class="usuario"><%= producto.comentarios[k].usuario.usuario %> Ha comentado:</p>
+                            <p class="usuario"><%= producto.comentarios[k].usuario.usuario %> ha comentado:</p>
                             <p class="comentario"><%= producto.comentarios[k].texto_comentario %></p>
                             </div>
                         </div>
                         <% } %>
                     
-                     <% if (locals.user) { %>
-                        <form action="/product/id/<%= producto.id %>" method="post">
-                            <input class="boton-enviar" type="submit" name="comentario" value="">
-                            <% if (locals.errors && errors.comentario) { %>
-                                <div class="error-msg"><%= errors.comentario.msg %></div>
-                            <% } %>
-                                <h3 class="comentPpal">Agregar Comentario</h3>
-                        </form>
+                        <% if (locals.user) { %>
+                            <h3 class="comentPpal">Agregar Comentario</h3>
+                            <form action="/product/id/<%= data[i].id %>" method="post">
+                                <input class="boton-enviar" type="submit" name="comentario" value="Agregar Comentario">
+                                <br><br>
+                                <label for="comentario" class="comentAgregado">Comentario:</label><br>
+                                <textarea id="comentario" class="comentarioAgregado" name="comentario" rows="4" cols="50" required></textarea><br><br>
+                                <% if (locals.errors && errors.comentario) { %>
+                                    <div class="error-msg"><%= errors.comentario.msg %></div>
+                                <% } %>
                             <% } else {%>
-                                <h3 class="comentPpal">Debe iniciar sesion para comentario</h3>
-                                <p><a href="/user/login">Inicie sesion</a></p>
-                     <% } %>   
-
-                    
-                    <form action="/product/id/<%= producto.id %>" method="post">
-                        <label for="comentario" class="comentAgregado">Comentario:</label><br>
-                        <textarea id="comentario" class="comentarioAgregado" name="comentario" rows="4" cols="50" required></textarea><br><br>
-                        
-                        
-                    
+                                    <h3 class="comentPpal">Debe iniciar sesion para comentar</h3>
+                                    <p><a href="/user/login">Iniciar sesion</a></p>
+                            <% } %> 
                 </div>     
             </div> 
         </div>   
     </div>
 
+   
+              
 
+    
+   
 <%- include('./partials/footer') %>
 </body>
 </html>
