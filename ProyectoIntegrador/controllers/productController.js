@@ -180,11 +180,11 @@ const productController = {
                 db.Comment.create({
                     comentario : req.body.comentario,
                     idUser : req.session.user.id,
-                    idProduct : req.params.id
+                   id : req.params.id
                 })
 
-                .then(function(data){
-                    res.redirect(`/product/id/${id}`)
+                .then(function(product) {
+                    return res.redirect(`/product/id/${req.params.id}`);
                 })
                 .catch(function(error){
                     console.log(error)
@@ -201,8 +201,9 @@ const productController = {
                 return res.render("product", { 
                     data: data.idProduct,
                     errors: errors.mapped(),
-                    oldData: req.body
-                });
+                    oldData: req.body,
+                    });
+                    
             })
             .catch(function(error){
                 console.log(error)
