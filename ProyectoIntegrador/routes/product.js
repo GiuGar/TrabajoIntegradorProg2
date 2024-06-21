@@ -14,7 +14,8 @@ router.get('/edit/id/:id', productController.edit)
 router.post('/store', newProductValidation, productController.storeNewProducto);  
 router.post('/edit/id/:id', editProductValidation, productController.editedProduct)
 router.post('/delete/id/:id', productController.delete)
+
 //Ruta de comentario
-//router.post('/comentario', productController.comentario)
+// router.post('/id/:id',CommentValidations, productController.comentario)
 
 module.exports = router

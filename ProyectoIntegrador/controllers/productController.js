@@ -171,6 +171,12 @@ const productController = {
     //         console.log(error)
     //     })
     // }
+    comentario: function(req, res) {
+        // const errors = validationResult(req);
+        // if (req.session.user)
+        
+    },
+
 }
 
 module.exports = productController
