@@ -10,13 +10,12 @@
 	<!-- Header -->
 	<%- include('./partials/headerDeslogueado') %>	
 	<!-- /Header -->
-    
+
 	<!-- Novedades -->
 	<div class="container-formulario">		
 
-			<form class="formulario" action="/user/register" method="POST"> 
-                <h1 class="register-title">Para realizar esta acción necesita estar logueado:</h1>
-				<h2 class="products-title">Registrate:</h2>
+			<form class="formulario" action="/user/edit/profile/id/<%= usuario.id %>" method="post"> <!-- Estaría bueno que funcionara con POST, pero se descompaginan el botón y el enter -->
+				<h2 class="products-title">Edita tu perfil:</h2>
 
 				<div class="input_field">
 				  <label for="email">Email:</label>
@@ -50,11 +49,8 @@
 						<div class="error-msg"><%= errors.nacimiento.msg %></div>
 						<% } %>
 				</div>
-				<div class="input_field">
-					<label for="imagen">Foto de perfil:</label>
-					<input type="text" class="input" name="imagen" value="<%= locals.oldData && oldData.imagen ? oldData.imagen : null  %>">
-				</div>
-				<button class="boton-enviar" type=submit>Registrarse</button>
+				
+				<button class="boton-enviar" type=submit>Editar mi perfil</button>
 			</form>
 		</div>
 		
