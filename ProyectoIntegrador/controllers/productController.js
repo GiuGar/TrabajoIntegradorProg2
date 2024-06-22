@@ -11,10 +11,21 @@ const productController = {
     detalleProducto: function (req, res) {
         db.Product.findByPk(req.params.id, {
             include: [{association: "usuario"}, {association: "comentarios", include: [{association: "usuario"}]}],
-            order: [[{model: Comentario, as: 'comentarios'},'createdAt', 'DESC']]
+            order: [[{model: "Comment", as: 'comentarios'},'createdAt', 'DESC']]
         })
         .then(function(producto){
-            return res.render('product', {producto: producto})
+            db.Comment.findAll({
+                where: {id_producto: producto.id},
+                order:[["createdAt", "DESC"]],
+                include: [{association: 'usuario'}]
+            })
+            .then(function(comentario){
+                res.render('product', {producto: producto,comentario:comentario}) //producto es el .then de arriba y comentario es el comentario.
+            })
+            .catch(function(error){
+                console.log(error);
+            })
+            
         })
         .catch(function(error){
             console.log(error);
@@ -172,12 +183,12 @@ const productController = {
     //     })
     // }
     comentario: function(req, res) {
-        const errors = validationResult(req);
-        if (req.session.user != undefined){
-            if(errors.isEmpty()){
-                let id = req.params.id
+        const errors = validationResult(req); //Las validaciones
+        if (req.session.user != undefined){ //Si el usuario si este logueado
+            if(errors.isEmpty()){ //Analiza los errores
 
-                db.Comment.create({
+                db.Comment.create({ 
+                    //Si no hay errores que me cree estos valores
                     comentario : req.body.comentario,
                     idUser : req.session.user.id,
                    id : req.params.id
@@ -191,7 +202,7 @@ const productController = {
                 })
             }
             else{
-                let id = req.params.id
+                let id = req.params.id// el id del producto
 
                 db.Product.findByPk(id,{include:[{association:'Comment',
                      include: {association: 'User'}},
