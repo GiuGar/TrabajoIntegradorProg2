@@ -189,9 +189,9 @@ const productController = {
                 let id = req.params.id
 
                 db.Comment.create({
-                    comentario : req.body.comentario,
-                    idUser : req.session.user.id,
-                   id : req.params.id
+                    id_usuario : req.session.user.id, // Los valores de al lado son los que ponemos en la tabla
+                    id_producto : req.params.id,
+                    texto_comentario : req.body.comentario,
                 })
 
                 .then(function(product) {
@@ -204,23 +204,36 @@ const productController = {
             else{
                 let id = req.params.id
 
-                db.Product.findByPk(id,{include:[{association:'Comment',
-                     include: {association: 'User'}},
-                             {association: 'User'}]})
+                db.Product.findByPk(id,{
+                    include: [
+                        {
+                            association: 'usuario',
+                            include: [
+                                { association: 'comentario' }
+                            ],
+                        }
+                    ],
+                })
             
-            .then(function(data){
-                return res.render("product", { 
-                    data: data.idProduct,
-                    errors: errors.mapped(),
-                    oldData: req.body,
-                    });
+                .then(function(producto){
+                    db.Comment.findAll({
+                        where: {id_producto: producto.id},
+                        order:[["createdAt", "DESC"]],
+                        include: [{association: 'usuario'}]
+                    })
+                    .then(function(comentario){
+                        res.render('product', {producto: producto,comentario:comentario, errors: errors.mapped(), oldData: req.body }); //producto es el .then de arriba y comentario es el comentario.
+                    })
+                    .catch(function(error){
+                        console.log(error);
+                    })
                     
-            })
-            .catch(function(error){
-                console.log(error)
-            })
-        
-        }
+                })
+                .catch(function(error){
+                    console.log(error);
+                })
+
+            }
         }
         
     },

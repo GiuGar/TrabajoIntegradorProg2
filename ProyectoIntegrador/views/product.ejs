@@ -20,19 +20,15 @@
                         <button type="submit" class="boton-enviar">Editar producto</button>
                     </form>
                 </p>
-                <p class="product-detail-description"></p>
-                <form action="/product/delete/id/<%= producto.id %>" method="POST" onsubmit="return confirmar()">
-                    <button type="subit" class="boton-enviar">Eliminar producto</button>
-                    </form> 
-                        <script>
-                            function confirmar(){
-                                const aprobacion = confirm("¿Deseas eliminar este producto?")
-                                return aprobacion
-                            }
-                        </script>      
+                <p class="product-detail-description">
+                    <form action="/product/delete/id/<%= producto.id %>" method="POST">
+                        <button type="submit" class="boton-enviar">Eliminar producto</button>
+                    </form>
                 </p>
             <% } %>
         </div>
+
+        <!--Seccion de comentarios-->
         <div class="product-detail">
             <div class="row">
                 <article class="col-12 col-lg-8 product-detail-info">
@@ -40,37 +36,50 @@
                     <p class="product-detail-description"><strong>Publicado por: </strong><a href="/user/profile/id/<%= producto.id_usuario %>"><%= producto.usuario.usuario %></a></p>
                     <p class="product-detail-description"><%= producto.descripcion_producto %></p>
                 </article>
+
+                
                 <div class="col-12 col-lg-4">
-                    <!-- Sección de comentarios -->
+                    
                     <h2 class="comentPpal">Comentarios</h2>
-                    <% for (let k = 0; k < producto.comentarios.length; k++) { %>
+                    <% for(let i = 0; i < producto.comentarios.length; i++) { %>
                         <div class="comment">
                             <div class="comment-image-container">
-                            <a href="/user/profile"><img class="fotoPerfil" src="<%= producto.comentarios[k].usuario.foto_perfil %>" alt="Foto de perfil"></a>
+                                <a href="/user/profile"><img class="fotoPerfil" src="<%= producto.comentarios[i].usuario.foto_perfil %>" alt="Foto de perfil"></a>
                             </div>
+
                             <div class="comment-text-container">
-                            <p class="usuario"><%= producto.comentarios[k].usuario.usuario %> ha comentado:</p>
-                            <p class="comentario"><%= producto.comentarios[k].texto_comentario %></p>
+                                <p class="usuario"> <a href="/user/profile/<%= comentario[i].usuario.id %>">
+                                            <%= comentario[i].usuario.usuario %>
+                                                    </a> ha comentado:
+                                </p>
+                                <p class="comentario"><%= comentario[i].texto_comentario %></p>
                             </div>
                         </div>
-                        <% } %>
+                    <% } %>
                     
-                        <% if (locals.user) { %>
-                            <h3 class="comentPpal">Agregar Comentario</h3>
-                            <form action="/product/id/<%= producto.id %>" method="POST">
-                                
-                                <label for="comentario" class="comentAgregado">Comentario:</label><br>
-                                <textarea id="comentario" class="comentarioAgregado" name="comentario" rows="4" cols="50"></textarea><br><br>
-                                <% if (locals.errors && errors.comentario) { %>
-                                    <div class="error-msg"><%= errors.comentario.msg %></div>
-                                <% } %>
-                                <br>
-                                <button class="boton-enviar" type="submit">Añadir comentario</button>
 
-                            <% } else {%>    
+
+
+
+
+<br>
+                    <!--Agregar comentarios-->
+                    <% if (locals.user) { %>
+                        <form class="form" action="/product/id/<%= producto.id %>" method="post">
+                            <input class="form-input" type="text" name="comentario" value="">
+                            <% if (locals.errors&& errors.comentario) { %>
+                                <div class="error-msg">
+                                    <%= errors.comentario.msg %>
+                                </div>
+                                <% } %>
+                                    <button type="submit" class="comentario">AGREGAR COMENTARIO</button>
+                        </form>
+                            <% } else {%>
                                     <h3 class="comentPpal">Debe iniciar sesion para comentar</h3>
                                     <button class="boton-enviar"><a href="/user/login">Iniciar sesion</a></button>
                             <% } %> 
+                            
+<br>
                 </div>     
             </div> 
         </div>   
