@@ -20,10 +20,16 @@
                         <button type="submit" class="boton-enviar">Editar producto</button>
                     </form>
                 </p>
-                <p class="product-detail-description">
-                    <form action="/product/delete/id/<%= producto.id %>" method="POST">
-                        <button type="submit" class="boton-enviar">Eliminar producto</button>
-                    </form>
+                <p class="product-detail-description"></p>
+                <form action="/product/delete/id/<%= producto.id %>" method="POST" onsubmit="return confirmar()">
+                    <button type="subit" class="boton-enviar">Eliminar producto</button>
+                    </form> 
+                        <script>
+                            function confirmar(){
+                                const aprobacion = confirm("¿Deseas eliminar este producto?")
+                                return aprobacion
+                            }
+                        </script>      
                 </p>
             <% } %>
         </div>
@@ -51,15 +57,17 @@
                     
                         <% if (locals.user) { %>
                             <h3 class="comentPpal">Agregar Comentario</h3>
-                            <form action="/product/id/<%= producto.id %>" method="post">
-                                <input class="boton-enviar" type="submit" name="comentario" value="Agregar Comentario">
-                                <br><br>
+                            <form action="/product/id/<%= producto.id %>" method="POST">
+                                
                                 <label for="comentario" class="comentAgregado">Comentario:</label><br>
-                                <textarea id="comentario" class="comentarioAgregado" name="comentario" rows="4" cols="50" required></textarea><br><br>
+                                <textarea id="comentario" class="comentarioAgregado" name="comentario" rows="4" cols="50"></textarea><br><br>
                                 <% if (locals.errors && errors.comentario) { %>
                                     <div class="error-msg"><%= errors.comentario.msg %></div>
                                 <% } %>
-                            <% } else {%>
+                                <br>
+                                <button class="boton-enviar" type="submit">Añadir comentario</button>
+
+                            <% } else {%>    
                                     <h3 class="comentPpal">Debe iniciar sesion para comentar</h3>
                                     <button class="boton-enviar"><a href="/user/login">Iniciar sesion</a></button>
                             <% } %> 
