@@ -3,15 +3,13 @@ const op = db.Sequelize.Op
 //requerimos express validator y validationResult
 //Hacemos 2 variables para traer la info de la base de datos
 const {validationResult} = require("express-validator")
-const Producto = db.Product
-const Comentario = db.Comment
 
 
 const productController = {
     detalleProducto: function (req, res) {
         db.Product.findByPk(req.params.id, {
             include: [{association: "usuario"}, {association: "comentarios", include: [{association: "usuario"}]}],
-            order: [[{model: "Comment", as: 'comentarios'},'createdAt', 'DESC']]
+            order: [[{model: db.Comment, as: 'comentarios'},'createdAt', 'DESC']]
         })
         .then(function(producto){
             db.Comment.findAll({
@@ -31,6 +29,8 @@ const productController = {
             console.log(error);
         })
     },
+
+
 
     resultadosDeBusqueda: function(req, res){
         let buscar = req.query.busqueda
@@ -62,6 +62,8 @@ const productController = {
             console.log(error);
         })
     },
+
+
    
     create: function(req, res) {
         if (req.session.user != undefined) {
@@ -71,6 +73,8 @@ const productController = {
         }
     },
 
+
+
     storeNewProducto: function (req, res) {
         //obtenemos resultados de las validaciones
         const errors = validationResult(req) //guarda en la variable resultValidation todos los errores encontrados durante la validación de los campos de la solicitud (req).
@@ -79,28 +83,28 @@ const productController = {
             console.log('errors:', JSON.stringify(errors,null,4));
             return res.render('product-add', {errors: errors.mapped(), oldData: req.body}) // mapped envia los errores a la vista como objeto literal el cual contendra una propiedad con el primer error de cada campo
         //enviamos tambien los contenidos de req.body para oreservar los datos completados por el usuario al volver al formulario.
-        }
-        else{
+        
+        } else {
             // guardar un nuevo producto en la base de datos
          const userId = req.session.user.id
-         let product = {
+        let product = {
             
             id_usuario: userId,
             imagen_producto: "/images/products/" + req.body.imagen,
             nombre_producto: req.body.nombre_producto,  
             descripcion_producto: req.body.descripcion_producto
-            
-         }
-         db.Product.create(product)
-         .then(function(){
-            return res.redirect('/');
-         })
-         .catch(function(error){
-            console.log(error);
-         });
         }
-        
+            db.Product.create(product)
+            .then(function(){
+                return res.redirect('/');
+            })
+            .catch(function(error){
+                console.log(error);
+            });
+        }
     },
+
+
        
     edit: function(req, res) {
         db.Product.findByPk(req.params.id, {
@@ -114,6 +118,8 @@ const productController = {
         })
     },
 
+
+
     editedProduct: function(req, res) {
         const errors = validationResult(req);
 
@@ -126,9 +132,9 @@ const productController = {
         } else {
     
             db.Product.update({
-                imagen_producto: req.body.imagen,
-                nombre_producto: req.body.nombre_producto,
-                descripcion_producto: req.body.descripcion_producto,
+                imagen_producto: req.body.imagen, // Como se llama la columna en la tabla, qué quiero guardar en la tabla
+                nombre_producto: req.body.nombre_producto, // Si pedí la info en el formulario, saco lo que guardo de ahí
+                descripcion_producto: req.body.descripcion_producto, 
             },
                 { where: { id: req.params.id }
             })
@@ -142,6 +148,8 @@ const productController = {
             });
         }
     },
+
+
 
     delete: function(req, res) {
         db.Product.findByPk(req.params.id, {
@@ -171,24 +179,16 @@ const productController = {
             });
             }
     },
-    
-    // prueba: function(req,res){
-    //     db.Product.findAll()
-    //     .then(function(productos){
-    //         console.log('datos de producto:', JSON.stringify(productos, null, 4))
-    //         res.send(productos)
-    //     })
-    //     .catch(function(error){
-    //         console.log(error)
-    //     })
-    // }
-    comentario: function(req, res) {
-        const errors = validationResult(req); //Las validaciones
-        if (req.session.user != undefined){ //Si el usuario si este logueado
-            if(errors.isEmpty()){ //Analiza los errores
 
-                db.Comment.create({ 
-                    //Si no hay errores que me cree estos valores
+    
+
+    comentario: function(req, res) {
+        const errors = validationResult(req);
+        if (req.session.user != undefined){
+            if(errors.isEmpty()){
+                let id = req.params.id
+
+                db.Comment.create({
                     comentario : req.body.comentario,
                     idUser : req.session.user.id,
                    id : req.params.id
@@ -202,7 +202,7 @@ const productController = {
                 })
             }
             else{
-                let id = req.params.id// el id del producto
+                let id = req.params.id
 
                 db.Product.findByPk(id,{include:[{association:'Comment',
                      include: {association: 'User'}},

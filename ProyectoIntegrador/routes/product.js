@@ -3,7 +3,7 @@ const router = express.Router();
 let productController = require('../controllers/productController');
 const newProductValidation = require('../middlewares/newProduct-validator')
 const editProductValidation = require('../middlewares/editProduct-validator')
-const CommentValidations = require('../middlewares/Comentario-validator');
+const commentValidation = require('../middlewares/comentario-validator');
 
 router.get('/id/:id', productController.detalleProducto);
 router.get('/resultados', productController.resultadosDeBusqueda) //No funciona escribiendo la ruta porque falta el parametro que se obtiene con el buscador. 
@@ -17,6 +17,6 @@ router.post('/edit/id/:id', editProductValidation, productController.editedProdu
 router.post('/delete/id/:id', productController.delete)
 
 //Ruta de comentario
-router.post('/product/id/:id',CommentValidations, productController.comentario)
+router.post('/id/:id', commentValidation, productController.comentario)
 
 module.exports = router
