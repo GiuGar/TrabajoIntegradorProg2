@@ -48,11 +48,11 @@
                             </div>
 
                             <div class="comment-text-container">
-                                <p class="usuario"> <a href="/user/profile/<%= comentario[i].usuario.id %>">
-                                            <%= comentario[i].usuario.usuario %>
+                                <p class="usuario"> <a href="/user/profile/<%= producto.comentarios[i].usuario.id %>">
+                                            <%= producto.comentarios[i].usuario.usuario %>
                                                     </a> ha comentado:
                                 </p>
-                                <p class="comentario"><%= comentario[i].texto_comentario %></p>
+                                <p class="comentario"><%= producto.comentarios[i].texto_comentario %></p>
                             </div>
                         </div>
                     <% } %>
