@@ -18,9 +18,6 @@ const registerValidation = [
                     }
                     return true
                 })
-                .catch(function(error){
-                    console.log(error)
-                })
         }),
     body("usuario")
         .notEmpty()
