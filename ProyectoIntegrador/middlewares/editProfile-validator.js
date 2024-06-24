@@ -17,9 +17,6 @@ const profileValidation = [
                         throw new Error ("Este email ya está registrado")                    
                     }
                 })
-                .catch(function(error){
-                    console.log(error)
-                })
         }),
     body("usuario")
         .notEmpty()
@@ -31,10 +28,12 @@ const profileValidation = [
             return true
         }),
     body("password")
-        .notEmpty()
-        .withMessage("Debes completar con una contraseña")
-        .isLength({min: 4})
-        .withMessage("La contraseña debe tener al menos 4 caracteres")
+        .custom(function(value, {req}){
+            if((value) && (value.length < 4)){
+                throw new Error("La contraseña debe tener al menos 4 caracteres")
+            }
+            return true
+        }),
 ]
 
 module.exports = profileValidation;

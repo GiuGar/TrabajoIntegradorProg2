@@ -32,7 +32,7 @@
 				<p>Total de productos cargados: <%= data.productos.length %></p>
 					<br>
 					<% if ((locals.user != undefined) && (locals.user.id == data.id)) { %> 
-					<form action="/user/edit/profile/id/<%= data.id %>" method="POST">
+					<form action="/user/profile/edit/id/<%= data.id %>" method="POST">
 						<button type="submit" class="boton-enviar">Editar perfil</button>
 					</form>
 					<% } %>

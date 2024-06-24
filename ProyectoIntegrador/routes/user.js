@@ -10,11 +10,11 @@ const profileValidation= require('../middlewares/editProfile-validator')
 router.get('/register', userController.register);
 router.get('/login', userController.login);
 router.get('/profile/id/:id', userController.profile)
-router.get('/edit/profile/id/:id', userController.editProfile)
+router.get('/profile/edit/id/:id', userController.edit)
 
 router.post('/register', registerValidations, userController.store);
 router.post('/login', loginValidation, userController.loginStore);
 router.post('/logout', userController.logout);
-router.post('/edit/profile/id/:id', profileValidation, userController.updateProfile);
+router.post('/profile/edit/id/:id', profileValidation, userController.editedProfile);
 
 module.exports = router;

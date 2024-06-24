@@ -88,7 +88,7 @@ const productController = {
          let product = {
             
             id_usuario: userId,
-            imagen_producto: "/images/products/" + req.body.imagen,
+            imagen_producto: `/images/products/${req.body.imagen}`,
             nombre_producto: req.body.nombre_producto,  
             descripcion_producto: req.body.descripcion_producto
             
@@ -121,19 +121,29 @@ const productController = {
 
         if (!errors.isEmpty()) {
             console.log("errors:", JSON.stringify(errors, null, 4));
-            return res.render("register", { 
-                errors: errors.mapped(),
-                oldData: req.body
+
+            db.Product.findByPk(req.params.id, {
+                include: [{association: "usuario"}],
+            })
+            .then(function(producto){
+                return res.render("product-edit", { 
+                    errors: errors.mapped(),
+                    oldData: req.body,
+                    producto: producto
+                    })
+                })
+            .catch(function(error){
+                console.log(error);
             });
+
         } else {
     
             db.Product.update({
-                imagen_producto: req.body.imagen,
+                imagen_producto: `/images/products/${req.body.imagen}`,
                 nombre_producto: req.body.nombre_producto,
                 descripcion_producto: req.body.descripcion_producto,
             },
-                { where: { id: req.params.id }
-            })
+                { where: { id: req.params.id } })
 
             .then(function(product) {
                 return res.redirect(`/product/id/${req.params.id}`);
@@ -159,16 +169,26 @@ const productController = {
         })
 
             if (usuario = req.session.user.id) {
+            db.Comment.destroy({
+                where: [
+                    { id_producto: req.params.id }
+                ]
+            })
+            .then(function(eliminar) {
+                console.log("Se eliminaron los comentarios")
+            })
+            .catch(function(error) {
+                console.log("Error al eliminar los comentarios", error);
+            });
+
             db.Product.destroy({
                 where: [
                     { id: req.params.id }
                 ]
             })
-
-            .then(function(product) {
+            .then(function(eliminar) {
                 return res.redirect("/");
             })
-
             .catch(function(error) {
                 console.log("Error al eliminar el producto", error);
             });

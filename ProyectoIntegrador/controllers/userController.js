@@ -19,19 +19,25 @@ const userController = {
                 oldData: req.body
             });
         } else {
+
+            let foto
+            if (req.body.imagen){
+                foto = req.body.imagen
+            } else {
+                foto = "perfil.jpg"
+            }
+            
             const usuario = {
                 usuario: req.body.usuario,
                 email: req.body.email,
                 password: bcryptjs.hashSync(req.body.password, 10), 
                 fecha: req.body.nacimiento,
                 dni: req.body.dni,
-                foto_perfil: req.body.imagen,
+                foto_perfil: `/images/users/${foto}`,
             };
             
             db.User.create(usuario)
             .then(function(user) {
-                req.session.user = user; // Guarda el usuario completo en la sesión
-                // console.log("Sesión de usuario configurada:", req.session.user);
                 return res.redirect("/user/login");
             })
             .catch(function(error) {
@@ -68,13 +74,13 @@ const userController = {
         }],
         })
         .then(function(user){ //Esta funcion nos devuelve el resultado de where
-            console.log('PASSWORD : ', user.password);
+            //console.log('PASSWORD : ', user.password);
             //Recibe la password q puso el usuario en el formulario, y el 2 parametro es el "name" del form
-            let ValidPassword= bcryptjs.compareSync(req.body.password,user.password) 
-            console.log('validPassword:',ValidPassword)
+            let ValidPassword= bcryptjs.compareSync(req.body.password, user.password) 
+            console.log('validPassword:', ValidPassword)
             //Guardar al usuario en session
             req.session.user = user
-            console.log('user en session:',user)
+            console.log('user en session:', user)
 
              //Si apreta recordarme que haga las cookies (utilizamos el "name" del formulario)
         if(req.body.recordarme != undefined){
@@ -114,7 +120,6 @@ const userController = {
         })
 
         .then(function(data) {
-            console.log(data)
             return res.render('profile', { data: data });
         })
         
@@ -123,17 +128,16 @@ const userController = {
         });
     },
 
-    editProfile: function(req, res) {
-        const userId = req.params.id;
-        db.User.findByPk(userId, {
+    edit: function(req, res) {
+        db.User.findByPk(req.params.id, {
             include: [{association: "productos"}]  
         })
         .then(function(usuario){
-            if (!usuario) {
-                res.redirect('/register');  // Si no encuentra el usuario, redirige a register
-            } else {
-                console.log("Usuario:", usuario);
+            if ((req.session.user != undefined) && (usuario == req.session.user)) {
+                // console.log("Usuario:", usuario);
                 res.render('editProfile', {usuario: usuario});
+            } else {
+                res.redirect('/user/login');  // Si no encuentra el usuario, redirige a register
             }
         })
         .catch(function(error){
@@ -141,31 +145,48 @@ const userController = {
         });
     },
 
-    updateProfile: function(req, res) {
+    editedProfile: function(req, res) {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
-            return res.render("editProfile", { 
-                errors: errors.mapped(),
-                oldData: req.body,
-                usuario: req.body 
+            db.User.findByPk(req.params.id, {
+                include: [{association: "productos"}]  
+            })
+            .then(function(usuario){
+                return res.render("editProfile", { 
+                    errors: errors.mapped(),
+                    oldData: req.body,
+                    usuario: usuario
+                })
+            })
+            .catch(function(error){
+                console.log(error);
+            });
+
+        } else {
+
+            db.User.findByPk(req.params.id, {
+                include: [{association: "productos"}]  
+            })
+            .then(function(usuario){
+                const contra = req.body.password ? bcryptjs.hashSync(req.body.password, 10) : usuario.password
+                
+                db.User.update({
+                    usuario: req.body.usuario,
+                    email: req.body.email,
+                    password: contra,
+                    fecha: req.body.nacimiento,
+                    dni: req.body.dni,
+                }, 
+                    { where: { id: req.params.id } })
+                    
+                .then(function(user){
+                    res.redirect(`/user/profile/id/${req.params.id}`);
+                })
+            })
+            .catch(function(error){
+                console.log(error);
             });
         }
-    
-        db.User.update({
-            usuario: req.body.usuario,
-            email: req.body.email,
-            fecha: req.body.nacimiento,
-            dni: req.body.dni,
-        }, {
-            where: { id: req.params.id }
-        })
-        .then(() => {
-            res.redirect(`/profile/id/${req.params.id}`);
-        })
-        .catch(error => {
-            console.error("Error al actualizar el usuario:", error);
-            res.status(500).send("Error al procesar la solicitud.");
-        });
     },
     
 };

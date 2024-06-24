@@ -14,11 +14,9 @@ const registerValidation = [
             })
                 .then(function(user){
                     if(user){
-                        throw new Error ("Este email ya está registrado")                    
+                        throw new Error("Este email ya está registrado")                    
                     }
-                })
-                .catch(function(error){
-                    console.log(error)
+                    return true
                 })
         }),
     body("usuario")

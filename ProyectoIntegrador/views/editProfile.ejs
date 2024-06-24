@@ -8,25 +8,29 @@
 
 <body>
 	<!-- Header -->
-	<%- include('./partials/headerDeslogueado') %>	
+	<% if (locals.user != undefined) { %>
+		<%- include('./partials/headerLogueado')  %>
+	<% } else { %>
+		<%- include('./partials/headerDeslogueado')  %>
+	<% } %>
 	<!-- /Header -->
 
 	<!-- Novedades -->
 	<div class="container-formulario">		
 
-			<form class="formulario" action="/user/edit/profile/id/<%= usuario.id %>" method="post"> <!-- Estaría bueno que funcionara con POST, pero se descompaginan el botón y el enter -->
+			<form class="formulario" action="/user/profile/edit/id/<%= usuario.id %>" method="post"> <!-- Estaría bueno que funcionara con POST, pero se descompaginan el botón y el enter -->
 				<h2 class="products-title">Edita tu perfil:</h2>
 
 				<div class="input_field">
 				  <label for="email">Email:</label>
-				  <input type="text" class="input" name="email" value="<%= locals.oldData && oldData.email ? oldData.email : null  %>">
+				  <input type="text" class="input" name="email" value="<%= locals.oldData && oldData.email ? oldData.email : null  %>" placeholder="Actual: <%= usuario.email %>">
 				  <% if (locals.errors && errors.email) { %>
 					<div class="error-msg"><%= errors.email.msg %></div>
 					<% } %>
 				</div>
 				<div class="input_field">
 				  <label for="usuario">Usuario:</label>
-				  <input type="text" class="input" name="usuario" value="<%= locals.oldData && oldData.usuario ? oldData.usuario : null  %>">
+				  <input type="text" class="input" name="usuario" value="<%= locals.oldData && oldData.usuario ? oldData.usuario : null  %>" placeholder="Actual: <%= usuario.usuario %>">
 				  <% if (locals.errors && errors.usuario) { %>
 					<div class="error-msg"><%= errors.usuario.msg %></div>
 					<% } %>
@@ -40,11 +44,11 @@
 				</div>
 				<div class="input_field">
 					<label for="dni">DNI:</label>
-					<input type="number" class="input" name="dni" value=""> 
+					<input type="number" class="input" name="dni" value="<%= locals.oldData && oldData.dni ? oldData.dni : null  %>" placeholder="Actual: <%= usuario.dni %>"> 
 				</div>
 				<div class="input_field">
 					<label for="nacimiento">Fecha de Nacimiento:</label>
-					<input type="date" class="input" name="nacimiento" value="<%= locals.oldData && oldData.nacimiento ? oldData.nacimiento : null  %>">
+					<input type="date" class="input" name="nacimiento" value="<%= locals.oldData && oldData.nacimiento ? oldData.nacimiento : null  %>" placeholder="Actual: <%= usuario.fecha %>">
 					<% if (locals.errors && errors.nacimiento) { %>
 						<div class="error-msg"><%= errors.nacimiento.msg %></div>
 						<% } %>

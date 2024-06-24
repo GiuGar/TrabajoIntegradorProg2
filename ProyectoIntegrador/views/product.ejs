@@ -14,16 +14,22 @@
     <div class="container products-wrapper">
         <div class="d-flex align-items-center">
             <h1 class="products-title"><%= producto.nombre_producto %></h1> 
-            <% if ((locals.user != undefined) && (locals.user.email == producto.usuario.email)) { %>
+            <% if ((locals.user != undefined) && (locals.user.id == producto.usuario.id)) { %>
                 <p class="product-detail-description"> 
                     <form action="/product/edit/id/<%= producto.id %>" method="GET">
                         <button type="submit" class="boton-enviar">Editar producto</button>
                     </form>
                 </p>
                 <p class="product-detail-description">
-                    <form action="/product/delete/id/<%= producto.id %>" method="POST">
-                        <button type="submit" class="boton-enviar">Eliminar producto</button>
-                    </form>
+                <form action="/product/delete/id/<%= producto.id %>" method="POST" onsubmit="return confirmar()">
+                    <button type="subit" class="boton-enviar">Eliminar producto</button>
+                    </form> 
+                        <script>
+                            function confirmar(){
+                                const aprobacion = confirm("¿Deseas eliminar este producto?")
+                                return aprobacion
+                            }
+                        </script>
                 </p>
             <% } %>
         </div>
@@ -44,11 +50,11 @@
                     <% for(let i = 0; i < producto.comentarios.length; i++) { %>
                         <div class="comment">
                             <div class="comment-image-container">
-                                <a href="/user/profile"><img class="fotoPerfil" src="<%= producto.comentarios[i].usuario.foto_perfil %>" alt="Foto de perfil"></a>
+                                <a href="/user/profile/id/<%= producto.comentarios[i].usuario.id %>"><img class="fotoPerfil" src="<%= producto.comentarios[i].usuario.foto_perfil %>" alt="Foto de perfil"></a>
                             </div>
 
                             <div class="comment-text-container">
-                                <p class="usuario"> <a href="/user/profile/<%= producto.comentarios[i].usuario.id %>">
+                                <p class="usuario"> <a href="/user/profile/id/<%= producto.comentarios[i].usuario.id %>">
                                     <%= producto.comentarios[i].usuario.usuario %>
                                             </a> ha comentado:
                         </p>
