@@ -14,11 +14,24 @@ const productController = {
             order: [[{model: Comentario, as: 'comentarios'},'createdAt', 'DESC']]
         })
         .then(function(producto){
-            return res.render('product', {producto: producto})
+            let id = req.params.id
+            db.Comment.findAll({
+                where: {id_producto: id},
+                order: [['createdAt', 'DESC']],
+                    include: [{ association: 'usuario' }]
+            })
+            .then(function (comentario) {
+                return res.render("product", 
+                    { producto : producto, comentario: comentario,  oldData: req.body });
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
         })
         .catch(function(error){
-            console.log(error);
+            console.log(error)
         })
+
     },
 
     resultadosDeBusqueda: function(req, res){
@@ -133,7 +146,8 @@ const productController = {
     },
 
     delete: function(req, res) {
-        db.Product.findByPk(req.params.id, {
+        let id = req.params.id
+        db.Product.findByPk(id, {
             include: [{association: "usuario"}]
         })
         .then(function(producto){
@@ -183,16 +197,25 @@ const productController = {
             else{
                 let id = req.params.id
 
-                db.Product.findByPk(id,{include:[{association:'Comment',
-                     include: {association: 'User'}},
-                             {association: 'User'}]})
+                db.Product.findByPk(id,{include:[{association:'usuario',
+                     include: {association: 'comentarios'}},
+                             {association: 'usuario'}
+                          ]})
             
-            .then(function(data){
-                return res.render("product", { 
-                    data: data.idProduct,
-                    errors: errors.mapped(),
-                    oldData: req.body
-                });
+            .then(function(producto){
+                let id = req.params.id
+                db.Comment.findAll({
+                    where: {id_producto: id},
+                    order: [['CreatedAt', 'DESC']],
+                        include: [{ association: 'usuario' }]
+                })
+                .then(function (comentario) {
+                    return res.render("product", 
+                        { producto : producto, comentario: comentario, errors: errors.mapped(), oldData: req.body });
+                })
+                .catch(function (error) {
+                    console.log(error);
+                })
             })
             .catch(function(error){
                 console.log(error)
@@ -202,6 +225,8 @@ const productController = {
         }
         
     },
+
+
 
 }
 
