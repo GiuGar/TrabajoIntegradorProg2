@@ -44,11 +44,11 @@
                     <% for(let i = 0; i < producto.comentarios.length; i++) { %>
                         <div class="comment">
                             <div class="comment-image-container">
-                                <a href="/user/profile"><img class="fotoPerfil" src="<%= producto.comentarios[i].usuario.foto_perfil %>" alt="Foto de perfil"></a>
+                                <a href="/user/profile/id/<%= producto.comentarios[i].usuario.id %>"><img class="fotoPerfil" src="<%= producto.comentarios[i].usuario.foto_perfil %>" alt="Foto de perfil"></a>
                             </div>
 
                             <div class="comment-text-container">
-                                <p class="usuario"> <a href="/user/profile/<%= producto.comentarios[i].usuario.id %>">
+                                <p class="usuario"> <a href="/user/profile/id/<%= producto.comentarios[i].usuario.id %>">
                                     <%= producto.comentarios[i].usuario.usuario %>
                                             </a> ha comentado:
                         </p>
