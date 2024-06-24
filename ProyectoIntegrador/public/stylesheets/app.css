@@ -388,9 +388,13 @@ hr {
   border: solid 1px var(--light-pink);
   background-color: var(--darker-pink);
   color: var(--light-pink);
-  width: 20vw;
-  border-radius: 2px;
+  width: 150px;
+  border-radius: 5px;
   height: 5vh;
+  font-size: 1em;
+  right: 0; 
+  top: 50%;
+  
 }
 
 .error-msg {

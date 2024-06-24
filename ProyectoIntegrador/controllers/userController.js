@@ -123,16 +123,51 @@ const userController = {
         });
     },
 
-    profileEdit: function(req, res) {
-        const idUser = req.session.user.id;
-        db.User.findByPk(idUser)
-        .then(function(user) {
-            return res.render('profile-edit', { user: user });
+    editProfile: function(req, res) {
+        const userId = req.params.id;
+        db.User.findByPk(userId, {
+            include: [{association: "productos"}]  
         })
-        .catch(function(error) {
+        .then(function(usuario){
+            if (!usuario) {
+                res.redirect('/register');  // Si no encuentra el usuario, redirige a register
+            } else {
+                console.log("Usuario:", usuario);
+                res.render('editProfile', {usuario: usuario});
+            }
+        })
+        .catch(function(error){
             console.log(error);
         });
     },
+
+    updateProfile: function(req, res) {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.render("editProfile", { 
+                errors: errors.mapped(),
+                oldData: req.body,
+                usuario: req.body 
+            });
+        }
+    
+        db.User.update({
+            usuario: req.body.usuario,
+            email: req.body.email,
+            fecha: req.body.nacimiento,
+            dni: req.body.dni,
+        }, {
+            where: { id: req.params.id }
+        })
+        .then(() => {
+            res.redirect(`/profile/id/${req.params.id}`);
+        })
+        .catch(error => {
+            console.error("Error al actualizar el usuario:", error);
+            res.status(500).send("Error al procesar la solicitud.");
+        });
+    },
+    
 };
 
 module.exports = userController;
