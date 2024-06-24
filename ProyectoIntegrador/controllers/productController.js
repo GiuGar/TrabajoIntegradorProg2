@@ -3,7 +3,7 @@ const op = db.Sequelize.Op
 //requerimos express validator y validationResult
 //Hacemos 2 variables para traer la info de la base de datos
 const {validationResult} = require("express-validator")
-const Producto = db.Product
+
 const Comentario = db.Comment
 
 
@@ -161,16 +161,6 @@ const productController = {
             }
     },
     
-    // prueba: function(req,res){
-    //     db.Product.findAll()
-    //     .then(function(productos){
-    //         console.log('datos de producto:', JSON.stringify(productos, null, 4))
-    //         res.send(productos)
-    //     })
-    //     .catch(function(error){
-    //         console.log(error)
-    //     })
-    // }
     comentario: function(req, res) {
         const errors = validationResult(req);
         if (req.session.user != undefined){
@@ -178,9 +168,9 @@ const productController = {
                 let id = req.params.id
 
                 db.Comment.create({
-                    comentario : req.body.comentario,
-                    idUser : req.session.user.id,
-                    idProduct : req.params.id
+                    texto_comentario : req.body.comentario,
+                    id_usuario : req.session.user.id,
+                    id_producto : req.params.id,
                 })
 
                 .then(function(data){
