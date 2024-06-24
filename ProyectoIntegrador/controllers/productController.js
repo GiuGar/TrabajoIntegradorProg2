@@ -114,10 +114,21 @@ const productController = {
 
         if (!errors.isEmpty()) {
             console.log("errors:", JSON.stringify(errors, null, 4));
-            return res.render("register", { 
-                errors: errors.mapped(),
-                oldData: req.body
+
+            db.Product.findByPk(req.params.id, {
+                include: [{association: "usuario"}],
+            })
+            .then(function(producto){
+                return res.render("product-edit", { 
+                    errors: errors.mapped(),
+                    oldData: req.body,
+                    producto: producto
+                    })
+                })
+            .catch(function(error){
+                console.log(error);
             });
+
         } else {
     
             db.Product.update({
@@ -125,8 +136,7 @@ const productController = {
                 nombre_producto: req.body.nombre_producto, // Si pedí la info en el formulario, saco lo que guardo de ahí
                 descripcion_producto: req.body.descripcion_producto, 
             },
-                { where: { id: req.params.id }
-            })
+                { where: { id: req.params.id } })
 
             .then(function(product) {
                 return res.redirect(`/product/id/${req.params.id}`);

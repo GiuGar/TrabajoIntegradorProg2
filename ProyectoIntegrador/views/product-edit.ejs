@@ -36,7 +36,7 @@
 			</div>
 			<div class="input_field">
 				<label for="descripcion">Descripción:</label>
-				<textarea id="descripcion" name="descripcion_producto" value="<%= locals.oldData && oldData.descripcion_producto ? oldData.descripcion_producto : null %>" placeholder="Actual: <%= producto.descripcion_producto %>"> </textarea>
+				<textarea id="descripcion" name="descripcion_producto" placeholder="Actual: <%= producto.descripcion_producto %>"><%= locals.oldData && oldData.descripcion_producto ? oldData.descripcion_producto : null %></textarea>
 				<% if (locals.errors && errors.descripcion_producto) { %>
 					<div class="error-msg"><%= errors.descripcion_producto.msg %></div>
 				<% } %>
