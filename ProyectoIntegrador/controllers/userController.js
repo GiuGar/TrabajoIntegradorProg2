@@ -19,13 +19,21 @@ const userController = {
                 oldData: req.body
             });
         } else {
+
+            let foto
+            if (req.body.imagen){
+                foto = req.body.imagen
+            } else {
+                foto = "perfil.jpg"
+            }
+            
             const usuario = {
                 usuario: req.body.usuario,
                 email: req.body.email,
                 password: bcryptjs.hashSync(req.body.password, 10), 
                 fecha: req.body.nacimiento,
                 dni: req.body.dni,
-                foto_perfil: req.body.imagen,
+                foto_perfil: `/images/users/${foto}`,
             };
             
             db.User.create(usuario)
@@ -128,7 +136,7 @@ const userController = {
         })
         .then(function(usuario){
             if ((req.session.user != undefined) && (usuario == req.session.user)) {
-                console.log("Usuario:", usuario);
+                // console.log("Usuario:", usuario);
                 res.render('editProfile', {usuario: usuario});
             } else {
                 res.redirect('/user/login');  // Si no encuentra el usuario, redirige a register
@@ -162,7 +170,7 @@ const userController = {
                 include: [{association: "productos"}]  
             })
             .then(function(usuario){
-                const contra = req.body.password ? req.body.password : usuario.password
+                const contra = req.body.password ? bcryptjs.hashSync(req.body.password, 10) : usuario.password
                 
                 db.User.update({
                     usuario: req.body.usuario,
@@ -174,7 +182,7 @@ const userController = {
                     { where: { id: req.params.id } })
                     
                 .then(function(user){
-                    res.redirect(`/profile/id/${req.params.id}`);
+                    res.redirect(`/user/profile/id/${req.params.id}`);
                 })
             })
             .catch(function(error){

@@ -8,7 +8,11 @@
 
 <body>
 	<!-- Header -->
-	<%- include('./partials/headerDeslogueado') %>	
+	<% if (locals.user != undefined) { %>
+		<%- include('./partials/headerLogueado')  %>
+	<% } else { %>
+		<%- include('./partials/headerDeslogueado')  %>
+	<% } %>
 	<!-- /Header -->
 
 	<!-- Novedades -->
@@ -26,7 +30,7 @@
 				</div>
 				<div class="input_field">
 				  <label for="usuario">Usuario:</label>
-				  <input type="text" class="input" name="usuario" value="" placeholder="Actual: <%= usuario.usuario %>">
+				  <input type="text" class="input" name="usuario" value="<%= locals.oldData && oldData.usuario ? oldData.usuario : null  %>" placeholder="Actual: <%= usuario.usuario %>">
 				  <% if (locals.errors && errors.usuario) { %>
 					<div class="error-msg"><%= errors.usuario.msg %></div>
 					<% } %>

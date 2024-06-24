@@ -75,7 +75,7 @@ const productController = {
          let product = {
             
             id_usuario: userId,
-            imagen_producto: "/images/products/" + req.body.imagen,
+            imagen_producto: `/images/products/${req.body.imagen}`,
             nombre_producto: req.body.nombre_producto,  
             descripcion_producto: req.body.descripcion_producto
             
@@ -126,7 +126,7 @@ const productController = {
         } else {
     
             db.Product.update({
-                imagen_producto: req.body.imagen,
+                imagen_producto: `/images/products/${req.body.imagen}`,
                 nombre_producto: req.body.nombre_producto,
                 descripcion_producto: req.body.descripcion_producto,
             },

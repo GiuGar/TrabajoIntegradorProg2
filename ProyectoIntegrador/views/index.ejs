@@ -38,6 +38,7 @@
 							</figure>
 							<article class="product-box_data">
 								<h2><%= data[i].nombre_producto%></h2>
+								<p><strong>Publicado por: </strong><a href="/user/profile/id/<%= data[i].id_usuario %>"><%= data[i].usuario.usuario %></a></p>
 								<p><%= data[i].descripcion_producto %></p>
 								
 								
@@ -50,34 +51,6 @@
 	</div>
 	<!-- /Novedades -->
 	 
-	<!-- Más comentados -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Más comentados</h2>
-			</div>
-			<!-- Show the "ultimos" products -->
-			<% for (let i = 0; i < 4; i++) { %>
-				<div class="col-12 col-sm-6 col-lg-3">
-					<section class="product-box">
-						<a href="/product/id/<%= data[i].id %>">
-							<figure class="product-box_image">
-								<img src="<%= data[i].imagen_producto %>" alt="<%= data[i].nombre_producto %>">
-							</figure>
-							<article class="product-box_data">
-								<h2><%= data[i].nombre_producto %></h2>
-								<p><%= data[i].descripcion_producto %></p>
-								
-							</article>
-						</a>
-					</section>
-				</div>
-			<% } %>
-			
-		</div>
-	</div>
-	<!-- /Más comentados -->
-
 
 	<!-- footer -->
 	<%- include('./partials/footer') %>	
