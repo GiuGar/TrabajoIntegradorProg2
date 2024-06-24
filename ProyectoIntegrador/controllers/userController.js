@@ -38,8 +38,6 @@ const userController = {
             
             db.User.create(usuario)
             .then(function(user) {
-                req.session.user = user; // Guarda el usuario completo en la sesión
-                // console.log("Sesión de usuario configurada:", req.session.user);
                 return res.redirect("/user/login");
             })
             .catch(function(error) {

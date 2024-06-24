@@ -14,7 +14,7 @@
     <div class="container products-wrapper">
         <div class="d-flex align-items-center">
             <h1 class="products-title"><%= producto.nombre_producto %></h1> 
-            <% if ((locals.user != undefined) && (locals.user.email == producto.usuario.email)) { %>
+            <% if ((locals.user != undefined) && (locals.user.id == producto.usuario.id)) { %>
                 <p class="product-detail-description"> 
                     <form action="/product/edit/id/<%= producto.id %>" method="GET">
                         <button type="submit" class="boton-enviar">Editar producto</button>

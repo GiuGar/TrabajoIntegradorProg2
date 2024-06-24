@@ -155,16 +155,26 @@ const productController = {
         })
 
             if (usuario = req.session.user.id) {
+            db.Comment.destroy({
+                where: [
+                    { id_producto: req.params.id }
+                ]
+            })
+            .then(function(eliminar) {
+                console.log("Se eliminaron los comentarios")
+            })
+            .catch(function(error) {
+                console.log("Error al eliminar los comentarios", error);
+            });
+
             db.Product.destroy({
                 where: [
                     { id: req.params.id }
                 ]
             })
-
-            .then(function(product) {
+            .then(function(eliminar) {
                 return res.redirect("/");
             })
-
             .catch(function(error) {
                 console.log("Error al eliminar el producto", error);
             });
