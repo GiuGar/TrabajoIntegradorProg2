@@ -203,24 +203,31 @@ const productController = {
             else{
                 let id = req.params.id
 
-                db.Product.findByPk(id,{include:[{association:'Comment',
-                     include: {association: 'User'}},
-                             {association: 'User'}]})
+                db.Product.findByPk(id,{include:[{association:'comentarios',
+                     include: {association: 'usuario'}},
+                             {association: 'usuario'}]})
             
-            .then(function(data){
-                return res.render("product", { 
-                    data: data.idProduct,
-                    errors: errors.mapped(),
-                    oldData: req.body
-                });
-            })
-            .catch(function(error){
-                console.log(error)
-            })
-        
-        }
-        }
-        
+                .then(function(producto){
+                    db.Comment.findAll({
+                        where: {id_producto: producto.id},
+                        order: [['CreatedAt', 'DESC']],
+                            include: [{ association: 'usuario' }]
+                    })
+                    .then(function (comentario) {
+                        return res.render("product", { 
+                            producto : producto, 
+                            comentario: comentario, 
+                            errors: errors.mapped(), 
+                            oldData: req.body });
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    })
+                })
+                .catch(function(error){
+                    console.log(error)
+                })
+        }}
     },
 
 }

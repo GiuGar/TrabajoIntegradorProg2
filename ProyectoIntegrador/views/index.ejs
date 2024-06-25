@@ -9,11 +9,13 @@
 	
 	<!-- Nombre de usuario si esta logueado -->
 	
+	<!-- Header -->
 	<% if (locals.user != undefined) { %>
 		<%- include('./partials/headerLogueado')  %>
 	<% } else { %>
 		<%- include('./partials/headerDeslogueado')  %>
 	<% } %>
+	<!-- /Header -->
 
 	<!-- Banner -->
 	<div class="banner"></div>
