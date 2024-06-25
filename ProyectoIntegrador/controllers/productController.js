@@ -14,11 +14,24 @@ const productController = {
             order: [[{model: Comentario, as: 'comentarios'},'createdAt', 'DESC']]
         })
         .then(function(producto){
-            return res.render('product', {producto: producto})
+            let id = req.params.id
+            db.Comment.findAll({
+                where: {id_producto: id},
+                order: [['createdAt', 'DESC']],
+                    include: [{ association: 'usuario' }]
+            })
+            .then(function (comentario) {
+                return res.render("product", 
+                    { producto : producto, comentario: comentario,  oldData: req.body });
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
         })
         .catch(function(error){
-            console.log(error);
+            console.log(error)
         })
+
     },
 
     resultadosDeBusqueda: function(req, res){
@@ -143,7 +156,8 @@ const productController = {
     },
 
     delete: function(req, res) {
-        db.Product.findByPk(req.params.id, {
+        let id = req.params.id
+        db.Product.findByPk(id, {
             include: [{association: "usuario"}]
         })
         .then(function(producto){
@@ -229,6 +243,8 @@ const productController = {
                 })
         }}
     },
+
+
 
 }
 
